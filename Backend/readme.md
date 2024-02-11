@@ -30,16 +30,46 @@
 
 ```bash
 $ yarn install
+
+$ npm install
 ```
 
-## Running the app
+## Running the app in local mode
 
 ```bash
 # development
-$ yarn run start
+$ yarn start
+
+#o
+
+$ npm start
 
 # watch mode
-$ yarn run start:dev
+$ yarn start:dev
+
+#o
+
+$ npm run start:prod
+
+# production mode
+$ yarn start:prod
+
+#o
+
+$ npm run start:prod
+```
+
+## Running the app with Docker
+
+
+```bash
+### Creating the image and running a container
+$ docker-compose up -d
+
+### After any change run this command to update the image
+$ docker build -t [NAME_IMAGE] [DOCKERFILE_PATH]
+
+```
 
 # production mode
 $ yarn run start:prod
