@@ -1,13 +1,14 @@
-import { Column, OneToOne } from "typeorm";
-import { BaseEntity } from "../../../common/entity/base.entity";
+import { BaseEntity } from "src/common/entity/base.entity";
+import { Column, Entity } from "typeorm";
 
 
+@Entity()
 export class User extends BaseEntity {
     
     @Column()
     name: string
 
-    @Column()
+    @Column({unique: true})
     email: string
 
     @Column()
@@ -19,6 +20,6 @@ export class User extends BaseEntity {
     @Column()
     image: string
 
-    @Column()
+    @Column({default: true})
     isActive: boolean
 }
