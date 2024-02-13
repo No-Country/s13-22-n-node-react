@@ -19,7 +19,4 @@ export class User extends BaseEntity {
 
     @Column()
     image: string
-
-    @Column({default: true})
-    isActive: boolean
 }

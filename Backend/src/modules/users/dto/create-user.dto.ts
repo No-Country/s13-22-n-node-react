@@ -20,8 +20,4 @@ export class CreateUserDto {
     @IsNotEmpty()
     @IsString()
     image: string;
-
-    @IsNotEmpty()
-    @IsBoolean()
-    isActive: boolean;
 }
