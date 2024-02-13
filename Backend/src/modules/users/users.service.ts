@@ -8,72 +8,48 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class UsersService {
-  constructor(@InjectRepository(User) private readonly userRepository:Repository<User>){}
+  constructor(
+    @InjectRepository(User) private readonly userRepository: Repository<User>,
+  ) {}
 
   async create(createUserDto: CreateUserDto): Promise<string> {
-    try {
-      const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
-      const user = this.userRepository.create({
-        ...createUserDto,
-        password: hashedPassword,
-      })
-      await this.userRepository.save(user)
-
-      console.log(user);
-      return `The user ${user.name} ha sido creado con éxito`;
-    } catch (error) {
-      return error.message;
-    }
+    const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
+    const user = this.userRepository.create({
+      ...createUserDto,
+      password: hashedPassword,
+    });
+    await this.userRepository.save(user);
+    return `The user ${user.name} ha sido creado con éxito`;
   }
 
   async findAll() {
-    try {
-      const users = await this.userRepository.find();
-      return users;
-    } catch (error) {
-      return error.message;
-    }
+    const users = await this.userRepository.find();
+    return users;
   }
 
   async findOne(id: string) {
-    try {
-      const user = await this.userRepository.findOneByOrFail({ id });
-      return user;
-    } catch (error) {
-      return error.message;
-    }
+    const user = await this.userRepository.findOneByOrFail({ id });
+    return user;
   }
 
   async update(id: string, updateUserDto: UpdateUserDto): Promise<string> {
-    try {
-      const user = await this.userRepository.findOneByOrFail({ id });
-
-      if (!user) throw new Error(`Usuario con id ${id} no encontrado`);
-      if (updateUserDto.password) {
-        const hashedPassword = await bcrypt.hash(updateUserDto.password, 10);
-        updateUserDto.password = hashedPassword;
-      }
-
-      Object.assign(user, updateUserDto);
-      await this.userRepository.save(user)
-
-      return `El usuario ${user.name} ha sido actualizado con éxito`;
-    } catch (error) {
-      return error.message;
+    const user = await this.userRepository.findOneByOrFail({ id });
+    if (updateUserDto.password) {
+      const hashedPassword = await bcrypt.hash(updateUserDto.password, 10);
+      updateUserDto.password = hashedPassword;
     }
+    Object.assign(user, updateUserDto);
+    await this.userRepository.save(user);
+    return `El usuario ${user.name} ha sido actualizado con éxito`;
   }
 
   async remove(id: string) {
-    try {
-      const user = await this.userRepository.findOneBy({ id });
+    await this.userRepository.softDelete(id);
+    return `el Usuario de ${id} Esta Fuera de Linea`;
+  }
 
-      if (!user) throw new Error(`Usuario con id ${id} no encontrado`);
-      user.isActive = false;
-      await this.userRepository.softDelete(id)
-
-      return `el Usuario de ${id} Esta Fuera de Linea`;
-    } catch (error) {
-      return error.message;
-    }
+  async restore(id: string) {
+    await this.userRepository.restore(id);
+    return `el Usuario de ${id} Esta de nuevo En Linea`;
   }
 }
