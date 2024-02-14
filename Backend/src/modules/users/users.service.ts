@@ -19,7 +19,7 @@ export class UsersService {
       password: hashedPassword,
     });
     await this.userRepository.save(user);
-    return `The user ${user.name} ha sido creado con éxito`;
+    return (`The user ${user.name} ha sido creado con éxito`);
   }
 
   async findAll() {
