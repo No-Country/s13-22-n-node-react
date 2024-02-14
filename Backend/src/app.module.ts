@@ -4,6 +4,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductsModule } from './modules/products/products.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
+import { User } from './modules/users/entities/user.entity';
+import { UsersModule } from './modules/users/users.module';
+import { Role } from './modules/auth/entities/role.entity';
 
 @Module({
   imports: [
@@ -21,7 +24,7 @@ import { JwtModule } from '@nestjs/jwt';
         host: configService.get('DB_HOST'),
         port: +configService.get('DB_PORT'),
         ssl: true,
-        entities: [],
+        entities: [User, Role],
         synchronize: true,
       }),
       inject: [ConfigService]
@@ -35,6 +38,8 @@ import { JwtModule } from '@nestjs/jwt';
     }),
     ProductsModule,
     AuthModule,
+    UsersModule,
+    
   ],
   controllers: [],
   providers: [],
