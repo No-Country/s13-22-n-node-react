@@ -30,8 +30,8 @@ import { User } from './modules/users/entities/user.entity';
       transport: {
         host: 'smtp.gmail.com',
         auth: {
-          user: ' hungrytimemailer@gmail.com',
-          pass: 'whfb bbku dihd gxzl',
+          user: 'hungrytimemailer@gmail.com',
+          pass: 'krjm pift qtqs tvos',
         },
       },
     }),
