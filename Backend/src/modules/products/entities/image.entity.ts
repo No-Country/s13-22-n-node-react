@@ -1,3 +1,3 @@
 import { BaseEntity } from "typeorm";
 
-export class Images extends BaseEntity {}
+export class Image extends BaseEntity {}
