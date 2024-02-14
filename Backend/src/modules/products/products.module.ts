@@ -6,6 +6,7 @@ import { Product } from './entities/product.entity';
 import { category } from '../category/entities/category.entity';
 import { Image } from './entities/image.entity';
 
+
 @Module({
   imports: [
     TypeOrmModule.forFeature([Product, Image])
