@@ -11,6 +11,7 @@ import { ERole } from '../../common/enum';
 export class UsersService {
   constructor(
     @InjectRepository(User) private readonly userRepository: Repository<User>,
+    private readonly emailService: EmailService
   ) {}
 
   async create(createUserDto: CreateUserDto) {
@@ -59,12 +60,16 @@ export class UsersService {
   }
 
   async remove(id: string) {
+    const user = await this.userRepository.findOneByOrFail({ id });
     await this.userRepository.softDelete(id);
+    this.emailService.offLineEmail(user.name, user.email);
     return `el Usuario de ${id} Esta Fuera de Linea`;
   }
 
   async restore(id: string) {
     await this.userRepository.restore(id);
+    const user = await this.userRepository.findOneByOrFail({ id });
+    this.emailService.onLineEmail(user.name, user.email);
     return `el Usuario de ${id} Esta de nuevo En Linea`;
   }
 

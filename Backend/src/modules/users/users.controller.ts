@@ -46,7 +46,6 @@ export class UsersController {
   @Auth(ERole.ADMIN)
   @Patch('/restore/:id')
   restore(@Param('id') id: string) {
-    return this.usersService.restore(id)
+    return this.usersService.restore(id);
   }
-  
 }
