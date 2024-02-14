@@ -36,7 +36,7 @@ export class EmailService {
               <h2 style="color: #090f09">${name}</h2>
               <h2 style="color: #00cc22">Tu registro se completó con éxito</h2>
           
-              <a href="https://olimpus-shop.vercel.app/" style="text-decoration: none">
+              <a href="https://www.google.com/" style="text-decoration: none">
                 <button
                   style="
                     background-color: #fdd700;
@@ -95,7 +95,7 @@ export class EmailService {
           <h2 style="color: #090f09">${name}</h2>
           <h2 style="color: #00cc22">Tu Cuenta a sido inHabilita debido a que has infringido alguna norma del sitio</h2>
       
-          <a href="https://olimpus-shop.vercel.app/" style="text-decoration: none">
+          <a href="https://www.google.com/" style="text-decoration: none">
             <button
               style="
                 background-color: #fdd700;
@@ -154,7 +154,7 @@ export class EmailService {
           <h2 style="color: #090f09">${name}</h2>
           <h2 style="color: #00cc22">Estas de nuevo en Linea, gracias por confiar en HungryTime</h2>
       
-          <a href="https://olimpus-shop.vercel.app/" style="text-decoration: none">
+          <a href="https://www.google.com/" style="text-decoration: none">
             <button
               style="
                 background-color: #fdd700;
