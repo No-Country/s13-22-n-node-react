@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { MailerModule } from '@nestjs-modules/mailer';
 import { ProductsModule } from './modules/products/products.module';
 import { UsersModule } from './modules/users/users.module';
 import { User } from './modules/users/entities/user.entity';
@@ -23,11 +24,19 @@ import { User } from './modules/users/entities/user.entity';
         entities: [User],
         synchronize: true,
       }),
-      inject: [ConfigService]
+      inject: [ConfigService],
+    }),
+    MailerModule.forRoot({
+      transport: {
+        host: 'smtp.gmail.com',
+        auth: {
+          user: ' hungrytimemailer@gmail.com',
+          pass: 'whfb bbku dihd gxzl',
+        },
+      },
     }),
     ProductsModule,
     UsersModule,
-    
   ],
   controllers: [],
   providers: [],
