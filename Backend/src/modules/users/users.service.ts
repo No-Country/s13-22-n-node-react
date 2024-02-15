@@ -22,11 +22,13 @@ export class UsersService {
     });
     await this.userRepository.save(user);
     this.emailService.registerEmail(user.name, user.email);
-    return (`The user ${user.name} ha sido creado con éxito`);
+    return (`El usuario ${user.name} ha sido creado con éxito`);
   }
 
   async findAll() {
-    const users = await this.userRepository.find();
+    const users = await this.userRepository.find({
+      relations: ['orders', 'orders.deliveryId']
+    });
     return users;
   }
 

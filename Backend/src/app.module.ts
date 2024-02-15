@@ -8,6 +8,8 @@ import { User } from './modules/users/entities/user.entity';
 import { OrdersModule } from './modules/orders/orders.module';
 import { Delivery } from './modules/delivery/entities/delivery.entity';
 import { Order } from './modules/orders/entities/order.entity';
+import { Payment } from './modules/payments/entities/payment.entity';
+import { DeliveryModule } from './modules/delivery/delivery.module';
 
 @Module({
   imports: [
@@ -24,7 +26,7 @@ import { Order } from './modules/orders/entities/order.entity';
         password: configService.get('DB_PASS'),
         host: configService.get('DB_HOST'),
         port: configService.get('DB_PORT'),
-        entities: [User, Order, Delivery],
+        entities: [User, Order, Delivery, Payment],
         synchronize: true,
       }),
       inject: [ConfigService],
@@ -41,6 +43,7 @@ import { Order } from './modules/orders/entities/order.entity';
     ProductsModule,
     UsersModule,
     OrdersModule,
+    DeliveryModule
   ],
   controllers: [],
   providers: [],
