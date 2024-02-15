@@ -1,9 +1,13 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { MailerModule } from '@nestjs-modules/mailer';
 import { ProductsModule } from './modules/products/products.module';
 import { UsersModule } from './modules/users/users.module';
 import { User } from './modules/users/entities/user.entity';
+import { OrdersModule } from './modules/orders/orders.module';
+import { Delivery } from './modules/delivery/entities/delivery.entity';
+import { Order } from './modules/orders/entities/order.entity';
 
 @Module({
   imports: [
@@ -20,14 +24,23 @@ import { User } from './modules/users/entities/user.entity';
         password: configService.get('DB_PASS'),
         host: configService.get('DB_HOST'),
         port: configService.get('DB_PORT'),
-        entities: [User],
+        entities: [User, Order, Delivery],
         synchronize: true,
       }),
-      inject: [ConfigService]
+      inject: [ConfigService],
+    }),
+    MailerModule.forRoot({
+      transport: {
+        host: 'smtp.gmail.com',
+        auth: {
+          user: 'hungrytimemailer@gmail.com',
+          pass: 'krjm pift qtqs tvos',
+        },
+      },
     }),
     ProductsModule,
     UsersModule,
-    
+    OrdersModule,
   ],
   controllers: [],
   providers: [],

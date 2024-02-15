@@ -2,11 +2,17 @@ import { BaseEntity } from "src/common/entity/base.entity";
 import { Column, Entity } from "typeorm";
 
 
-@Entity()
+@Entity("users")
 export class User extends BaseEntity {
     
     @Column()
     name: string
+
+    @Column()
+    last_name: string
+
+    @Column()
+    phone_number: string
 
     @Column({unique: true})
     email: string

@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const configservice = app.get<ConfigService>(ConfigService);
-  const port = configservice.get('PORT') || 3000;
+  const port = configservice.get('PORT') || 3001;
 
   const config = new DocumentBuilder()
     .setTitle('Food App API')
