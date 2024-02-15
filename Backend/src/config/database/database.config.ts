@@ -1,5 +1,8 @@
 import { ConfigModule } from '@nestjs/config';
 import { Role } from 'src/modules/auth/entities/role.entity';
+import { Delivery } from 'src/modules/delivery/entities/delivery.entity';
+import { Order } from 'src/modules/orders/entities/order.entity';
+import { Product } from 'src/modules/products/entities/product.entity';
 import { User } from 'src/modules/users/entities/user.entity';
 import { DataSource, DataSourceOptions } from 'typeorm';
 
@@ -16,7 +19,7 @@ export const dataSourceOptions: DataSourceOptions = {
         host: process.env.DB_HOST,
         port: +process.env.DB_PORT,
         ssl: true,
-        entities: [User, Role],
+        entities: [User, Role, Product, Order, Delivery],
         synchronize: true,
 }
 
