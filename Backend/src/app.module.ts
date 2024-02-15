@@ -4,9 +4,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductsModule } from './modules/products/products.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
-import { User } from './modules/users/entities/user.entity';
 import { UsersModule } from './modules/users/users.module';
-import { Role } from './modules/auth/entities/role.entity';
+import { dataSourceOptions } from './config/database/database.config';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
   imports: [
@@ -14,32 +14,10 @@ import { Role } from './modules/auth/entities/role.entity';
       envFilePath: ['.env'],
       isGlobal: true,
     }),
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      useFactory: (configService: ConfigService) => ({
-        type: 'postgres',
-        database: configService.get('DB_NAME'),
-        username: configService.get('DB_USER'),
-        password: configService.get('DB_PASS'),
-        host: configService.get('DB_HOST'),
-        port: +configService.get('DB_PORT'),
-        ssl: true,
-        entities: [User, Role],
-        synchronize: true,
-      }),
-      inject: [ConfigService]
-    }),
-    JwtModule.registerAsync({
-      imports: [ConfigModule],
-      useFactory: (configService: ConfigService) => ({
-        secret: configService.get('JWT_SECRET'),
-      signOptions: { expiresIn: 'JWT_EXPIRES_IN' },
-      })
-    }),
+    TypeOrmModule.forRoot(dataSourceOptions),
     ProductsModule,
     AuthModule,
     UsersModule,
-    
   ],
   controllers: [],
   providers: [],
