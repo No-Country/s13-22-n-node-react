@@ -2,12 +2,13 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseFilters } from '@
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { Auth } from 'src/common/decorators/auth.decorator';
 import { ERole } from 'src/common/enum';
 import { AllExceptionFilter } from 'src/common/filter/exception.filter';
 
 @ApiTags('Users')
+@ApiBearerAuth()
 @UseFilters(AllExceptionFilter)
 @Controller('api/v1/users')
 export class UsersController {
@@ -46,7 +47,6 @@ export class UsersController {
   @Auth(ERole.ADMIN)
   @Patch('/restore/:id')
   restore(@Param('id') id: string) {
-    return this.usersService.restore(id)
+    return this.usersService.restore(id);
   }
-  
 }

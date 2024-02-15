@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule, } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { MailerModule } from '@nestjs-modules/mailer';
 import { ProductsModule } from './modules/products/products.module';
 import { AuthModule } from './modules/auth/auth.module';
-import { JwtModule } from '@nestjs/jwt';
 import { UsersModule } from './modules/users/users.module';
 import { dataSourceOptions } from './config/database/database.config';
-import { PassportModule } from '@nestjs/passport';
+import { OrdersModule } from './modules/orders/orders.module';
+import { DeliveryModule } from './modules/delivery/delivery.module';
 
 @Module({
   imports: [
@@ -15,9 +16,20 @@ import { PassportModule } from '@nestjs/passport';
       isGlobal: true,
     }),
     TypeOrmModule.forRoot(dataSourceOptions),
+    MailerModule.forRoot({
+      transport: {
+        host: 'smtp.gmail.com',
+        auth: {
+          user: 'hungrytimemailer@gmail.com',
+          pass: 'krjm pift qtqs tvos',
+        },
+      },
+    }),
     ProductsModule,
     AuthModule,
     UsersModule,
+    OrdersModule,
+    DeliveryModule,
   ],
   controllers: [],
   providers: [],

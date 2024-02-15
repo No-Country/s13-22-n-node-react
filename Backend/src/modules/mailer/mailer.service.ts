@@ -1,0 +1,182 @@
+import { MailerService } from '@nestjs-modules/mailer';
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class EmailService {
+  constructor(private readonly mailerService: MailerService) {}
+
+  registerEmail (name: string, email: string) {
+    this.mailerService.sendMail({
+      from: `mensaje enviado por HungryTime`,
+      to: email,
+      subject: 'Bienvenidx a HungryTime',
+      text: 'Registro Realizado con exito',
+      html: `
+            <body
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+              margin: 0;
+              background-color: #f4f4f4;
+            "
+          >
+            <div
+              style="
+                text-align: center;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                background-color: #fff;
+              "
+            >
+            <h1 style="color: #cfbc11">Bienvenido a HungryTime</h1>
+              <h2 style="color: #090f09">${name}</h2>
+              <h2 style="color: #00cc22">Tu registro se completó con éxito</h2>
+          
+              <a href="https://www.google.com/" style="text-decoration: none">
+                <button
+                  style="
+                    background-color: #fdd700;
+                    color: #000000;
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                  "
+                >
+                  Ya puedes comenzar a comprar
+                </button>
+              </a>
+            </div>
+          </body>
+                  `,
+    });
+    console.log('mail enviado con exito');
+  }
+  catch(error) {
+    console.log(error.message);
+  }
+
+  offLineEmail  (name, email) {
+    console.log("enviando mail...");
+    try {
+      this.mailerService.sendMail({
+        from: `mensaje enviado por HungryTime`,
+        to: email,
+        subject: "Usuario Desactivado",
+        text: "Estas Fuera de Linea Porque has inflingido las normas del sitio",
+        html: `
+        <body
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          background-color: #f4f4f4;
+        "
+      >
+        <div
+          style="
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+          "
+        >
+        <h1 style="color: #cfbc11">Lo sentimos mucho</h1>
+          <h2 style="color: #090f09">${name}</h2>
+          <h2 style="color: #00cc22">Tu Cuenta a sido inHabilita debido a que has infringido alguna norma del sitio</h2>
+      
+          <a href="https://www.google.com/" style="text-decoration: none">
+            <button
+              style="
+                background-color: #fdd700;
+                color: #000000;
+                padding: 10px 20px;
+                font-size: 16px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+              "
+            >
+              Dirigite a nuestro sitio y contactanos
+            </button>
+          </a>
+        </div>
+      </body>
+              `,
+      });
+      console.log("mail enviado con exito");
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  onLineEmail  (name, email) {
+    console.log("enviando mail...");
+    try {
+      this.mailerService.sendMail({
+        from: `mensaje enviado por HungryTime`,
+        to: email,
+        subject: "Usuario Reactivado",
+        text: "Estas en Linea de Nuevo, gracias por confiar en HungryTime",
+        html: `
+        <body
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          background-color: #f4f4f4;
+        "
+      >
+        <div
+          style="
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+          "
+        >
+        <h1 style="color: #cfbc11">Gracias por Contactarnos</h1>
+          <h2 style="color: #090f09">${name}</h2>
+          <h2 style="color: #00cc22">Estas de nuevo en Linea, gracias por confiar en HungryTime</h2>
+      
+          <a href="https://www.google.com/" style="text-decoration: none">
+            <button
+              style="
+                background-color: #fdd700;
+                color: #000000;
+                padding: 10px 20px;
+                font-size: 16px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+              "
+            >
+              Dirigite a nuestro sitio y has tu pedido!!!
+            </button>
+          </a>
+        </div>
+      </body>
+              `,
+      });
+      console.log("mail enviado con exito");
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+}

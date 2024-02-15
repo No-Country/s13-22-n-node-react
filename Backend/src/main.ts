@@ -3,14 +3,12 @@ import { AppModule } from './app.module';
 import { ConfigService } from '@nestjs/config';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
-import * as session from 'express-session';
-import * as passport from 'passport';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const configservice = app.get<ConfigService>(ConfigService);
-  const port = configservice.get('PORT') || 3000;
+  const port = configservice.get('PORT') || 3001;
 
   app.useGlobalPipes(
     new ValidationPipe({
