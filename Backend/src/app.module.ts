@@ -1,14 +1,12 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule, } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { ProductsModule } from './modules/products/products.module';
+import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
-import { User } from './modules/users/entities/user.entity';
+import { dataSourceOptions } from './config/database/database.config';
 import { OrdersModule } from './modules/orders/orders.module';
-import { Delivery } from './modules/delivery/entities/delivery.entity';
-import { Order } from './modules/orders/entities/order.entity';
-import { Payment } from './modules/payments/entities/payment.entity';
 import { DeliveryModule } from './modules/delivery/delivery.module';
 
 @Module({
@@ -17,20 +15,7 @@ import { DeliveryModule } from './modules/delivery/delivery.module';
       envFilePath: ['.env'],
       isGlobal: true,
     }),
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      useFactory: (configService: ConfigService) => ({
-        type: 'postgres',
-        database: configService.get('DB_NAME'),
-        username: configService.get('DB_USER'),
-        password: configService.get('DB_PASS'),
-        host: configService.get('DB_HOST'),
-        port: configService.get('DB_PORT'),
-        entities: [User, Order, Delivery, Payment],
-        synchronize: true,
-      }),
-      inject: [ConfigService],
-    }),
+    TypeOrmModule.forRoot(dataSourceOptions),
     MailerModule.forRoot({
       transport: {
         host: 'smtp.gmail.com',
@@ -41,9 +26,10 @@ import { DeliveryModule } from './modules/delivery/delivery.module';
       },
     }),
     ProductsModule,
+    AuthModule,
     UsersModule,
     OrdersModule,
-    DeliveryModule
+    DeliveryModule,
   ],
   controllers: [],
   providers: [],

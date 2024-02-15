@@ -1,10 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { ERole } from '../../common/enum';
 import { EmailService} from '../mailer/mailer.service'
 
 @Injectable()
@@ -14,15 +15,32 @@ export class UsersService {
     private readonly emailService: EmailService
   ) {}
 
-  async create(createUserDto: CreateUserDto): Promise<string> {
-    const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
+  async create(createUserDto: CreateUserDto) {
+
+    if (createUserDto?.password) {
+
+      const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
+  
+      const user = this.userRepository.create({
+        ...createUserDto,
+        password: hashedPassword,
+        role: createUserDto.role || ERole.CUSTOMER
+      });
+ 
+      return await this.userRepository.save(user);
+    }
+
     const user = this.userRepository.create({
       ...createUserDto,
-      password: hashedPassword,
+      role: ERole.CUSTOMER
     });
-    await this.userRepository.save(user);
+    
+    const userCreated = await this.userRepository.save(user);
+
     this.emailService.registerEmail(user.name, user.email);
-    return (`El usuario ${user.name} ha sido creado con éxito`);
+
+    return userCreated;
+    
   }
 
   async findAll() {
@@ -61,4 +79,31 @@ export class UsersService {
     this.emailService.onLineEmail(user.name, user.email);
     return `el Usuario de ${id} Esta de nuevo En Linea`;
   }
+
+  async findByEmail(email: string) {
+    const user = await this.userRepository.findOne({
+      where: {
+        email: email,
+      },
+      select: ['password', 'id', 'role'],
+    });
+
+    if (!user) throw new NotFoundException(`User ${email} not found`);
+
+    return user;
+  }
+
+  async findByGoogleEmail(email: string) {
+    console.log('FIND BY EMAIL')
+    const user = await this.userRepository.findOne({
+      where: {
+        email: email,
+      }
+    });
+
+    if (!user) return null;
+
+    return user;
+  }
+
 }

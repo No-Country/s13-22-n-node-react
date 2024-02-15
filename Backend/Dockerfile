@@ -2,12 +2,12 @@ FROM node:20.11
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+COPY package.json yarn.lock ./
 
-RUN npm install
+RUN yarn install
 
 COPY . .
 
-RUN npm run build
+RUN yarn build
 
 CMD ["node", "dist/main.js"]
