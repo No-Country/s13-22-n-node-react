@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule, } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { ProductsModule } from './modules/products/products.module';
@@ -8,6 +8,7 @@ import { UsersModule } from './modules/users/users.module';
 import { dataSourceOptions } from './config/database/database.config';
 import { OrdersModule } from './modules/orders/orders.module';
 import { DeliveryModule } from './modules/delivery/delivery.module';
+import { CloudinaryModule } from './modules/cloudinary/cloudinary.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { DeliveryModule } from './modules/delivery/delivery.module';
     UsersModule,
     OrdersModule,
     DeliveryModule,
+    CloudinaryModule
   ],
   controllers: [],
   providers: [],
