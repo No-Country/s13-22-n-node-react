@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Global, Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MailerModule } from '@nestjs-modules/mailer';
@@ -10,7 +10,9 @@ import { Delivery } from './modules/delivery/entities/delivery.entity';
 import { Order } from './modules/orders/entities/order.entity';
 import { Payment } from './modules/payments/entities/payment.entity';
 import { DeliveryModule } from './modules/delivery/delivery.module';
+import { CloudinaryModule } from './modules/cloudinary/cloudinary.module';
 
+@Global()
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -43,7 +45,8 @@ import { DeliveryModule } from './modules/delivery/delivery.module';
     ProductsModule,
     UsersModule,
     OrdersModule,
-    DeliveryModule
+    DeliveryModule,
+    CloudinaryModule
   ],
   controllers: [],
   providers: [],
