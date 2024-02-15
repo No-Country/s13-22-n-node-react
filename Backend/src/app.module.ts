@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Global, Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MailerModule } from '@nestjs-modules/mailer';
@@ -9,6 +9,7 @@ import { UsersModule } from './modules/users/users.module';
 import { dataSourceOptions } from './config/database/database.config';
 import { PassportModule } from '@nestjs/passport';
 
+@Global()
 @Module({
   imports: [ConfigModule.forRoot({
     envFilePath: ['.env'],
@@ -36,7 +37,8 @@ import { PassportModule } from '@nestjs/passport';
     AuthModule,
     UsersModule,
     OrdersModule,
-    DeliveryModule
+    DeliveryModule,
+    CloudinaryModule
   ],
 >>>>>>> 9682994 (Setting the authentication and authorization through JWT and Google OAuth 2.0, Adding the Exception handler using a filter)
   controllers: [],
