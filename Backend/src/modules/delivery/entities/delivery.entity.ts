@@ -5,8 +5,6 @@ import { Column, Entity, OneToOne } from 'typeorm';
 
 @Entity("deliveries")
 export class Delivery extends BaseEntity {
-  @Column()
-  order_number: number;
 
   @Column({
     type: 'enum',
@@ -15,6 +13,6 @@ export class Delivery extends BaseEntity {
   })
   status: DELIVERY_STATE;
 
-  @OneToOne(() => Order, (order) => order.delivery)
+  @OneToOne(() => Order, (order) => order.deliveryId)
   order: Order;
 }

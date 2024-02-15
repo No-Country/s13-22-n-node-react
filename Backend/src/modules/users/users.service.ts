@@ -39,7 +39,9 @@ export class UsersService {
   }
 
   async findAll() {
-    const users = await this.userRepository.find();
+    const users = await this.userRepository.find({
+      relations: ['orders', 'orders.deliveryId']
+    });
     return users;
   }
 

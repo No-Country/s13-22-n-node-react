@@ -36,6 +36,7 @@ import { PassportModule } from '@nestjs/passport';
     AuthModule,
     UsersModule,
     OrdersModule,
+    DeliveryModule
   ],
 >>>>>>> 9682994 (Setting the authentication and authorization through JWT and Google OAuth 2.0, Adding the Exception handler using a filter)
   controllers: [],

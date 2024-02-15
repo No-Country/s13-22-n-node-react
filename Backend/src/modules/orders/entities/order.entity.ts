@@ -8,9 +8,6 @@ import { Entity, Column, OneToOne, JoinColumn, ManyToOne } from "typeorm";
 @Entity("orders")
 export class Order extends BaseEntity{
 
-    @Column()
-    order_date: Date
-
     @Column({
         type: "enum",
         enum: ORDER_STATE,
@@ -24,11 +21,11 @@ export class Order extends BaseEntity{
     @Column()
     total: number
 
-    @ManyToOne(() => User, {eager: true})
-    @JoinColumn()
-    user: User
+    @ManyToOne(() => User, (user => user.orders))
+    @JoinColumn({name: "user_id"})
+    userId: User
 
-    @OneToOne(()=> Delivery, (delivery) => delivery.order)
-    @JoinColumn()
-    delivery: Delivery
+    @OneToOne(()=> Delivery, (delivery => delivery.order))
+    @JoinColumn({name: "delivery_id"})
+    deliveryId: Delivery
 }
