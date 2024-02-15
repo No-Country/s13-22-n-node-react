@@ -23,6 +23,7 @@ export class BaseEntity {
     @DeleteDateColumn({
         type: 'timestamp',
         default: null,
+        name: 'deleted_at'
     })
     deletedAt: Date;
 

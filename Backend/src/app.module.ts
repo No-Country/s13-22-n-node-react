@@ -4,6 +4,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductsModule } from './modules/products/products.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
+import { UsersModule } from './modules/users/users.module';
+import { dataSourceOptions } from './config/database/database.config';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -22,9 +25,17 @@ import { JwtModule } from '@nestjs/jwt';
       entities: [],
       synchronize: true,
     }),
+<<<<<<< HEAD
     inject: [ConfigService]
   }),
   ProductsModule,],
+=======
+    TypeOrmModule.forRoot(dataSourceOptions),
+    ProductsModule,
+    AuthModule,
+    UsersModule,
+  ],
+>>>>>>> 9682994 (Setting the authentication and authorization through JWT and Google OAuth 2.0, Adding the Exception handler using a filter)
   controllers: [],
   providers: [],
 })
