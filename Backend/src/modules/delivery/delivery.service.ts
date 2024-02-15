@@ -1,11 +1,17 @@
 import { Injectable } from '@nestjs/common';
-import { CreateDeliveryDto } from './dto/create-delivery.dto';
 import { UpdateDeliveryDto } from './dto/update-delivery.dto';
+import { Delivery } from './entities/delivery.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class DeliveryService {
-  create(createDeliveryDto: CreateDeliveryDto) {
-    return 'This action adds a new delivery';
+  @InjectRepository(Delivery) deliveryReposiroty: Repository<Delivery>
+  async create(orderId) {
+    const delivery = new Delivery
+    delivery.order = orderId
+    await this.deliveryReposiroty.save(delivery)
+    return delivery
   }
 
   findAll() {

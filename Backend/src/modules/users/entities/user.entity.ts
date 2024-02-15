@@ -1,5 +1,6 @@
 import { BaseEntity } from "src/common/entity/base.entity";
-import { Column, Entity } from "typeorm";
+import { Order } from "src/modules/orders/entities/order.entity";
+import { Column, Entity, OneToMany } from "typeorm";
 
 
 @Entity("users")
@@ -25,4 +26,7 @@ export class User extends BaseEntity {
 
     @Column()
     image: string
+
+    @OneToMany(() => Order, (order) => order.userId)
+    orders: Order[]
 }
