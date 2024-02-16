@@ -8,9 +8,10 @@
   .header__container {
     display: flex;
     z-index: 50;
-    width: 92%;
+    width: 76%;
+    min-width: 80rem;
     align-self: center;
-    padding: 2rem;
+    padding: 1.5rem 2rem;
     position: fixed;
     justify-content: space-between;
     align-items: center;
@@ -35,8 +36,6 @@
   }
 
   .header__menu {
-    display: flex;
-    justify-content: flex-start;
     align-items: center;
     width: calc(60% + 5px);
   }
@@ -61,13 +60,17 @@
   }
   .header__icons {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
+    align-items: center;
   }
 
   .icon__img--login {
-    width: 26.783px;
-    height: 43.291px;
-    flex-shrink: 0;
+    width: 2rem;
+    height: 3rem;
+  }
+  .icon__img--cart{
+    width: 3rem;
+    height: 4rem;
   }
   .icon__img--login:hover,
   .icon__img--cart:hover {
@@ -101,39 +104,37 @@
   }
 
   @media screen and (max-width: 845px) {
+    .header__container {
+      z-index: 1;
+    width: 99%;
+    gap: 1.6rem;
+    justify-content: center;
+    min-width: unset;
+    padding: 1rem 1rem;
+    }
     .hamburger {
       display: block;
       z-index: 50;
+      padding: 1rem 0.4rem;
     }
     .panel {
       position: fixed;
-      min-width: 100vw;
-      min-height: 100vh;
+      height: 43dvh;
       text-align: center;
       z-index: 50;
-      top: 0;
       right: 0;
-      flex-direction: column;
       position: fixed;
       background: #11021c;
-      transform: translate(-100%, 0%);
-      top: 0;
+      transform: translate(-106%, 0%);
       transition: 0.6s ease;
       width: 100%;
       border-radius: 14px;
+      top: 68px;
     }
     .panel.is-active {
-      display: flex;
-      transform: translate(0, 0);
-      align-items: flex-start;
-      padding-top: 121px;
+        transform: translate(0, 0);
     }
-    .header__container {
-      z-index: 1;
-      width: 84%;
-      gap: 1rem;
-      justify-content: center;
-    }
+
     .logo__nav {
       display: flex;
       gap: 3rem;
@@ -142,11 +143,9 @@
       justify-content: center;
     }
     .menu__list{
-      display: flex;
       flex-direction: column;
     transform: translate(0, 0);
-    align-items: flex-start;
-    padding-top: 121px;
+    padding-top: 60px;
     width: 100%;
     }
     .hamburger-inner,
