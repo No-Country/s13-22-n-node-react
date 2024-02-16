@@ -8,7 +8,8 @@
   .header__container {
     display: flex;
     z-index: 50;
-    width: 76%;
+    width: 84%;
+    height: 10dvh;
     min-width: 80rem;
     align-self: center;
     padding: 1.5rem 2rem;
@@ -16,8 +17,8 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 15px;
-    background: var(--logo-text-gradient);
-    backdrop-filter: blur(14px);
+    background: rgb(19 0 38 / 86%);
+    backdrop-filter: blur(8px);
   }
   .logo__nav {
     display: flex;
@@ -44,7 +45,7 @@
     display: flex;
     gap: 2rem;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .menu__link {
