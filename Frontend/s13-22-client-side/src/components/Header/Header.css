@@ -8,7 +8,7 @@
   .header__container {
     display: flex;
     z-index: 50;
-    width: 80%;
+    width: 92%;
     align-self: center;
     padding: 2rem;
     position: fixed;
@@ -77,33 +77,7 @@
     display: none;
   }
   @media screen and (max-width: 776px) {
-      .hamburger {
-          display: block;
-          z-index: 50;
-        }
-        .panel {
-          position: fixed;
-          min-width: 100vw;
-          min-height: 100vh;
-          text-align: center;
-          z-index: 50;
-          top: 0;
-          right: 0;
-          flex-direction: column;
-          position: fixed;
-          background: #11021c;
-          transform: translate(-100%, 0%);
-          top: 0;
-          transition: 0.6s ease;
-          width: 100%;
-          border-radius: 14px;
-        }
-        .panel.is-active {
-          display: flex;
-          transform: translate(0, 0);
-          align-items: flex-start;
-          padding-top: 121px;
-        }
+
     .header__container {
       z-index: 50;
       width: 84%;
@@ -123,19 +97,37 @@
       width: auto;
     }
 
-    .hamburger-inner,
-    .hamburger-inner:after,
-    .hamburger-inner:before {
-      background-color: var(--main-color);
-    }
-    .hamburger.is-active .hamburger-inner,
-    .hamburger.is-active .hamburger-inner:after,
-    .hamburger.is-active .hamburger-inner:before {
-      background-color: #ffe500;
-    }
+
   }
 
   @media screen and (max-width: 845px) {
+    .hamburger {
+      display: block;
+      z-index: 50;
+    }
+    .panel {
+      position: fixed;
+      min-width: 100vw;
+      min-height: 100vh;
+      text-align: center;
+      z-index: 50;
+      top: 0;
+      right: 0;
+      flex-direction: column;
+      position: fixed;
+      background: #11021c;
+      transform: translate(-100%, 0%);
+      top: 0;
+      transition: 0.6s ease;
+      width: 100%;
+      border-radius: 14px;
+    }
+    .panel.is-active {
+      display: flex;
+      transform: translate(0, 0);
+      align-items: flex-start;
+      padding-top: 121px;
+    }
     .header__container {
       z-index: 1;
       width: 84%;
@@ -156,5 +148,15 @@
     align-items: flex-start;
     padding-top: 121px;
     width: 100%;
+    }
+    .hamburger-inner,
+    .hamburger-inner:after,
+    .hamburger-inner:before {
+      background-color: var(--main-color);
+    }
+    .hamburger.is-active .hamburger-inner,
+    .hamburger.is-active .hamburger-inner:after,
+    .hamburger.is-active .hamburger-inner:before {
+      background-color: #ffe500;
     }
   }
