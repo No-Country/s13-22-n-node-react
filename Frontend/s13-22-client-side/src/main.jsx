@@ -3,11 +3,11 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./app";
 import "./index.css";
+import "./reset.css"
 import ErrorPage from "./error-page";
 import Contact from "./routes/contact";
-
-import { About } from "./routes/About";
 import ContactDos from "./routes/ContactDos";
+
 
 
 //Aqui se definiran las rutas, indicando el path y el comoponente(element: que se va a renderizar)
@@ -27,10 +27,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-  {
-    path:"/:about",
-    element: <About/>
-  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
