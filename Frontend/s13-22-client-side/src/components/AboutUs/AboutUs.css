@@ -3,15 +3,15 @@
 } */
 
 .about-us-container {
-    background-size: cover;
-    background-image: url(../../../public/img/About\ Bg.png);
-    display: grid;
-    grid-template-columns: repeat(auto, 1fr);
-    gap: 0;
-    min-height: 100dvh;
-    height: auto;
-    align-content: space-evenly;
-    padding: 0 5rem;
+  background-size: cover;
+  background-image: url(../../../public/img/About\ Bg.png);
+  display: grid;
+  grid-template-columns: repeat(auto, 1fr);
+  gap: 0;
+  min-height: 100dvh;
+  height: auto;
+  align-content: space-evenly;
+  padding: 0 5rem;
 }
 
 .subtitle-about-us {
@@ -20,14 +20,15 @@
 
 /* section quienes somos */
 .section-somos {
-    display: flex;
-    margin: auto;
-    column-gap: 5rem;
-    flex-wrap: wrap;
+  display: flex;
+  column-gap: 5rem;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
-.text-container{
-    width: 34%;
-
+.text-container {
+  width: auto;
+  max-width: 365px;
 }
 .middle-section {
   display: flex;
@@ -76,22 +77,22 @@
   .about-us-container {
     flex-direction: column;
     align-items: center;
-}
+  }
   .section-somos {
     flex-wrap: wrap;
     justify-content: center;
     padding: 0 2rem;
     column-gap: 0;
     flex-direction: column;
-}
-.circular-logo {
+  }
+  .circular-logo {
     width: 25rem;
     height: 25rem;
-}
-.circular-logo img {
+  }
+  .circular-logo img {
     width: 264px;
-}
-.text-container{
+  }
+  .text-container {
     width: 100%;
-}
+  }
 }
