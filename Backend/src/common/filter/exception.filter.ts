@@ -22,11 +22,17 @@ export class AllExceptionFilter implements ExceptionFilter {
 
         const queryErrorKey = msg.driverError?.detail.split(' ').includes('Key');
 
+        console.log(msg)
+
         if (queryErrorKey) {
             status = 400;
             message = msg.driverError.detail
         }
         else if (msg.statusCode === 400) {
+            status = msg.statusCode;
+            message = msg
+        }
+        else if (msg.statusCode === 401) {
             status = msg.statusCode;
             message = msg
         }
