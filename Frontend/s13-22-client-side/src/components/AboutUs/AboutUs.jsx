@@ -1,3 +1,4 @@
+import "../../styles/animation-float.css"
 import "../AboutUs/AboutUs.css";
 
 function AboutUs() {
@@ -36,7 +37,8 @@ function AboutUs() {
         <div className="middle-section">
           <div className="circular-logo">
             <img
-              src="../../../public/img/burgerSomos.png"
+            className="anim-float"
+              src="../../../public/img/hamburguesa.svg"
               alt="hamburguesa 3d"
             />
           </div>
