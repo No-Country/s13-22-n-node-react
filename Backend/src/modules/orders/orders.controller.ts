@@ -3,9 +3,10 @@ import { OrdersService } from './orders.service';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderDto } from './dto/update-order.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { VERSION } from 'src/common/constants';
 
 @ApiTags("Orders")
-@Controller('orders')
+@Controller(`api/${VERSION}/orders`)
 export class OrdersController {
   constructor(private readonly ordersService: OrdersService) {}
 
