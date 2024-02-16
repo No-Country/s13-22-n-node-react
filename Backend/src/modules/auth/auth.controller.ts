@@ -6,10 +6,11 @@ import { RegisterDto } from './dto/register.dto';
 import { GoogleAuthGuard } from 'src/common/guards/google.guard';
 import { AllExceptionFilter } from 'src/common/filter/exception.filter';
 import { ApiTags } from '@nestjs/swagger';
+import { VERSION } from 'src/common/constants';
 
 @ApiTags('Auth')
 @UseFilters(AllExceptionFilter)
-@Controller('api/v1/auth')
+@Controller(`api/${VERSION}/auth`)
 export class AuthController {
   constructor(@Inject('AUTH_SERVICE') private readonly authService: AuthService) {}
   
