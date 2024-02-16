@@ -72,8 +72,9 @@
   background: var(--Bg-gradient);
 }
 
+
 .circular-logo img {
-  transform: rotate(36.53deg);
+  width: 264px;
 }
 
 @media screen and (max-width: 768px) {
