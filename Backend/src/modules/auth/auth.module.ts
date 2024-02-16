@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { JwtModule } from '@nestjs/jwt';
+import { JwtModule, JwtService } from '@nestjs/jwt';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthService } from './auth.service';
@@ -9,21 +9,17 @@ import { JwtStrategy } from '../../config/strategies/jwt.strategy';
 import { UsersService } from '../users/users.service';
 import { User } from '../users/entities/user.entity';
 import { PassportModule } from '@nestjs/passport';
-import { MailerModule } from '@nestjs-modules/mailer';
 import { EmailService } from '../mailer/mailer.service';
+import { jwtModuleOptions } from 'src/config/jwt/jwt.config';
+
 @Module({
   imports: [
     TypeOrmModule.forFeature([User]),
-    JwtModule.registerAsync({
-      imports: [ConfigModule],
-      useFactory: (configService: ConfigService) => ({
-        secret: configService.get('JWT_SECRET'),
-        signOptions: { expiresIn: 'JWT_EXPIRES_IN' },
-      }),
-      inject: [ConfigService],
+    JwtModule.register(jwtModuleOptions),
+    PassportModule.register({ 
+      defaultStrategy: 'jwt', session: false 
     }),
-    PassportModule.register({ defaultStrategy: 'jwt', session: false }),
-],
+  ],
   controllers: [AuthController],
   providers: [
     GoogleStrategy,
@@ -36,7 +32,11 @@ import { EmailService } from '../mailer/mailer.service';
       provide: 'USER_SERVICE', 
       useClass: UsersService
     },
-    EmailService
+    {
+      provide: 'EMAIL_SERVICE',
+      useClass: EmailService
+    }
+
   ],
 })
 export class AuthModule {}

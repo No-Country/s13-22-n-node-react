@@ -31,6 +31,7 @@ import { CloudinaryModule } from './modules/cloudinary/cloudinary.module';
     UsersModule,
     OrdersModule,
     DeliveryModule,
+    MailerModule,
     CloudinaryModule
   ],
   controllers: [],
