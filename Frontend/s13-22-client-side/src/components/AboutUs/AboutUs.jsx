@@ -1,9 +1,9 @@
-import React from 'react'
-import '../AboutUs/AboutUs.css'
+
+import './AboutUs.css'
 
 function AboutUs() {
   return (
-    <section className='about-us-container'>
+    <section className='about-us-container' id="about">
         <div className='subtitle-about-us'>
             <h2 className="gradient-text">¿Quiénes somos?</h2>
         </div>
@@ -20,7 +20,7 @@ function AboutUs() {
             </div>
             <div className='middle-section'>
                 <div className='circular-logo'>
-                    <img src="../../../public/burgerSomos.png" alt='hamburguesa 3d' />
+                    <img src="../../../public/img/burgerSomos.png" alt='hamburguesa 3d' />
                 </div>
             </div>
             <div>
