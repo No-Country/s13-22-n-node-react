@@ -1,4 +1,5 @@
 import AboutUs from "./components/AboutUs/AboutUs";
+import Menu from "./components/MenuMain/Menu";
 import { Header } from "./components/Header/Header";
 
 export default function Root() {
@@ -10,7 +11,7 @@ export default function Root() {
       <section className="Hero">
 
       </section>
-
+      <Menu />
       <AboutUs />
 
 
