@@ -4,7 +4,6 @@ import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { VERSION } from 'src/common/constants';
-import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Products')
 @Controller(`api/${VERSION}/products`)
