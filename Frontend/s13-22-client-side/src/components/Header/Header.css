@@ -7,6 +7,7 @@
   z-index: 40;
 }
 
+<<<<<<< HEAD
 .header__container {
   display: flex;
   z-index: 50;
@@ -75,13 +76,113 @@
 
 
 @media screen and (max-width: 845px) {
+=======
+  .header__container {
+    display: flex;
+    z-index: 50;
+    width: 84%;
+    height: 10dvh;
+    min-width: 80rem;
+    align-self: center;
+    padding: 1.5rem 2rem;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    background: rgb(19 0 38 / 86%);
+    backdrop-filter: blur(8px);
+  }
+  .logo__nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 85%;
+    align-items: center;
+  }
+>>>>>>> 2b606d9 (se ajustan estilos responsive)
   .header__logo {
     font-size: 2.5rem;
   }
+<<<<<<< HEAD
   .header__container {
     z-index: 1;
     width: 100%;
     max-width: 60rem;
+=======
+
+  .header__menu {
+    align-items: center;
+    width: calc(60% + 5px);
+  }
+
+  .header__menu > ul {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .menu__link {
+    color: #fff;
+    text-align: center;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  .menu__link:hover {
+    color: var(--main-color);
+  }
+  .header__icons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .icon__img--login {
+    width: 2rem;
+    height: 3rem;
+  }
+  .icon__img--cart{
+    width: 3rem;
+    height: 4rem;
+  }
+  .icon__img--login:hover,
+  .icon__img--cart:hover {
+    filter: var(--icon-change-color);
+  }
+  .hamburger {
+    display: none;
+  }
+  @media screen and (max-width: 776px) {
+
+    .header__container {
+      z-index: 50;
+      width: 84%;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .logo__nav {
+      gap: 1rem;
+    }
+
+
+    .header__logo {
+      font-size: 2rem;
+    }
+
+    .logo__nav {
+      width: auto;
+    }
+
+
+  }
+
+  @media screen and (max-width: 845px) {
+    .header__container {
+      z-index: 1;
+    width: 99%;
+>>>>>>> 2b606d9 (se ajustan estilos responsive)
     gap: 1.6rem;
     justify-content: space-between;
     min-width: unset;
