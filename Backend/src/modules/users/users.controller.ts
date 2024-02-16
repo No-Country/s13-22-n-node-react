@@ -6,10 +6,11 @@ import { ApiTags } from '@nestjs/swagger';
 import { Auth } from 'src/common/decorators/auth.decorator';
 import { ERole } from 'src/common/enum';
 import { AllExceptionFilter } from 'src/common/filter/exception.filter';
+import { VERSION } from 'src/common/constants';
 
 @ApiTags('Users')
 @UseFilters(AllExceptionFilter)
-@Controller('api/v1/users')
+@Controller(`api/${VERSION}/users`)
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 

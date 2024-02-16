@@ -2,8 +2,11 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { PaymentsService } from './payments.service';
 import { CreatePaymentDto } from './dto/create-payment.dto';
 import { UpdatePaymentDto } from './dto/update-payment.dto';
+import { VERSION } from 'src/common/constants';
+import { ApiTags } from '@nestjs/swagger';
 
-@Controller('payments')
+@ApiTags('Payments')
+@Controller(`api/${VERSION}/payments`)
 export class PaymentsController {
   constructor(private readonly paymentsService: PaymentsService) {}
 
