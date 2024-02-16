@@ -1,5 +1,6 @@
 import AboutUs from "./components/AboutUs/AboutUs";
 import Menu from "./components/MenuMain/Menu";
+import Menu from "./components/MenuMain/Menu";
 import { Header } from "./components/Header/Header";
 import HeroSection from "./components/Hero/HeroSection";
 import { useState } from "react";
