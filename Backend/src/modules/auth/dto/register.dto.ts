@@ -1,14 +1,13 @@
-import { IsEmail, IsNotEmpty, IsString, IsOptional, IsEnum } from 'class-validator';
-import { ERole } from 'src/common/enum';
+import { IsEmail, IsEmpty, IsNotEmpty, IsOptional, IsString } from "class-validator";
 
-export class CreateUserDto {
+export class RegisterDto {
     @IsNotEmpty()
     @IsString()
     name: string;
 
     @IsNotEmpty()
     @IsString()
-    last_name: string;   
+    last_name: string;
 
     @IsNotEmpty()
     @IsEmail()
@@ -23,14 +22,10 @@ export class CreateUserDto {
     address?: string;
 
     @IsString()
-    phone: string;
+    phone: string; 
 
     @IsOptional()
     @IsString()
     image?: string;
-
-    @IsOptional()
-    @IsEnum(ERole)
-    role?: ERole;
 
 }
