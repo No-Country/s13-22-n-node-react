@@ -8,6 +8,7 @@ import { VERSION } from 'src/common/constants';
 @ApiTags('Products')
 @Controller(`api/${VERSION}/products`)
 
+@Controller('products')
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
