@@ -5,7 +5,9 @@ import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
 import { GoogleAuthGuard } from 'src/common/guards/google.guard';
 import { AllExceptionFilter } from 'src/common/filter/exception.filter';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Auth')
 @UseFilters(AllExceptionFilter)
 @Controller('api/v1/auth')
 export class AuthController {

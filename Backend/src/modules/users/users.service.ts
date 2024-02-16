@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -11,7 +11,7 @@ import { ERole } from '../../common/enum';
 export class UsersService {
   constructor(
     @InjectRepository(User) private readonly userRepository: Repository<User>,
-    private readonly emailService: EmailService
+    @Inject('EMAIL_SERVICE') private readonly emailService: EmailService
   ) {}
 
   async create(createUserDto: CreateUserDto) {
