@@ -6,7 +6,7 @@ export const About = ()=>{
     return(
         <section className="container__about">
             <Link to="/">Home</Link>
-            <AboutUs />
+
         </section>
     )
 }
