@@ -5,8 +5,8 @@ import { Injectable } from '@nestjs/common';
 export class EmailService {
   constructor(private readonly mailerService: MailerService) {}
 
-  registerEmail (name: string, email: string) {
-    this.mailerService.sendMail({
+  async registerEmail (name: string, email: string) {
+    await this.mailerService.sendMail({
       from: `mensaje enviado por HungryTime`,
       to: email,
       subject: 'Bienvenidx a HungryTime',
@@ -56,16 +56,15 @@ export class EmailService {
           </body>
                   `,
     });
-    console.log('mail enviado con exito');
   }
-  catch(error) {
+  catch(error: any) {
     console.log(error.message);
   }
 
-  offLineEmail  (name, email) {
+  async offLineEmail  (name: string, email: string) {
     console.log("enviando mail...");
     try {
-      this.mailerService.sendMail({
+      await this.mailerService.sendMail({
         from: `mensaje enviado por HungryTime`,
         to: email,
         subject: "Usuario Desactivado",
@@ -116,15 +115,15 @@ export class EmailService {
               `,
       });
       console.log("mail enviado con exito");
-    } catch (error) {
+    } catch (error: any) {
       console.log(error.message);
     }
   }
 
-  onLineEmail  (name, email) {
+  async onLineEmail  (name: string, email: string) {
     console.log("enviando mail...");
     try {
-      this.mailerService.sendMail({
+      await this.mailerService.sendMail({
         from: `mensaje enviado por HungryTime`,
         to: email,
         subject: "Usuario Reactivado",
@@ -175,7 +174,7 @@ export class EmailService {
               `,
       });
       console.log("mail enviado con exito");
-    } catch (error) {
+    } catch (error: any) {
       console.log(error.message);
     }
   }

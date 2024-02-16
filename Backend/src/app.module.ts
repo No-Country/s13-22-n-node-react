@@ -30,6 +30,7 @@ import { DeliveryModule } from './modules/delivery/delivery.module';
     UsersModule,
     OrdersModule,
     DeliveryModule,
+    MailerModule
   ],
   controllers: [],
   providers: [],
