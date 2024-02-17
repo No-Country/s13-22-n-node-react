@@ -14,16 +14,22 @@ export class DeliveryService {
     return delivery
   }
 
-  findAll() {
-    return `This action returns all delivery`;
+  async findAll() {
+    const deliveries = await this.deliveryReposiroty.find({
+      relations: ['order'],
+    });
+    return deliveries;
   }
 
   findOne(id: number) {
     return `This action returns a #${id} delivery`;
   }
 
-  update(id: number, updateDeliveryDto: UpdateDeliveryDto) {
-    return `This action updates a #${id} delivery`;
+  async update(id: string, updateDeliveryDto: UpdateDeliveryDto): Promise<string> {
+    const delivery = await this.deliveryReposiroty.findOneByOrFail({ id });
+    Object.assign(delivery, updateDeliveryDto);
+    await this.deliveryReposiroty.save(delivery);
+    return `La orden ha cambiado su estado a ${delivery.status}`;
   }
 
   remove(id: number) {
