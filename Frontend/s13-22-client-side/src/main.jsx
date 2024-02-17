@@ -5,7 +5,7 @@ import Root from "./app";
 import "./index.css";
 import "./reset.css"
 import ErrorPage from "./error-page.jsx";
-import { Team } from "./routes/Team.jsx";
+import { Team } from "./routes/Team/Team.jsx";
 
 
 
