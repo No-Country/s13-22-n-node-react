@@ -43,6 +43,7 @@ body{
   font-family: var(--font-montserrat);
 }
 
+
 h2{
   font-size: var(--h2-subtitles);
 }
@@ -51,8 +52,7 @@ h3{
 }
 
 p{
-  font-size: var(--font-size-regular)!important;
-  line-height: 1.5!important;
+  font-size: var(--font-size-regular);
 }
 
 

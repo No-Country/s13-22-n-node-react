@@ -48,6 +48,7 @@ export const Header = ({ links, cart, total, setCart, setTotal }) => {
         <div className="header__container">
           <button
             className="hamburger hamburger--spring panel-btn"
+            className="hamburger hamburger--spring panel-btn"
             type="button"
           >
             <span className="hamburger-box">
@@ -55,8 +56,17 @@ export const Header = ({ links, cart, total, setCart, setTotal }) => {
             </span>
           </button>
 
+
             <h3 className="header__logo">HungryTime</h3>
             <nav className="header__menu panel">
+            <ul className="menu__list">
+                {links.map((link, index) => (
+                  <li className="menu__item" key={index}>
+                    <a href={link.url} className="menu__link">
+                      {link.text}
+                    </a>
+                  </li>
+                ))}
             <ul className="menu__list">
                 {links.map((link, index) => (
                   <li className="menu__item" key={index}>

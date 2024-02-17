@@ -11,6 +11,8 @@ import { Register } from "./routes/Register/Register.jsx";
 import { Login } from "./routes/Login/Login.jsx";
 import { AddProduct } from "./components/AddProduct/AddProduct.jsx";
 
+
+
 //Aqui se definiran las rutas, indicando el path y el comoponente(element: que se va a renderizar)
 const router = createBrowserRouter([
   {
