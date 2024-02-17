@@ -41,7 +41,7 @@ export class AuthController {
       expires: new Date(Date.now() + 60000 * 60)
     })
 
-    res..json(jwt)
+    res.json(jwt)
 
   }
 
