@@ -3,8 +3,10 @@ import{Column, Entity} from "typeorm";
 
 @Entity()
 export class category extends BaseEntity {
+    
     @Column()
-    name:string
+    name:string;
+
     @Column()
-    type: string
+    type: string;
 }
