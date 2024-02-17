@@ -35,7 +35,6 @@ import { jwtModuleOptions } from 'src/config/jwt/jwt.config';
       provide: 'EMAIL_SERVICE',
       useClass: EmailService
     }
-
   ],
 })
 export class AuthModule {}

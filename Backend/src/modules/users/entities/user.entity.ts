@@ -3,7 +3,6 @@ import { Role } from "src/modules/auth/entities/role.entity";
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from "typeorm";
 import { Order } from "src/modules/orders/entities/order.entity";
 
-
 @Entity("users")
 export class User extends BaseEntity {
     

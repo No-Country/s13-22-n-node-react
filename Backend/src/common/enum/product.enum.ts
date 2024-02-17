@@ -1,0 +1,5 @@
+export enum PRODUCT_STATE {
+    PUBLISHED = 'PUBLISHED',
+    UNPUBLISHED = 'UNPUBLISHED'
+
+}

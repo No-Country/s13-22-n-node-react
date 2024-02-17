@@ -13,7 +13,6 @@ export class DeliveryService {
     await this.deliveryReposiroty.save(delivery)
     return delivery
   }
-
   async findAll() {
     const deliveries = await this.deliveryReposiroty.find({
       relations: ['order'],
@@ -24,6 +23,7 @@ export class DeliveryService {
   findOne(id: number) {
     return `This action returns a #${id} delivery`;
   }
+
 
   async update(id: string, updateDeliveryDto: UpdateDeliveryDto): Promise<string> {
     const delivery = await this.deliveryReposiroty.findOneByOrFail({ id });
