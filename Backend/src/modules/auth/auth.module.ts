@@ -10,6 +10,7 @@ import { User } from '../users/entities/user.entity';
 import { PassportModule } from '@nestjs/passport';
 import { EmailService } from '../mailer/mailer.service';
 import { jwtModuleOptions } from 'src/config/jwt/jwt.config';
+
 @Module({
   imports: [
     TypeOrmModule.forFeature([User]),

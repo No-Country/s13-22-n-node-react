@@ -6,6 +6,7 @@ import { User } from './entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ERole } from '../../common/enum';
+import { EmailService} from '../mailer/mailer.service'
 
 @Injectable()
 export class UsersService {
@@ -33,8 +34,13 @@ export class UsersService {
       ...createUserDto,
       role: ERole.CUSTOMER
     });
+    
+    const userCreated = await this.userRepository.save(user);
 
-    return await this.userRepository.save(user);
+    this.emailService.registerEmail(user.name, user.email);
+
+    return userCreated;
+
     
   }
 

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseFilters } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -7,9 +7,6 @@ import { VERSION } from 'src/common/constants';
 import { Auth } from 'src/common/decorators/auth.decorator';
 import { ERole } from 'src/common/enum';
 import { AllExceptionFilter } from 'src/common/filter/exception.filter';
-
-
-
 
 @ApiTags('Products')
 @UseFilters(AllExceptionFilter)

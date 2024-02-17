@@ -1,17 +1,18 @@
 import { BaseEntity } from "src/common/entity/base.entity";
 import { Role } from "src/modules/auth/entities/role.entity";
-import { Column, Entity, JoinColumn, ManyToOne } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from "typeorm";
+import { Order } from "src/modules/orders/entities/order.entity";
 
-
-@Entity('users')
+@Entity("users")
 export class User extends BaseEntity {
     
     @Column()
     name: string
 
-    @Column({
-        unique: true
-    })
+    @Column()
+    last_name: string
+
+    @Column({unique: true})
     email: string
 
     @Column({
@@ -44,4 +45,7 @@ export class User extends BaseEntity {
         select: true,
     })
     role: string;
+
+    @OneToMany(() => Order, (order) => order.userId)
+    orders: Order[]
 }
