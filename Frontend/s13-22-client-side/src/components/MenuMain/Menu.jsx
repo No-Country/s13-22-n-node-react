@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../MenuMain/Menu.css'
+import menuData from '../../data/menuData'
+import FoodCard from '../FoodCard/FoodCard';
 
 function Menu() {
+    const [menu, setMenu] = useState(menuData);
+    console.log(menu);
+
   return (
     <section className='menu-section'>
         <section className='food-type-container'>
@@ -10,81 +15,34 @@ function Menu() {
                 <p className='seeMore'>Ver mas...</p>
             </div>
             <div className='cards-container'>
-                <div className='food-card'>
-                    <div className='food-img-container'>
-                        <img src="../../../public/img/hamburguerPic.png" height="90%" width="70%"></img>
-                    </div>
-                    <div className='food-info-container'>
-                        <div className='food-about'>
-                            <p>Nombre Comida</p>
-                            <p>$Precio.00</p>
-                        </div>
-                        <div className='bag-icoon-container'>
-                            <div className='icon-bgd'>
-                                <img src="../../../public/img/shoppingBag.png" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className='food-card'>
-                    <div className='food-img-container'>
-                        <img src="../../../public/img/hamburguerPic.png" height="90%" width="70%"></img>
-                    </div>
-                    <div className='food-info-container'>
-                        <div className='food-about'>
-                            <p>Nombre Comida</p>
-                            <p>$Precio.00</p>
-                        </div>
-                        <div className='bag-icoon-container'>
-                            <div className='icon-bgd'>
-                                <img src="../../../public/img/shoppingBag.png" />
-                            </div>
-                        </div>
-                    </div>
+                <div className='cards-container'>
+                    {
+                        menu.map((item) => {
+                            return (
+                                <FoodCard key={item.id} item={item} />
+                            )
+                        })
+                    }
                 </div>
             </div>
         </section>
-        {/* hi */}
-          <section className='food-type-container'>
-              <div className='type-name-container'>
-                  <p className='food-name'>Hamburguesas</p>
-                  <p className='seeMore'>Ver mas...</p>
-              </div>
-              <div className='cards-container'>
-                  <div className='food-card'>
-                      <div className='food-img-container'>
-                          <img src="../../../public/img/hamburguerPic.png" height="90%" width="70%"></img>
-                      </div>
-                      <div className='food-info-container'>
-                          <div className='food-about'>
-                              <p>Nombre Comida</p>
-                              <p>$Precio.00</p>
-                          </div>
-                          <div className='bag-icoon-container'>
-                              <div className='icon-bgd'>
-                                  <img src="../../../public/img/shoppingBag.png" />
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div className='food-card'>
-                      <div className='food-img-container'>
-                          <img src="../../../public/img/hamburguerPic.png" height="90%" width="70%"></img>
-                      </div>
-                      <div className='food-info-container'>
-                          <div className='food-about'>
-                              <p>Nombre Comida</p>
-                              <p>$Precio.00</p>
-                          </div>
-                          <div className='bag-icoon-container'>
-                              <div className='icon-bgd'>
-                                  <img src="../../../public/img/shoppingBag.png" />
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </section>
+        <section className='food-type-container'>
+            <div className='type-name-container'>
+                <p className='food-name'>Pizza :3</p>
+                <p className='seeMore'>Ver mas...</p>
+            </div>
+            <div className='cards-container'>
+                <div className='cards-container'>
+                    {
+                        menu.map((item) => {
+                            return (
+                                <FoodCard key={item.id} item={item} />
+                            )
+                        })
+                    }
+                </div>
+            </div>
+        </section>
     </section>
   )
 }
