@@ -1,0 +1,41 @@
+.menu-section {
+    /* border: 1px solid black; */
+    padding: 2em;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* margin: auto; */
+}
+
+.food-type-container {
+    /* border: 3px solid red; */
+    margin-bottom: 2em;
+    margin: auto;
+}
+
+.type-name-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+.food-name {
+    color: #380869;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.seeMore {
+    color: #000000;
+    font-size: 27px;
+    font-weight: 400;
+}
+    /* food card */
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    padding: 0 2em;
+    justify-items: center;
+    margin: auto;
+}
