@@ -52,7 +52,8 @@ h3{
 }
 
 p{
-  font-size: var(--font-size-regular);
+  font-size: var(--font-size-regular)!important;
+  line-height: 1.5!important;
 }
 
 

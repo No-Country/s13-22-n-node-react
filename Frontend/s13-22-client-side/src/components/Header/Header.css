@@ -10,7 +10,7 @@
 .header__container {
   display: flex;
   z-index: 50;
-  width: 84%;
+  width: 75%;
   height: 10dvh;
   min-width: 80rem;
   align-self: center;
@@ -55,16 +55,15 @@
   margin: 0rem;
   align-items: center;
   padding: 0;
-  gap: 2rem;
+  gap: 1rem;
 }
 
-.icon__img--login {
-  width: 2rem;
-  height: 2.6rem;
-}
+
 .icon__img--cart {
-  width: 3rem;
+  width: 4rem;
   height: 4rem;
+  padding-top: 0.3rem;
+
 }
 .icon__img--login:hover,
 .icon__img--cart:hover {
@@ -81,7 +80,7 @@
   }
   .header__container {
     z-index: 1;
-    width: 96%;
+    width: 100%;
     max-width: 60rem;
     gap: 1.6rem;
     justify-content: space-between;
