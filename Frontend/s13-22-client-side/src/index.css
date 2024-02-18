@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 :root{
   --font-montserrat:"Montserrat", sans-serif;
-  --font-size-regular:  1.7rem;
+  --font-size-regular:  1.6rem;
   --h2-subtitles: 4rem;
   --h3-subtitle: 2.6rem;
   --line-heigth: 1.5;
@@ -21,11 +21,13 @@
 html{
   box-sizing: border-box;
   font-size: 62.5%;
+  overflow-x: hidden;
 }
 
 body{
   margin: 0;
-  padding: 0;
+  padding: 0!important;
+  padding-right: 0!important;
   font-family: var(--font-montserrat);
 }
 
@@ -36,5 +38,6 @@ h3{
   font-size: var(--h3-subtitle);
 }
 p{
-  font-size: var(--font-size-regular);
+  font-size: var(--font-size-regular)!important;
+  line-height: 1.5!important;
 }

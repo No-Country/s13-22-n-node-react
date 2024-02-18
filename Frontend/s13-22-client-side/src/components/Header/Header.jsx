@@ -1,5 +1,10 @@
 import { useEffect } from "react";
 import "./Header.css";
+import { HeaderLogin } from "../HeaderLogin/HeaderLoginIcon";
+import { NotLoggedIn } from "../NotLoggedIn /NotLoggedIn";
+
+let userStatus = false;
+
 export const Header = ({ links }) => {
   useEffect(() => {
     const handleClick = (e) => {
@@ -23,6 +28,7 @@ export const Header = ({ links }) => {
       document.removeEventListener("click", handleClick);
     };
   }, []);
+
   return (
     <>
       <header className="header">
@@ -49,13 +55,7 @@ export const Header = ({ links }) => {
               </ul>
             </nav>
             <div className="header__icons">
-            <a href="#">
-              <img
-                className="icon__img--login"
-                src="../../../public/svg/Login.svg"
-                alt="Login"
-              />
-            </a>
+                  {userStatus ? <HeaderLogin/> : <NotLoggedIn/>}
             <a href="#">
               <img
                 className="icon__img--cart"
