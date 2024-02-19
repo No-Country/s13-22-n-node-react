@@ -1,3 +1,14 @@
-import { BaseEntity } from "typeorm";
+import { BaseEntity } from "src/common/entity/base.entity";
+import { Column, Entity } from "typeorm";
 
-export class Image extends BaseEntity {}
+@Entity("images")
+export class Image extends BaseEntity {
+    @Column()
+    url: string
+
+    @Column()
+    name: string
+
+    @Column()
+    isActive: boolean
+}

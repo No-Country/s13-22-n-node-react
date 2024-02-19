@@ -1,25 +1,21 @@
-import { join } from "path";
 import{BaseEntity} from "src/common/entity/base.entity";
 import { PRODUCT_STATE } from "src/common/enum/product.enum";
-import { category } from "src/modules/category/entities/category.entity";
-import{ Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne }from"typeorm";
+import { Category } from "src/modules/category/entities/category.entity";
+import{ Column, Entity, JoinTable, ManyToMany}from"typeorm";
+import { Image } from "./image.entity";
 
-
-
-
-@Entity()
+@Entity("products")
 export class Product extends BaseEntity {
 
     @Column()
     product_name: string
 
     
-    @ManyToMany(()=>category, {eager:true, cascade:true} )
+    @ManyToMany(()=>Category, {eager:true, cascade:true} )
     @JoinTable(
         {name:"product_category"}
     )
-    categories: category[];
-    
+    categories: Category[];
 
     @Column()
     price: number;
@@ -32,6 +28,12 @@ export class Product extends BaseEntity {
 
     @Column()
     Description: string;
+
+    @ManyToMany(()=>Image, {eager:true, cascade:true} )
+    @JoinTable(
+        {name:"product_image"}
+    )
+    images: Image[];
 
     @Column()
     state: PRODUCT_STATE;
