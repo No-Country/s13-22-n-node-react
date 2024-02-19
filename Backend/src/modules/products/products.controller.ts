@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseFilters } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -14,7 +14,7 @@ import { AllExceptionFilter } from 'src/common/filter/exception.filter';
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
-  @Auth(ERole.ADMIN)
+  //@Auth(ERole.ADMIN)
   @Post()
   create(@Body() createProductDto: CreateProductDto) {
     return this.productsService.create(createProductDto);
