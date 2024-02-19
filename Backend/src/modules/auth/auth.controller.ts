@@ -41,7 +41,8 @@ export class AuthController {
       expires: new Date(Date.now() + 60000 * 60)
     })
 
-    res.redirect(`http://localhost:3000/home/${jwt.userId}`)
+    res.json(jwt)
+
 
   }
 

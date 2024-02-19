@@ -8,8 +8,6 @@ import ErrorPage from "./error-page.jsx";
 import { Team } from "./routes/Team/Team.jsx";
 
 
-
-
 //Aqui se definiran las rutas, indicando el path y el comoponente(element: que se va a renderizar)
 const router = createBrowserRouter([
   {
@@ -17,8 +15,6 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-    ],
-  },
   {
     path:"/team",
     element: <Team/>
@@ -30,3 +26,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
+
