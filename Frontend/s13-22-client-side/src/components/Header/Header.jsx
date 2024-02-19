@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import "./Header.css";
 import { HeaderLogin } from "../HeaderLogin/HeaderLoginIcon";
-import { NotLoggedIn } from "../NotLoggedIn /NotLoggedIn";
 import CartPaneldrawer from "../CartPaneldrawer/CartPaneldrawer";
+import { LogOut } from "../LogOut/LogOut";
 
 let userStatus = false;
 
@@ -56,7 +56,7 @@ export const Header = ({ links }) => {
               </ul>
             </nav>
             <div className="header__icons">
-                  {userStatus ? <HeaderLogin/> : <NotLoggedIn/>}
+                  {userStatus ? <HeaderLogin/> : <LogOut/>}
             <CartPaneldrawer/>
           </div>
 
