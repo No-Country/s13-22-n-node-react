@@ -4,6 +4,7 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import Tooltip from "@mui/material/Tooltip";
 import "../HeaderLogin/HeaderLoginIcon.css"
+import "./LogOut.css"
 import { Link } from 'react-router-dom';
 const settings = [
     { desc: "Iniciar Sesión", link: "/team" },
@@ -11,7 +12,7 @@ const settings = [
   ];
 
 
-export const NotLoggedIn  = () => {
+export const LogOut  = () => {
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
 
