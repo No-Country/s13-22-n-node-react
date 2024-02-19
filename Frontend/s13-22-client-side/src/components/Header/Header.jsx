@@ -1,6 +1,11 @@
 import { useEffect } from "react";
 import "./Header.css";
-export const Header = () => {
+import { HeaderLogin } from "../HeaderLogin/HeaderLoginIcon";
+import { NotLoggedIn } from "../NotLoggedIn /NotLoggedIn";
+
+let userStatus = false;
+
+export const Header = ({ links }) => {
   useEffect(() => {
     const handleClick = (e) => {
       const panel = document.querySelector(".panel");
@@ -23,54 +28,34 @@ export const Header = () => {
       document.removeEventListener("click", handleClick);
     };
   }, []);
+
   return (
     <>
       <header className="header">
         <div className="header__container">
           <button
-            className="hamburger hamburger--spring panel-btn
-            "
+            className="hamburger hamburger--spring panel-btn"
             type="button"
           >
             <span className="hamburger-box">
               <span className="hamburger-inner"></span>
             </span>
           </button>
-          <div className="logo__nav">
+
             <h3 className="header__logo">HungryTime</h3>
             <nav className="header__menu panel">
-              <ul className="menu__list ">
-                <li className="menu__item">
-                  <a href="#" className="menu__link">
-                    Hamburguesas
-                  </a>
-                </li>
-                <li className="menu__item">
-                  <a href="#" className="menu__link">
-                    Pizza
-                  </a>
-                </li>
-                <li className="menu__item">
-                  <a href="#" className="menu__link">
-                    Pollo
-                  </a>
-                </li>
-                <li className="menu__item">
-                  <a href="#about" className="menu__link">
-                    Acerca
-                  </a>
-                </li>
+            <ul className="menu__list">
+                {links.map((link, index) => (
+                  <li className="menu__item" key={index}>
+                    <a href={link.url} className="menu__link">
+                      {link.text}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </nav>
-          </div>
-          <div className="header__icons">
-            <a href="#">
-              <img
-                className="icon__img--login"
-                src="../../../public/svg/Login.svg"
-                alt="Login"
-              />
-            </a>
+            <div className="header__icons">
+                  {userStatus ? <HeaderLogin/> : <NotLoggedIn/>}
             <a href="#">
               <img
                 className="icon__img--cart"
@@ -79,6 +64,8 @@ export const Header = () => {
               />
             </a>
           </div>
+
+
         </div>
       </header>
     </>

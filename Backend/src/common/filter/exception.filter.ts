@@ -10,7 +10,7 @@ export class AllExceptionFilter implements ExceptionFilter {
         const ctx = host.switchToHttp();
         const res = ctx.getResponse();
         const req = ctx.getRequest();
-const codes = ['23503', '23505']
+const codes = ['23503', '23505', '23502']
 
         let message: string;
 
@@ -26,12 +26,15 @@ const codes = ['23503', '23505']
         const queryErrorKey = msg.driverError?.code
 
 
-
         if (codes.includes(queryErrorKey)) {
             status = 400;
             message = msg.driverError.detail
         }
         else if (msg.statusCode === 400) {
+            status = msg.statusCode;
+            message = msg
+        }
+        else if (msg.statusCode === 401) {
             status = msg.statusCode;
             message = msg
         }

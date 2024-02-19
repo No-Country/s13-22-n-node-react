@@ -40,6 +40,7 @@ export class UsersService {
     this.emailService.registerEmail(user.name, user.email);
 
     return userCreated;
+
     
   }
 

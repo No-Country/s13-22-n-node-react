@@ -8,7 +8,7 @@ export class CreateUserDto {
 
     @IsNotEmpty()
     @IsString()
-    last_name: string;   
+    last_name: string;
 
     @IsNotEmpty()
     @IsEmail()
@@ -32,5 +32,4 @@ export class CreateUserDto {
     @IsOptional()
     @IsEnum(ERole)
     role?: ERole;
-
 }
