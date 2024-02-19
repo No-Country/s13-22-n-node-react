@@ -9,6 +9,7 @@ import { dataSourceOptions } from './config/database/database.config';
 import { OrdersModule } from './modules/orders/orders.module';
 import { DeliveryModule } from './modules/delivery/delivery.module';
 import { CloudinaryModule } from './modules/cloudinary/cloudinary.module';
+import { CategoryModule } from './modules/category/category.module';
 
 @Module({
   imports: [
@@ -32,7 +33,8 @@ import { CloudinaryModule } from './modules/cloudinary/cloudinary.module';
     OrdersModule,
     DeliveryModule,
     MailerModule,
-    CloudinaryModule
+    CloudinaryModule,
+    CategoryModule
   ],
   controllers: [],
   providers: [],

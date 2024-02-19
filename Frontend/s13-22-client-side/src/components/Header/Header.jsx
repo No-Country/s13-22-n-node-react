@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import "./Header.css";
 import { HeaderLogin } from "../HeaderLogin/HeaderLoginIcon";
 import { NotLoggedIn } from "../NotLoggedIn/NotLoggedIn";
+import CartPaneldrawer from "../CartPaneldrawer/CartPaneldrawer";
 
 let userStatus = false;
 
@@ -56,13 +57,7 @@ export const Header = ({ links }) => {
             </nav>
             <div className="header__icons">
                   {userStatus ? <HeaderLogin/> : <NotLoggedIn/>}
-            <a href="#">
-              <img
-                className="icon__img--cart"
-                src="../../../public/svg/cart.svg"
-                alt="Cart"
-              />
-            </a>
+            <CartPaneldrawer/>
           </div>
 
 

@@ -8,7 +8,7 @@ export class CreateProductDto {
     
     @IsNotEmpty()
     @IsString()
-    product_names: string
+    product_name: string
 
     @IsNotEmpty()
     @IsArray()
@@ -20,17 +20,17 @@ export class CreateProductDto {
 
     @IsOptional()
     @IsNumber()
-    Discount_rate: number;
+    discount_rate: number;
 
     @IsOptional()
     @IsBoolean()
-    Discount:boolean;
+    discount:boolean;
 
     @IsNotEmpty()
     @IsString()
     @MinLength(20)
     @MaxLength(100)
-    Description: string;
+    description: string;
 
     @IsNotEmpty()
     @IsArray()

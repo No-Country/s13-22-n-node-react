@@ -6,9 +6,9 @@ export class Image extends BaseEntity {
     @Column()
     url: string
 
-    @Column()
+    @Column({default: "Imagen sin nombrar"})
     name: string
 
-    @Column()
+    @Column({default: true})
     isActive: boolean
 }

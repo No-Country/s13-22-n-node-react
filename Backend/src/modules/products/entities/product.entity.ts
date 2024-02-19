@@ -21,13 +21,13 @@ export class Product extends BaseEntity {
     price: number;
 
     @Column()
-    Discount_rate: number;
+    discount_rate: number;
 
     @Column()
-    Discount:boolean;
+    discount:boolean;
 
     @Column()
-    Description: string;
+    description: string;
 
     @ManyToMany(()=>Image, {eager:true, cascade:true} )
     @JoinTable(

@@ -10,7 +10,7 @@ import { Auth } from 'src/common/decorators/auth.decorator';
 
 @ApiTags('Category')
 @UseFilters(AllExceptionFilter)
-@Controller(`api/${VERSION}/Category`)
+@Controller(`api/${VERSION}/category`)
 @Controller('category')
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
