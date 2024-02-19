@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import "./Header.css";
 import { HeaderLogin } from "../HeaderLogin/HeaderLoginIcon";
-import { NotLoggedIn } from "../NotLoggedIn/NotLoggedIn";
-
+import { NotLoggedIn } from "../NotLoggedIn /NotLoggedIn";
 import CartPaneldrawer from "../CartPaneldrawer/CartPaneldrawer";
 
 let userStatus = false;
