@@ -10,6 +10,8 @@ export class AllExceptionFilter implements ExceptionFilter {
         const ctx = host.switchToHttp();
         const res = ctx.getResponse();
         const req = ctx.getRequest();
+const codes = ['23503', '23505']
+
         let message: string;
 
         let status = exception instanceof HttpException 
@@ -19,12 +21,12 @@ export class AllExceptionFilter implements ExceptionFilter {
         const msg = exception instanceof HttpException 
         ? exception.getResponse() 
         : exception
-
-        const queryErrorKey = msg.driverError?.detail.split(' ').includes('Key');
-
         console.log(msg)
 
-        if (queryErrorKey) {
+        const queryErrorKey = msg.driverError?.code
+
+
+        if (codes.includes(queryErrorKey)) {
             status = 400;
             message = msg.driverError.detail
         }
