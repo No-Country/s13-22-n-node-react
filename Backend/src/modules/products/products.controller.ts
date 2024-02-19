@@ -14,7 +14,7 @@ import { AllExceptionFilter } from 'src/common/filter/exception.filter';
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
-  @Auth(ERole.ADMIN)
+  //@Auth(ERole.ADMIN)
   @Post()
   create(@Body() createProductDto: CreateProductDto) {
     return this.productsService.create(createProductDto);

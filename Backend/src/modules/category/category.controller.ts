@@ -10,12 +10,12 @@ import { Auth } from 'src/common/decorators/auth.decorator';
 
 @ApiTags('Category')
 @UseFilters(AllExceptionFilter)
-@Controller(`api/${VERSION}/Category`)
+@Controller(`api/${VERSION}/category`)
 @Controller('category')
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
 
-  @Auth(ERole.ADMIN)
+  //@Auth(ERole.ADMIN)
   @Post()
   create(@Body() createcategoryDto: CreatecategoryDto) {
     return this.categoryService.create(createcategoryDto);

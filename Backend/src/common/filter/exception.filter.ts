@@ -10,7 +10,7 @@ export class AllExceptionFilter implements ExceptionFilter {
         const ctx = host.switchToHttp();
         const res = ctx.getResponse();
         const req = ctx.getRequest();
-const codes = ['23503', '23505']
+const codes = ['23503', '23505', '23502']
 
         let message: string;
 
