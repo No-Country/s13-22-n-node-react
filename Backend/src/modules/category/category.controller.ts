@@ -1,8 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseFilters } from '@nestjs/common';
-import { categoryService } from './category.service';
+import { CategoryService } from './category.service';
 import { CreatecategoryDto } from './dto/create-category.dto';
 import { UpdatecategoryDto } from './dto/update-category.dto';
-import path from 'path';
 import { ApiTags } from '@nestjs/swagger';
 import { AllExceptionFilter } from 'src/common/filter/exception.filter';
 import { VERSION } from 'src/common/constants';
@@ -13,8 +12,8 @@ import { Auth } from 'src/common/decorators/auth.decorator';
 @UseFilters(AllExceptionFilter)
 @Controller(`api/${VERSION}/Category`)
 @Controller('category')
-export class categoryController {
-  constructor(private readonly categoryService: categoryService) {}
+export class CategoryController {
+  constructor(private readonly categoryService: CategoryService) {}
 
   @Auth(ERole.ADMIN)
   @Post()

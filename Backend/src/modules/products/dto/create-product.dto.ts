@@ -1,7 +1,7 @@
-import{IsString, IsNumber, IsBoolean, IsEnum, IsArray, isNotEmpty, IsNotEmpty, IsOptional, minLength, MinLength, maxLength, MaxLength} from 'class-validator';
-import { Product } from '../entities/product.entity';
-import { category } from 'src/modules/category/entities/category.entity';
+import{IsString, IsNumber, IsBoolean, IsEnum, IsArray, IsNotEmpty, IsOptional, MinLength, MaxLength} from 'class-validator';
+import { Category } from 'src/modules/category/entities/category.entity';
 import { PRODUCT_STATE } from 'src/common/enum/product.enum';
+import { Image } from '../entities/image.entity';
 
 
 export class CreateProductDto {
@@ -12,7 +12,7 @@ export class CreateProductDto {
 
     @IsNotEmpty()
     @IsArray()
-    categories:category[]
+    categories:Category[]
 
     @IsNotEmpty()
     @IsNumber()
@@ -31,6 +31,10 @@ export class CreateProductDto {
     @MinLength(20)
     @MaxLength(100)
     Description: string;
+
+    @IsNotEmpty()
+    @IsArray()
+    images: Image[]
 
     @IsEnum(PRODUCT_STATE)
     state: PRODUCT_STATE;

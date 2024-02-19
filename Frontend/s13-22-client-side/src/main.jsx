@@ -4,10 +4,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./app";
 import "./index.css";
 import "./reset.css"
-import ErrorPage from "./error-page";
-import Contact from "./routes/contact";
-import ContactDos from "./routes/ContactDos";
-
+import ErrorPage from "./error-page.jsx";
+import { Team } from "./routes/Team/Team.jsx";
 
 
 //Aqui se definiran las rutas, indicando el path y el comoponente(element: que se va a renderizar)
@@ -17,16 +15,10 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      {
-        path: "/:contacts/:id=1",
-        element: <Contact />,
-      },
-      {
-        path: "/:contacts/:id=2",
-        element: <ContactDos/>,
-      },
-    ],
-  },
+  {
+    path:"/team",
+    element: <Team/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
