@@ -7,8 +7,6 @@ import "./reset.css"
 import ErrorPage from "./error-page.jsx";
 import { Team } from "./routes/Team/Team.jsx";
 
-
-
 //Aqui se definiran las rutas, indicando el path y el comoponente(element: que se va a renderizar)
 const router = createBrowserRouter([
   {
