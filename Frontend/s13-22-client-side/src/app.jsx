@@ -13,6 +13,7 @@ export default function Root() {
   /* Root es el app.jsx para react router dom  */
   return (
     <>
+
       <Header links={links}/>
     <main>
 
