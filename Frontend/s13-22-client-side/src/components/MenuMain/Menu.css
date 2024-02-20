@@ -38,4 +38,6 @@
     padding: 0 2em;
     justify-items: center;
     margin: auto;
+    flex-wrap: wrap;
+    gap: 1em;
 }

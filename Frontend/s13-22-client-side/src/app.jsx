@@ -16,11 +16,8 @@ export default function Root() {
 
       <Header links={links}/>
     <main>
-
       <Hero/>
-
       <Menu />
-
       <AboutUs />
     </main>
     </>
