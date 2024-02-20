@@ -7,6 +7,7 @@ import { Product } from 'src/modules/products/entities/product.entity';
 import { User } from 'src/modules/users/entities/user.entity';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { Image } from 'src/modules/products/entities/image.entity';
+import { Payment } from 'src/modules/payments/entities/payment.entity';
 
 ConfigModule.forRoot({
     envFilePath: ['.env'],
@@ -20,7 +21,7 @@ export const dataSourceOptions: DataSourceOptions = {
         password: process.env.DB_PASS,
         host: process.env.DB_HOST,
         port: +process.env.DB_PORT,
-        entities: [User, Role, Order, Product, Category, Delivery, Image],
+        entities: [User, Role, Order, Product, Category, Delivery, Image, Payment],
         ssl: true,
         synchronize: true,
 }

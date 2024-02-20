@@ -7,11 +7,12 @@ import { UsersModule } from '../users/users.module';
 import { User } from '../users/entities/user.entity';
 import { DeliveryService } from '../delivery/delivery.service';
 import { Delivery } from '../delivery/entities/delivery.entity';
+import { Product } from '../products/entities/product.entity';
 
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Order, User, Delivery]),
+    TypeOrmModule.forFeature([Order, User, Delivery, Product]),
     UsersModule,
   ],
   controllers: [OrdersController],
