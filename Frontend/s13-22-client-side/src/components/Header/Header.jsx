@@ -2,9 +2,21 @@ import { useEffect } from "react";
 import "./Header.css";
 import { HeaderLogin } from "../HeaderLogin/HeaderLoginIcon";
 import CartPaneldrawer from "../CartPaneldrawer/CartPaneldrawer";
-import { LogOut } from "../LogOut/LogOut";
+/* links para el panel de btn usuario */
+//Si está logueado muestra const login
+const login = [
+  { desc: "Profile", link: "/team" },
+  { desc: "Account", link: "/" },
+  { desc: "Dashboard", link: "#" },
+  { desc: "Logout", link: "/#about" }
+];
+//Si no está logueado muestra const logOff
+const logOff = [
+  { desc: "Inciar Sesión", link: "/team" },
+  { desc: "Crear Cuenta", link: "/" },
+];
 
-let userStatus = false;
+let userStatus = true;
 
 export const Header = ({ links }) => {
   useEffect(() => {
@@ -56,11 +68,9 @@ export const Header = ({ links }) => {
               </ul>
             </nav>
             <div className="header__icons">
-                  {userStatus ? <HeaderLogin/> : <LogOut/>}
+                  {userStatus ? <HeaderLogin settings={login}/> : <HeaderLogin settings={logOff}/>}
             <CartPaneldrawer/>
           </div>
-
-
         </div>
       </header>
     </>

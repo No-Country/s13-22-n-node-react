@@ -5,15 +5,10 @@ import Menu from "@mui/material/Menu";
 import Tooltip from "@mui/material/Tooltip";
 import "./HeaderLoginIcon.css"
 import { Link } from 'react-router-dom';
-const settings = [
-    { desc: "Profile", link: "/team" },
-    { desc: "Account", link: "/" },
-    { desc: "Dashboard", link: "#" },
-    { desc: "Logout", link: "/#about" }
-  ];
 
 
-export const HeaderLogin = () => {
+
+export const HeaderLogin = ({settings}) => {
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
 
