@@ -10,6 +10,7 @@ import { OrdersModule } from './modules/orders/orders.module';
 import { DeliveryModule } from './modules/delivery/delivery.module';
 import { CloudinaryModule } from './modules/cloudinary/cloudinary.module';
 import { CategoryModule } from './modules/category/category.module';
+import { PaymentsModule } from './modules/payments/payments.module';
 
 @Module({
   imports: [
@@ -34,7 +35,8 @@ import { CategoryModule } from './modules/category/category.module';
     DeliveryModule,
     MailerModule,
     CloudinaryModule,
-    CategoryModule
+    CategoryModule,
+    PaymentsModule
   ],
   controllers: [],
   providers: [],

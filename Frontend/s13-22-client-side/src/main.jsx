@@ -6,6 +6,7 @@ import "./index.css";
 import "./reset.css"
 import ErrorPage from "./error-page.jsx";
 import { Team } from "./routes/Team/Team.jsx";
+import {AllProducts} from "./routes/AllProducts/AllProducts.jsx";
 
 
 
@@ -14,14 +15,16 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "/team",
-        element: <Team />,
-      },
-    ],
+    errorElement: <ErrorPage/>,
   },
+  {
+    path: "/team",
+    element: <Team />,
+  },
+  {
+    path: "/productos",
+    element: <AllProducts/>,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

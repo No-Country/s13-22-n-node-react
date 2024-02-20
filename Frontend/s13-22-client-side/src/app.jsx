@@ -5,9 +5,9 @@ import HeroSection from "./components/Hero/HeroSection";
 
 export default function Root() {
   const links = [
-    { text: "Hamburguesas", url: "#" },
-    { text: "Pizza", url: "#" },
-    { text: "Pollo", url: "#" },
+    { text: "Hamburguesas", url: "#Hamburguesas" },
+    { text: "Pizza", url: "#Pizza" },
+    { text: "Pollo", url: "#Pollo" },
     { text: "Acerca", url: "/#about" }
   ];
   /* Root es el app.jsx para react router dom  */
@@ -16,11 +16,8 @@ export default function Root() {
 
       <Header links={links}/>
     <main>
-
       <HeroSection/>
-
       <Menu />
-
       <AboutUs />
     </main>
     </>
