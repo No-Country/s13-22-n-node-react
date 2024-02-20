@@ -7,7 +7,14 @@
   --line-heigth: 1.5;
   --main-color: #FFE500;
   --secundary-color: #380869;
+  --bg-base-color: #E5E5E5;
+  --valid-color:#0AA751;
+  --error-color: #C62828;
   --form-bg-color:#2f025c;
+  --orange-color:#FA7B05;
+  --dark-gray:rgba(0, 0, 0, 0.60);
+  --ligth-gray:#C2C2C2;
+  --soft-gray:rgba(0, 0, 0, 0.25);
   --text-gradient:linear-gradient(90deg, #8F00FF 0.53%, #0084ff 106.94%);
   --Bg-gradient:linear-gradient(124deg, #000 15.15%, #500B95 107.14%);
   --logo-text-gradient:rgba(19, 0, 38, 0.90);
@@ -28,6 +35,7 @@ body{
   margin: 0;
   padding: 0!important;
   padding-right: 0!important;
+  scroll-behavior: smooth;
   font-family: var(--font-montserrat);
 }
 
@@ -37,6 +45,7 @@ h2{
 h3{
   font-size: var(--h3-subtitle);
 }
+
 p{
   font-size: var(--font-size-regular)!important;
   line-height: 1.5!important;

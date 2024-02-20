@@ -4,12 +4,12 @@ import '../FoodCard/FoodCard.css'
 
 // Work in progress :3
 function FoodCard({ item }) {
-    let { name, price } = item;
-  
+    let { name, price, img } = item;
+
     return (
       <div className='food-card'>
           <div className='food-img-container'>
-              <img src="../../../public/img/hamburguerPic.png" height="90%" width="70%"></img>
+              <img src={img} height="90%" width="70%"></img>
           </div>
           <div className='food-info-container'>
               <div className='food-about'>
@@ -18,7 +18,7 @@ function FoodCard({ item }) {
               </div>
               <div className='bag-icoon-container'>
                   <div className='icon-bgd'>
-                      <img src="../../../public/img/shoppingBag.png" />
+                      <img className='cart__icon' src="../../../public/svg/cart.svg" />
                   </div>
               </div>
           </div>
