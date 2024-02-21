@@ -18,7 +18,7 @@ function FoodCard({ item }) {
               </div>
               <div className='bag-icoon-container'>
                   <div className='icon-bgd'>
-                      <img className='cart__icon' src="../../../public/svg/cart.svg" />
+                      <img className='cart__icon' src="svg/cart.svg" />
                   </div>
               </div>
           </div>

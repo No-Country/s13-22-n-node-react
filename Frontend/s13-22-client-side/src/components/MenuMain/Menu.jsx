@@ -19,7 +19,7 @@ function Menu() {
                         <h4 className='food-name' id={category}>{category}</h4>
                         <Link to="/" className="more__container">
                         <p className='seeMore'>Ver más</p>
-                        <img src="../../../public/svg/arrowIcon.svg" alt="" />
+                        <img src="/svg/arrowIcon.svg" alt="" />
                         </Link>
 
                     </div>
