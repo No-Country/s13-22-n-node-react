@@ -5,6 +5,7 @@ const menuData = [
         price: 8.99,
         category: "Hamburguesas",
         img:"../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
@@ -13,6 +14,7 @@ const menuData = [
         price: 9.99,
         category: "Hamburguesas",
         img:"../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: true
     },
     {
@@ -21,6 +23,7 @@ const menuData = [
         price: 12.99,
         category: "Hamburguesas",
         img:"../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
@@ -29,182 +32,205 @@ const menuData = [
         price: 13.66,
         category: "Hamburguesas",
         img:"../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 5,
         name: "Vegan",
         price: 13.66,
         category: "Hamburguesas",
         img:"../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 6,
         name: "Vegan",
         price: 13.66,
         category: "Hamburguesas",
         img:"../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 7,
         name: "Vegan",
         price: 13.66,
         category: "Hamburguesas",
         img:"../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 8,
         name: "Vegan",
         price: 13.66,
         category: "Hamburguesas",
         img:"../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 9,
         name: "Vegan",
         price: 13.66,
         category: "Pizza",
         img:"../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 10,
         name: "Vegan",
         price: 13.66,
         category: "Pizza",
         img:"../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 11,
         name: "Vegan",
         price: 13.66,
         category: "Pizza",
         img:"../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 12,
         name: "Vegan",
         price: 13.66,
         category: "Pizza",
         img:"../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 13,
         name: "Vegan",
         price: 13.66,
         category: "Pizza",
         img:"../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 14,
         name: "Vegan",
         price: 13.66,
         category: "Pizza",
         img:"../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 15,
         name: "Vegan",
         price: 13.66,
         category: "Pollo",
         img:"../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 16,
         name: "Vegan",
         price: 13.66,
         category: "Pollo",
         img:"../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 17,
         name: "Vegan",
         price: 13.66,
         category: "Pollo",
-        img:"../../public/img/hamburguerPic.png",
+        img: "../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 18,
         name: "Vegan",
         price: 13.66,
         category: "Pollo",
-        img:"../../public/img/hamburguerPic.png",
+        img: "../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 19,
         name: "Vegan",
         price: 13.66,
         category: "Pollo",
-        img:"../../public/img/hamburguerPic.png",
+        img: "../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 20,
         name: "Vegan",
         price: 13.66,
         category: "Pollo",
-        img:"../../public/img/hamburguerPic.png",
+        img: "../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 21,
         name: "Vegan",
         price: 13.66,
         category: "Complementos",
-        img:"../../public/img/hamburguerPic.png",
+        img: "../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 22,
         name: "Vegan",
         price: 13.66,
         category: "Complementos",
-        img:"../../public/img/hamburguerPic.png",
+        img: "../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 23,
         name: "Vegan",
         price: 13.66,
         category: "Complementos",
-        img:"../../public/img/hamburguerPic.png",
+        img: "../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 24,
         name: "Vegan",
         price: 13.66,
         category: "Complementos",
-        img:"../../public/img/hamburguerPic.png",
+        img: "../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 25,
         name: "Vegan",
         price: 13.66,
         category: "Complementos",
-        img:"../../public/img/hamburguerPic.png",
+        img: "../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
     {
-        id: 4,
+        id: 26,
         name: "Vegan",
         price: 13.66,
         category: "Complementos",
-        img:"../../public/img/hamburguerPic.png",
+        img: "../../public/img/hamburguerPic.png",
+        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false
     },
 ];
