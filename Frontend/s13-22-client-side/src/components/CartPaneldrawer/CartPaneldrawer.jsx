@@ -19,13 +19,13 @@ const CartPaneldrawer = ({ cart, total }) => {
                 alt="Cart"
               />
       </div>
-      <Drawer title="Basic Drawer" onClose={onClose} open={open}>
+      <Drawer title="Orden" onClose={onClose} open={open}>
         {
           cart.map((item) => {
             return (
               <div key={item.id}>
                 <p>{item.name}</p>
-                <p>{item.price}</p>
+                <p>${item.price}</p>
               </div>
             )
           })
