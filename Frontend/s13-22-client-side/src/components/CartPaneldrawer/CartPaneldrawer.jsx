@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, Drawer } from 'antd';
 
-const CartPaneldrawer = ({ cart, total }) => {
+const CartPaneldrawer = ({ cart, total, setCart, setTotal }) => {
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
     setOpen(true);
@@ -9,6 +9,14 @@ const CartPaneldrawer = ({ cart, total }) => {
   const onClose = () => {
     setOpen(false);
   };
+
+  const removeFromCart = (itemRemove) => {
+    let updatedTotal = parseFloat(total - itemRemove.price);
+    setTotal(updatedTotal);
+    let updatedCart = cart.filter(item => item !== itemRemove);
+    console.log(updatedCart);
+    setCart(updatedCart);
+  }
 
   return (
     <>
@@ -26,6 +34,7 @@ const CartPaneldrawer = ({ cart, total }) => {
               <div key={item.id}>
                 <p>{item.name}</p>
                 <p>${item.price}</p>
+                <button onClick={() => removeFromCart(item)}>❌</button>
               </div>
             )
           })
