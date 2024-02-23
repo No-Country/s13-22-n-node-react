@@ -2,6 +2,7 @@ import AboutUs from "./components/AboutUs/AboutUs";
 import Menu from "./components/MenuMain/Menu";
 import { Header } from "./components/Header/Header";
 import HeroSection from "./components/Hero/HeroSection";
+import { CardDetail } from "./components/CardDetail/CardDetail";
 
 export default function Root() {
   const links = [
@@ -16,8 +17,9 @@ export default function Root() {
 
       <Header links={links}/>
     <main>
-      <HeroSection/>
+      <HeroSection />
       <Menu />
+      <CardDetail />
       <AboutUs />
     </main>
     </>
