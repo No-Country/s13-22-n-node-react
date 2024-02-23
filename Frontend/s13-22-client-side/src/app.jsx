@@ -3,6 +3,7 @@ import Menu from "./components/MenuMain/Menu";
 import { Header } from "./components/Header/Header";
 import HeroSection from "./components/Hero/HeroSection";
 import { useState } from "react";
+import { CardDetail } from "./components/CardDetail/CardDetail";
 
 export default function Root() {
   const [cart, setCart] = useState([]);
@@ -22,6 +23,7 @@ export default function Root() {
     <main>
       <HeroSection/>
       <Menu cart={cart} setCart={setCart} total={total} setTotal={setTotal} />
+      <CardDetail />
       <AboutUs />
     </main>
     </>
