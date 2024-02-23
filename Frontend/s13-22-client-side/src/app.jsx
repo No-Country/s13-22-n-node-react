@@ -1,13 +1,13 @@
 import AboutUs from "./components/AboutUs/AboutUs";
 import Menu from "./components/MenuMain/Menu";
 import { Header } from "./components/Header/Header";
-import { Hero } from "./components/Hero/Hero";
+import HeroSection from "./components/Hero/HeroSection";
 
 export default function Root() {
   const links = [
-    { text: "Hamburguesas", url: "#" },
-    { text: "Pizza", url: "#" },
-    { text: "Pollo", url: "#" },
+    { text: "Hamburguesas", url: "#Hamburguesas" },
+    { text: "Pizza", url: "#Pizza" },
+    { text: "Pollo", url: "#Pollo" },
     { text: "Acerca", url: "/#about" }
   ];
   /* Root es el app.jsx para react router dom  */
@@ -16,7 +16,7 @@ export default function Root() {
 
       <Header links={links}/>
     <main>
-      <Hero/>
+      <HeroSection/>
       <Menu />
       <AboutUs />
     </main>

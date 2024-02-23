@@ -2,14 +2,17 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MailerModule } from '@nestjs-modules/mailer';
+
 import { ProductsModule } from './modules/products/products.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
-import { dataSourceOptions } from './config/database/database.config';
+import dataSourceOptions from './config/database/database.config';
 import { OrdersModule } from './modules/orders/orders.module';
 import { DeliveryModule } from './modules/delivery/delivery.module';
 import { CloudinaryModule } from './modules/cloudinary/cloudinary.module';
 import { CategoryModule } from './modules/category/category.module';
+import { PaymentsModule } from './modules/payments/payments.module';
+import { SeederModule } from './config/seeds/seed.module';
 
 @Module({
   imports: [
@@ -34,7 +37,9 @@ import { CategoryModule } from './modules/category/category.module';
     DeliveryModule,
     MailerModule,
     CloudinaryModule,
-    CategoryModule
+    CategoryModule,
+    PaymentsModule,
+    SeederModule
   ],
   controllers: [],
   providers: [],

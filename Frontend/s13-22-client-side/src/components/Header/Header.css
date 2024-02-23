@@ -4,6 +4,7 @@
   justify-content: center;
   position: fixed;
   padding-top: 1.4rem;
+  z-index: 40;
 }
 
 .header__container {

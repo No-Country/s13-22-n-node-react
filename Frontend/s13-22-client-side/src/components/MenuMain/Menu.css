@@ -1,15 +1,6 @@
 .menu-section {
-    /* border: 1px solid black; */
     padding: 2em;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* margin: auto; */
-}
-
-.food-type-container {
-    /* border: 3px solid red; */
-    margin-bottom: 2em;
-    margin: auto;
+    width: 100%;
 }
 
 .type-name-container {
@@ -18,11 +9,12 @@
     align-items: center;
     width: 80%;
     margin: auto;
+    margin-bottom: 4rem;
 }
 
 .food-name {
-    color: #380869;
-    font-size: 36px;
+    color: var(--secundary-color);
+    font-size: 3.5rem;
     font-weight: bold;
 }
 
@@ -35,9 +27,27 @@
 .cards-container {
     display: flex;
     flex-direction: row;
-    padding: 0 2em;
     justify-items: center;
-    margin: auto;
     flex-wrap: wrap;
-    gap: 1em;
+    gap: 3.5rem;
+    justify-content: center;
+    margin-bottom: 7rem;
+}
+.more__container{
+    display:flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+.more__container img{
+    width: 32px;
+}
+
+@media screen and (max-width:768px) {
+    .food-name {
+        font-size: 1.8rem;
+    }
+    .type-name-container{
+        width: 100%;
+    }
 }

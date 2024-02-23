@@ -1,50 +1,37 @@
-import React, { useState } from 'react'
-import '../MenuMain/Menu.css'
-import menuData from '../../data/menuData'
+import { useState } from 'react';
+import '../MenuMain/Menu.css';
+import menuData from '../../data/menuData';
 import FoodCard from '../FoodCard/FoodCard';
+import { Link } from 'react-router-dom';
 
 function Menu() {
     const [menu, setMenu] = useState(menuData);
-    console.log(menu);
 
-  return (
-    <section className='menu-section'>
-        <section className='food-type-container'>
-            <div className='type-name-container'>
-                <p className='food-name'>Hamburguesas</p>
-                <p className='seeMore'>Ver mas...</p>
-            </div>
-            <div className='cards-container'>
-                <div className='cards-container'>
-                    {
-                        menu.map((item) => {
-                            return (
-                                <FoodCard key={item.id} item={item} />
-                            )
-                        })
-                    }
+    // Función para obtener categorías únicas
+    const uniqueCategories = [...new Set(menu.map(item => item.category))];
+
+    return (
+        <section className='menu-section'>
+            {/* Mapeo de cada categoría */}
+            {uniqueCategories.map(category => (
+                <div key={category} className='category-container'>
+                    <div className='type-name-container'>
+                        <h4 className='food-name' id={category}>{category}</h4>
+                        <Link to="/" className="more__container">
+                            <p className='seeMore'>Ver más</p>
+                            <img src="../../../public/svg/arrowIcon.svg" alt="" />
+                        </Link>
+                    </div>
+                    <div className='cards-container'>
+                        {/* Filtrar elementos del menú por categoría */}
+                        {menu.filter(item => item.category === category).splice(0, 4).map(filteredItem => (
+                            <FoodCard key={filteredItem.id} item={filteredItem} />
+                        ))}
+                    </div>
                 </div>
-            </div>
+            ))}
         </section>
-        <section className='food-type-container'>
-            <div className='type-name-container'>
-                <p className='food-name'>Pizza :3</p>
-                <p className='seeMore'>Ver mas...</p>
-            </div>
-            <div className='cards-container'>
-                <div className='cards-container'>
-                    {
-                        menu.map((item) => {
-                            return (
-                                <FoodCard key={item.id} item={item} />
-                            )
-                        })
-                    }
-                </div>
-            </div>
-        </section>
-    </section>
-  )
+    );
 }
 
-export default Menu
+export default Menu;
