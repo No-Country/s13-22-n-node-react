@@ -15,7 +15,7 @@ const menuData = [
         category: "Hamburguesas",
         img:"../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: true
+        promo: false
     },
     {
         id: 3,
@@ -28,12 +28,12 @@ const menuData = [
     },
     {
         id: 4,
-        name: "Vegan",
+        name: "Crab",
         price: 13.66,
         category: "Hamburguesas",
-        img:"../../public/img/hamburguerPic.png",
+        img:"img/cangrejo.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: true
     },
     {
         id: 5,
