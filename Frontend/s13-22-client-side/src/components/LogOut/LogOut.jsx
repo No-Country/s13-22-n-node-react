@@ -3,32 +3,16 @@ import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import Tooltip from "@mui/material/Tooltip";
-<<<<<<< HEAD
-import "./HeaderLoginIcon.css"
-import { Link } from 'react-router-dom';
-
-
-
-export const HeaderLogin = ({settings}) => {
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-      };
-=======
-import "./HeaderLoginIcon.css";
+import "../HeaderLogin/HeaderLoginIcon.css";
+import "./LogOut.css";
 import { Link } from "react-router-dom";
 const settings = [
-  { desc: "Profile", link: "/team" },
-  { desc: "Account", link: "/" },
-  { desc: "Dashboard", link: "#" },
-  { desc: "Logout", link: "/#about" },
+  { desc: "Iniciar Sesión", link: "/login" },
+  { desc: "crear cuenta", link: "/registro" },
 ];
 
-export const HeaderLogin = () => {
+export const LogOut = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
->>>>>>> 99aab17bb21527dbd29ea1d539b609c4e6c7f66e
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
