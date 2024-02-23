@@ -12,11 +12,11 @@ const login = [
 ];
 //Si no está logueado muestra const logOff
 const logOff = [
-  { desc: "Inciar Sesión", link: "/team" },
-  { desc: "Crear Cuenta", link: "/" },
+  { desc: "Inciar Sesión", link: "/login" },
+  { desc: "Crear Cuenta", link: "/registro" },
 ];
 
-let userStatus = true;
+let userStatus = false;
 
 export const Header = ({ links, cart, total }) => {
   useEffect(() => {

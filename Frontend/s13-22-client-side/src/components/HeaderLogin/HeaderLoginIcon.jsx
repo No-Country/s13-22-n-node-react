@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import Tooltip from "@mui/material/Tooltip";
-<<<<<<< HEAD
+
 import "./HeaderLoginIcon.css"
 import { Link } from 'react-router-dom';
 
@@ -16,23 +16,9 @@ export const HeaderLogin = ({settings}) => {
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
       };
-=======
-import "./HeaderLoginIcon.css";
-import { Link } from "react-router-dom";
-const settings = [
-  { desc: "Profile", link: "/team" },
-  { desc: "Account", link: "/" },
-  { desc: "Dashboard", link: "#" },
-  { desc: "Logout", link: "/#about" },
-];
 
-export const HeaderLogin = () => {
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
->>>>>>> 99aab17bb21527dbd29ea1d539b609c4e6c7f66e
 
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
+
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);

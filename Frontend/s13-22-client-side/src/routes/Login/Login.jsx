@@ -104,7 +104,7 @@ export const Login = () => {
                 <br />
                 <input
                   className="text-imput"
-                  type="text"
+                  type="password"
                   placeholder="Ingresa tu contraseña"
                   {...register("contraseña", {
                     required: true,
@@ -117,7 +117,7 @@ export const Login = () => {
                   <p className="error-notification">Campo obligatorio</p>
                 )}
                 {errors.contraseña?.type === "minLength" && (
-                  <p>La contraseña deber tener por lo menos 8 caracteres</p>
+                  <p className="error-notification">La contraseña deber tener por lo menos 8 caracteres</p>
                 )}
               </div>
               <br />
