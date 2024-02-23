@@ -29,18 +29,19 @@ export class AllExceptionFilter implements ExceptionFilter {
     console.log(msg);
 
     const queryErrorKey = msg.driverError?.code;
+    const timedOutError = msg.name
 
     if (codes.includes(queryErrorKey)) {
       status = 400;
       message = msg.driverError.detail;
-    } else if (msg.statusCode === 400) {
-      status = msg.statusCode;
-      message = msg;
-    } else if (msg.statusCode === 401) {
+    } else if (msg.statusCode === 400 || msg.statusCode === 401 || msg.statusCode === 404) {
       status = msg.statusCode;
       message = msg;
     } else if (msg.status) {
       status = msg.status;
+      message = msg.message;
+    } else if(timedOutError){
+      status = msg.http_code;
       message = msg.message;
     }
 

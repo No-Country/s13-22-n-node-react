@@ -12,13 +12,13 @@ const login = [
 ];
 //Si no está logueado muestra const logOff
 const logOff = [
-  { desc: "Inciar Sesión", link: "/team" },
-  { desc: "Crear Cuenta", link: "/" },
+  { desc: "Inciar Sesión", link: "/login" },
+  { desc: "Crear Cuenta", link: "/registro" },
 ];
 
-let userStatus = true;
+let userStatus = false;
 
-export const Header = ({ links }) => {
+export const Header = ({ links, cart, total, setCart, setTotal }) => {
   useEffect(() => {
     const handleClick = (e) => {
       const panel = document.querySelector(".panel");
@@ -69,7 +69,7 @@ export const Header = ({ links }) => {
             </nav>
             <div className="header__icons">
                   {userStatus ? <HeaderLogin settings={login}/> : <HeaderLogin settings={logOff}/>}
-            <CartPaneldrawer/>
+            <CartPaneldrawer cart={cart} total={total} setCart={setCart} setTotal={setTotal} />
           </div>
         </div>
       </header>
