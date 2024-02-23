@@ -17,10 +17,8 @@ function FoodCard({ item, addToCart }) {
                   <p>${price}</p>
               </div>
               <div className='bag-icoon-container'>
-
                   <div className='icon-bgd' onClick={() => {addToCart(item)}}>
                       <img className='cart__icon' src="../../../public/svg/cart.svg" />
-
                   </div>
               </div>
           </div>
