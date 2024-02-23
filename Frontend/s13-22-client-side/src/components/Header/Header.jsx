@@ -18,7 +18,7 @@ const logOff = [
 
 let userStatus = false;
 
-export const Header = ({ links, cart, total }) => {
+export const Header = ({ links, cart, total, setCart, setTotal }) => {
   useEffect(() => {
     const handleClick = (e) => {
       const panel = document.querySelector(".panel");
@@ -69,7 +69,7 @@ export const Header = ({ links, cart, total }) => {
             </nav>
             <div className="header__icons">
                   {userStatus ? <HeaderLogin settings={login}/> : <HeaderLogin settings={logOff}/>}
-            <CartPaneldrawer cart={cart} total={total} />
+            <CartPaneldrawer cart={cart} total={total} setCart={setCart} setTotal={setTotal} />
           </div>
         </div>
       </header>

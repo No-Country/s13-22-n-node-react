@@ -18,7 +18,7 @@ export default function Root() {
   return (
     <>
 
-      <Header links={links} cart={cart} total={total} />
+      <Header links={links} cart={cart} total={total} setCart={setCart} setTotal={setTotal} />
     <main>
       <HeroSection/>
       <Menu cart={cart} setCart={setCart} total={total} setTotal={setTotal} />
