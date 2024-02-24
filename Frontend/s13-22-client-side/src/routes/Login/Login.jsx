@@ -5,10 +5,10 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 import "./Login.css";
-import potato from "../../../public/img/potato.png";
+import potato from "../../../public/img/friesIcon.png";
 import burger from "../../../public/img/burgerIcon.png";
-import cola from "../../../public/img/cola.png";
-import pizza from "../../../public/img/pizza.png";
+import cola from "../../../public/img/sodaIcon.png";
+import pizza from "../../../public/img/pizzaIcon.png";
 // import { GoogleOAuthProvider } from "@react-oauth/google";
 
 export const Login = () => {

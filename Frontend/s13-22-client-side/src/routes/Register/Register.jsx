@@ -4,10 +4,10 @@ import { NavLink as Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 import "./Register.css";
-import potato from "../../../public/img/potato.png";
+import potato from "../../../public/img/friesIcon.png";
 import burger from "../../../public/img/burgerIcon.png";
-import cola from "../../../public/img/cola.png";
-import pizza from "../../../public/img/pizza.png";
+import cola from "../../../public/img/sodaIcon.png";
+import pizza from "../../../public/img/pizzaIcon.png";
 
 export const Register = () => {
   const {

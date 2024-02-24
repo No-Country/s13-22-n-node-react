@@ -31,13 +31,13 @@ const menuData = [
     },
     {
         id: 4,
-        name: "Crab",
-        price: 13.66,
+        name: "Crab Burger",
+        price: 10.00,
         category: "Hamburguesas",
-        img:"img/cangrejo.png",
-        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
+        img:"../../public/img/crabBurger.webp",
+        desc: "Hamburguesa doble especial, con carne Angus, pepinillos y salsa especial de la casa.",
         promo: true,
-        amount: 1,        
+        amount: 1,
     },
     {
         id: 5,
@@ -47,7 +47,7 @@ const menuData = [
         img:"../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false,
-        amount: 1,        
+        amount: 1,
     },
     {
         id: 6,
@@ -57,7 +57,7 @@ const menuData = [
         img:"../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
         promo: false,
-        amount: 1,        
+        amount: 1,
     },
     {
         id: 7,
