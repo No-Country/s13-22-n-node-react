@@ -7,6 +7,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ERole } from '../../common/enum';
 import { EmailService} from '../mailer/mailer.service'
+import { PaginationDto } from 'src/common/dto/pagination.dto';
 
 @Injectable()
 export class UsersService {
@@ -44,11 +45,16 @@ export class UsersService {
     
   }
 
-  async findAll() {
+  async findAll({ limit=20, offset=0 }: PaginationDto) {
+
     const users = await this.userRepository.find({
-      relations: ['orders', 'orders.deliveryId']
+      relations: ['orders', 'orders.deliveryId'],
+      take: limit,
+      skip: offset,
     });
+
     return users;
+
   }
 
   async findOne(id: string) {
