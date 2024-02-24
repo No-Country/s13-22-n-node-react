@@ -5,6 +5,7 @@ import{Product} from './entities/product.entity';
 import {InjectRepository} from '@nestjs/typeorm';
 import {Repository} from 'typeorm';
 import { promises } from 'dns';
+import { PaginationDto } from 'src/common/dto/pagination.dto';
 
 
 
@@ -25,11 +26,15 @@ export class ProductsService {
 
   }
 
-  async findAll() {
+  async findAll({ limit=20, offset=0 }: PaginationDto) {
     
-    const product = await this.ProductoRepository.find();
+    const product = await this.ProductoRepository.find({
+      take:limit,
+      skip:offset
+    });
     
     return product;
+    
   }
 
   async findOne(id: string) {
