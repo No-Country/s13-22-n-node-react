@@ -11,7 +11,7 @@ const HeroSection = () => {
     reset: true,
   });
 
-  sr.reveal(".hero-text", { delay: 200, origin: "top" });
+  sr.reveal(".hero__container", { delay: 200, origin: "bottom" });
   sr.reveal(".hero-img", { delay: 450, origin: "top" });
   sr.reveal(".scroll-down", { delay: 500, origin: "right" });
 
@@ -22,18 +22,24 @@ const HeroSection = () => {
       <section className="hero">
         {promoItem.map((item) => (
           <>
+          <div className="hero__container">
             <div className="hero-text">
               <h1>Promo del Dia</h1>
-              <h5>{item.desc}</h5>
+              <h5>{item.name}</h5>
+              <p>{item.desc}</p>
               <a href="/" className="menu">
                 <img height="16" width="16" src="svg/menu.svg" />
                 Agregar al carrito
               </a>
             </div>
             <div className="hero-img">
+              <div className="img__container">
               <img src={item.img} alt="burguer" />
-              <h4>${item.price}</h4>
+              </div>
+
+              <h4>${item.price.toFixed(2) }</h4>
             </div>
+          </div>
           </>
         ))}
       </section>
