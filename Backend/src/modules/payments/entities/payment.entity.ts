@@ -1,8 +1,9 @@
-import { BaseEntity } from "src/common/entity/base.entity";
-import { PAYMENT_STATE } from "src/common/enum/payment.enum";
 import { Entity, Column, OneToOne, JoinColumn, ManyToOne } from "typeorm";
-import { Order } from "src/modules/orders/entities/order.entity";
-import { User } from "src/modules/users/entities/user.entity";
+
+import { BaseEntity } from "../../../common/entity/base.entity";
+import { PAYMENT_STATE } from "../../../common/enum/payment.enum";
+import { Order } from "../../../modules/orders/entities/order.entity";
+import { User } from "../../../modules/users/entities/user.entity";
 
 @Entity("payments")
 export class Payment extends BaseEntity {

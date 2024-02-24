@@ -12,6 +12,7 @@ import { DeliveryModule } from './modules/delivery/delivery.module';
 import { CloudinaryModule } from './modules/cloudinary/cloudinary.module';
 import { CategoryModule } from './modules/category/category.module';
 import { PaymentsModule } from './modules/payments/payments.module';
+import { SeederModule } from './config/seeds/seed.module';
 
 @Module({
   imports: [
@@ -37,7 +38,8 @@ import { PaymentsModule } from './modules/payments/payments.module';
     MailerModule,
     CloudinaryModule,
     CategoryModule,
-    PaymentsModule
+    PaymentsModule,
+    SeederModule
   ],
   controllers: [],
   providers: [],

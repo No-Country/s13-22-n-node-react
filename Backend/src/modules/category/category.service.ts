@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreatecategoryDto } from './dto/create-category.dto';
 import { UpdatecategoryDto } from './dto/update-category.dto';
 import { Category } from './entities/category.entity';
@@ -35,6 +35,19 @@ export class CategoryService {
   async findOne(id: string) {
 
     const category = await this.CategoryRepository.findOneByOrFail({id});
+
+    if (!category) throw new NotFoundException(`Not found any category with Id ${id}`)
+
+    return category;
+  }
+
+  async findOneByName(name: string): Promise<Category> {
+    const category = await this.CategoryRepository.findOne({
+      where: {name}
+    })
+
+    if (!category) throw new NotFoundException(`Not found any category named ${name}`)
+
     return category;
   }
 
@@ -42,7 +55,7 @@ export class CategoryService {
 
     const category = await this.CategoryRepository.findOneByOrFail({id});
 
-    var mensaje = 'this register no fount';
+    var mensaje = 'this register no found';
 
     if(category != null){
       Object.assign(category, updatecategoryDto)

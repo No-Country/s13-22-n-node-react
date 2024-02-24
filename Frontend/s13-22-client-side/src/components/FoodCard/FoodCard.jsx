@@ -3,7 +3,7 @@ import '../FoodCard/FoodCard.css'
 
 
 // Work in progress :3
-function FoodCard({ item }) {
+function FoodCard({ item, addToCart }) {
     let { name, price, img } = item;
 
     return (
@@ -17,7 +17,7 @@ function FoodCard({ item }) {
                   <p>${price}</p>
               </div>
               <div className='bag-icoon-container'>
-                  <div className='icon-bgd'>
+                  <div className='icon-bgd' onClick={() => {addToCart(item)}}>
                       <img className='cart__icon' src="../../../public/svg/cart.svg" />
                   </div>
               </div>

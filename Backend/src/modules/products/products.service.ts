@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import{Product} from './entities/product.entity';
@@ -6,21 +6,29 @@ import {InjectRepository} from '@nestjs/typeorm';
 import {Repository} from 'typeorm';
 import { promises } from 'dns';
 import { PaginationDto } from 'src/common/dto/pagination.dto';
-
-
-
+import { CategoryService } from '../category/category.service';
+import { Category } from '../category/entities/category.entity';
 
 
 @Injectable()
 export class ProductsService {
 
   constructor(
-    @InjectRepository(Product) private readonly ProductoRepository: Repository<Product>
+    @InjectRepository(Product) private readonly ProductoRepository: Repository<Product>,
+    @Inject('CATEGORY_SERVICE') private readonly categoryService: CategoryService
   ){}
 
-  async create(createProductDto: CreateProductDto): Promise<Product> {
+  async create({categories, ...createProductDto}: CreateProductDto): Promise<Product> {
 
-    const product =this.ProductoRepository.create(createProductDto);
+    const categoriesEntity: Category[] = [];
+
+    for (const category of categories) {
+      const categoryEntity = await this.categoryService.findOneByName(category);
+
+      categoriesEntity.push(categoryEntity);
+    }
+
+    const product =this.ProductoRepository.create({...createProductDto, categories: categoriesEntity});
 
     return await this.ProductoRepository.save(product);
 

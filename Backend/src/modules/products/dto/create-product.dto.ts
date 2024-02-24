@@ -12,7 +12,7 @@ export class CreateProductDto {
 
     @IsNotEmpty()
     @IsArray()
-    categories:Category[]
+    categories:string[]
 
     @IsNotEmpty()
     @IsNumber()
@@ -32,10 +32,11 @@ export class CreateProductDto {
     @MaxLength(100)
     description: string;
 
-    @IsNotEmpty()
+    @IsOptional()
     @IsArray()
-    images: Image[]
+    images?: Image[]
 
+    @IsOptional()
     @IsEnum(PRODUCT_STATE)
-    state: PRODUCT_STATE;
+    state?: PRODUCT_STATE;
 }
