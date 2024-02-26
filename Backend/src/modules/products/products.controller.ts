@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseFilters } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
@@ -9,6 +9,7 @@ import { ERole } from 'src/common/enum';
 import { AllExceptionFilter } from 'src/common/filter/exception.filter';
 
 @ApiTags('Products')
+@ApiBearerAuth()
 @UseFilters(AllExceptionFilter)
 @Controller(`api/${VERSION}/products`)
 export class ProductsController {
