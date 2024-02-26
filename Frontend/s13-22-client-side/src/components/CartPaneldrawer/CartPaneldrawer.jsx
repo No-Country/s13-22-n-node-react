@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Button, Drawer } from 'antd';
 import '../CartPaneldrawer/CartPaneldrawer.css';
+import CartItem from '../CartItem/CartItem';
 
 const CartPaneldrawer = ({ cart, total, setCart, setTotal }) => {
 
@@ -14,7 +15,7 @@ const CartPaneldrawer = ({ cart, total, setCart, setTotal }) => {
 
   // Cart Funcionality: AUN HAY MEJORAS POR HACER, PERO NECESITO MAS INFO POR EL MOMENTO :3
   const removeFromCart = (itemRemove) => {
-    let updatedTotal = parseFloat(total - itemRemove.price);
+    let updatedTotal = parseFloat(total - (itemRemove.price * itemRemove.amount));
     setTotal(updatedTotal);
     let updatedCart = cart.filter(item => item !== itemRemove);
     setCart(updatedCart);
@@ -58,22 +59,7 @@ const CartPaneldrawer = ({ cart, total, setCart, setTotal }) => {
             </div> : (
               cart.map((item) => {
                 return (
-                  <section key={item.id} className='food-info-section'>
-                    <div className='food-info'>
-                      <p className='food-info-name'>{item.name}</p>
-                      <p className='food-info-price'>${item.price}</p>
-                    </div>
-                    <div className='food-info-buttons'>
-                      <div className='amount-div'>
-                        <button onClick={() => addOne(item)}>➕</button>
-                        <p className='amount-info'>{item.amount}</p>
-                        <button onClick={() => removeOne(item)}>➖</button>
-                      </div>
-                      <div className='remove-div'>
-                        <button onClick={() => removeFromCart(item)}>REMOVER</button>
-                      </div>
-                    </div>
-                  </section>
+                  <CartItem key={item.id} item={item} addOne={addOne} removeOne={removeOne} clearCart={clearCart} removeFromCart={removeFromCart} />
                 )
               })
           )
