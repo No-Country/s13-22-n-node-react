@@ -22,12 +22,12 @@ export class Product extends BaseEntity {
     categories: Category[];
 
     @Column({
-        type: "double"
+        type: "double precision",
     })
     price: number;
 
     @Column({
-        type: "double",
+        type: "double precision",
     })
     discount_rate: number;
 
