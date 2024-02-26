@@ -1,5 +1,4 @@
 .food-info-section {
-    /* border: 1px solid red; */
     display: flex;
     margin-bottom: .5em;
     background-color: #F0EFEF;
@@ -9,7 +8,6 @@
 }
 
 .food-info {
-    /* border: 1px solid blue; */
     width: 70%;
 }
 
@@ -22,7 +20,6 @@
 }
 
 .food-info-buttons {
-    /* border: 1px solid green; */
     width: 30%;
 }
 
@@ -34,7 +31,6 @@
 .amount-div button {
     border: 0;
     border-radius: 10px;
-    /* border: 2px solid; */
     background-color: #FFFFFF;
 }
 
