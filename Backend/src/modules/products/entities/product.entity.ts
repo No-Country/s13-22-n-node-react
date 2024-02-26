@@ -21,10 +21,14 @@ export class Product extends BaseEntity {
     })
     categories: Category[];
 
-    @Column()
+    @Column({
+        type: "double"
+    })
     price: number;
 
-    @Column()
+    @Column({
+        type: "double",
+    })
     discount_rate: number;
 
     @Column()
