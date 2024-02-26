@@ -1,7 +1,8 @@
-import{BaseEntity} from "src/common/entity/base.entity";
-import { PRODUCT_STATE } from "src/common/enum/product.enum";
-import { Category } from "src/modules/category/entities/category.entity";
-import{ Column, Entity, JoinTable, ManyToMany}from"typeorm";
+import{ Column, Entity, JoinColumn, JoinTable, ManyToMany}from"typeorm";
+
+import{BaseEntity} from "../../../common/entity/base.entity";
+import { PRODUCT_STATE } from "../../../common/enum/product.enum";
+import { Category } from "../../../modules/category/entities/category.entity";
 import { Image } from "./image.entity";
 
 @Entity("products")
@@ -15,6 +16,9 @@ export class Product extends BaseEntity {
     @JoinTable(
         {name:"product_category"}
     )
+    @JoinColumn({
+        name:"categories",
+    })
     categories: Category[];
 
     @Column()
@@ -35,7 +39,9 @@ export class Product extends BaseEntity {
     )
     images: Image[];
 
-    @Column()
+    @Column({
+        default: PRODUCT_STATE.UNPUBLISHED
+    })
     state: PRODUCT_STATE;
 
 }
