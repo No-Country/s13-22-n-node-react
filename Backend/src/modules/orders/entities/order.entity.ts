@@ -21,7 +21,7 @@ export class Order extends BaseEntity{
     order_number: string
 
     @Column({
-        type: "double",
+        type: "double precision",
     })
     total: number
 
