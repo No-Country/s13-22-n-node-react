@@ -20,7 +20,9 @@ export class Order extends BaseEntity{
     @Column()
     order_number: string
 
-    @Column()
+    @Column({
+        type: "double",
+    })
     total: number
 
     @ManyToMany(()=>Product, {cascade:true} )

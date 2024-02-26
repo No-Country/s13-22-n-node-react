@@ -6,6 +6,7 @@ import dataSourceOptions from "./db/database.seed";
 import { UserSeederModule } from "./User/userSeeder.module";
 import { RoleSeederModule } from "./Role/roleSeeder.module";
 import { CategorySeederModule } from "./Category/categorySeeder.module";
+import { ProductSeederModule } from "./Product/productSeeder.module";
 
 @Module({
     imports: [
@@ -13,6 +14,7 @@ import { CategorySeederModule } from "./Category/categorySeeder.module";
       UserSeederModule,
       RoleSeederModule,
       CategorySeederModule,
+      ProductSeederModule,
     ],
     providers: [
       Logger, 
