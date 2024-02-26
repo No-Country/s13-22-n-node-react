@@ -21,13 +21,11 @@ export class ProductsController {
     return this.productsService.create(createProductDto);
   }
 
-  @Auth(ERole.ADMIN, ERole.CUSTOMER)
   @Get()
   findAll() {
     return this.productsService.findAll();
   }
 
-  @Auth(ERole.ADMIN, ERole.CUSTOMER)
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.productsService.findOne(id);
