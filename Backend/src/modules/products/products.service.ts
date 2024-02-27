@@ -94,8 +94,8 @@ export class ProductsService {
 
     var total_discount;
 
-    if(product.Discount = true){
-      total_discount = (product.price * product.Discount_rate)/100; 
+    if(product.discount = true){
+      total_discount = (product.price * product.discount_rate)/100; 
     }else{
       total_discount= 0;
     }
