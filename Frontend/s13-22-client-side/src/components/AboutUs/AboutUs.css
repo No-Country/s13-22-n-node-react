@@ -1,0 +1,109 @@
+/* .about-us-container {
+    width: 100%;
+} */
+
+.about-us-container {
+    background-size: cover;
+    background-image: url(../../../public/img/About\ Bg.png);
+    display: grid;
+    gap: 0;
+    min-height: 100vh;
+    height: auto;
+    padding: 0 5rem;
+    justify-items: stretch;
+    align-content: space-between;
+  }
+  
+  .subtitle-about-us {
+    text-align: center;
+  }
+  
+  /* section quienes somos */
+  .section-somos {
+    display: flex;
+    column-gap: 0;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .text-container {
+    width: auto;
+    max-width: 365px;
+  }
+  .middle-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35rem;
+    height: 35rem;
+    overflow: hidden;
+  }
+  
+  .gradient-text {
+    font-weight: 600;
+    background: var(--text-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .card-somos {
+    padding: 0.8em;
+    margin-bottom: 8rem;
+    max-width: 47rem;
+    word-wrap: break-word;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .yellow-subtitle {
+    color: var(--main-color);
+  }
+  
+  .paragraph-somos {
+    color: #ffffff;
+    font-size: var(--font-size-regular);
+  }
+  
+  /* logo card */
+  .circular-logo {
+    border: 4px solid var(--main-color);
+    border-radius: 50%;
+    background: var(--Bg-gradient);
+  }
+  
+  
+  .circular-logo img {
+    width: 264px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .about-us-container {
+      display: flex;
+    }
+    .about-us-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .section-somos {
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 2rem;
+      column-gap: 0;
+      flex-direction: column;
+    }
+    .middle-section {
+      width: 28rem;
+      height: 28rem;
+    }
+    .circular-logo {
+      width: 25rem;
+      height: 25rem;
+    }
+    .circular-logo img {
+      width: 264px;
+    }
+    .text-container {
+      width: 100%;
+    }
+  }
