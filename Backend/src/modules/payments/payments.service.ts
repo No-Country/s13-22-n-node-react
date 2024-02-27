@@ -8,6 +8,7 @@ import { User } from "../users/entities/user.entity";
 import { Repository } from "typeorm";
 import { Product } from "../products/entities/product.entity";
 import { Payment } from "./entities/payment.entity";
+import { Order } from "../orders/entities/order.entity";
 
 ConfigModule.forRoot({
   envFilePath: [".env"],
@@ -20,10 +21,12 @@ export class PaymentsService {
     @InjectRepository(Payment) private readonly paymentRepository: Repository<Payment>,
     @InjectRepository(User) private readonly userRepository: Repository<User>,
     @InjectRepository(Product)
-    private readonly productRepository: Repository<Product>
+    private readonly productRepository: Repository<Product>,
+    @InjectRepository(Order) private readonly orderRepository: Repository<Order>
   ) {}
 
   async create(createPaymentDto: CreatePaymentDto) {
+    console.log(createPaymentDto)
     const accessToken = process.env.ACCESS_TOKEN;
     const client = new MercadoPagoConfig({ accessToken });
     const preference = new Preference(client);
@@ -38,7 +41,7 @@ export class PaymentsService {
         id: product.id,
         currency_id: "ARS",
         title: product.product_name,
-        picture_url: product.images[0].url,
+        picture_url: product.images[0]?.url,
         description: product.description,
         quantity: itemDto.item_quantity,
         unit_price: unitPrice,
@@ -51,7 +54,7 @@ export class PaymentsService {
       name: user[0].name + " " + user[0].last_name,
       email: user[0].email,
     };
-
+    
     const result = await preference.create({
       body: {
         items,
@@ -76,7 +79,9 @@ export class PaymentsService {
   }
 
   findAll() {
-    return this.paymentRepository.find()
+    return this.paymentRepository.find({
+      relations: ["userId", "orderId", "orderId.deliveryId"],
+    })
   }
 
   findOne(id: number) {

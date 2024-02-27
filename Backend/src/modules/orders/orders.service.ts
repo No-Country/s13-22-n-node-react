@@ -7,6 +7,7 @@ import { Order } from "./entities/order.entity";
 import { User } from "../users/entities/user.entity";
 import { DeliveryService } from "../delivery/delivery.service";
 import { Product } from "../products/entities/product.entity";
+import { Payment } from "../payments/entities/payment.entity";
 
 @Injectable()
 export class OrdersService {
@@ -16,7 +17,9 @@ export class OrdersService {
     @InjectRepository(User) private readonly userRepository: Repository<User>,
     private readonly deliveryService: DeliveryService,
     @InjectRepository(Product)
-    private readonly productRepository: Repository<Product>
+    private readonly productRepository: Repository<Product>,
+    @InjectRepository(Payment)
+    private readonly paymentRepository: Repository<Payment>
   ) {}
 
   async create(createOrderDto: CreateOrderDto) {
@@ -26,8 +29,7 @@ export class OrdersService {
     createOrderDto.items.map(async (item) => {
       const id = item.productId;
       const itemfull = await this.productRepository.findOneBy({ id });
-      items.push(itemfull)
-      console.log(itemfull)
+      items.push(itemfull);
     });
     if (!user) throw new Error("Usuario no Encontrado, por favor registrese");
     const order = new Order();
@@ -36,7 +38,17 @@ export class OrdersService {
     order.order_number = createOrderDto.order_number;
     order.total = createOrderDto.amount;
     order.deliveryId = await this.deliveryService.create(order.id);
+    await this.orderRepository.save(order);
+    
+    const payment = new Payment();
+    payment.payer_name = user.name + " " + user.last_name;
+    payment.quantity = items.length;
+    payment.amount = order.total;
+    payment.userId = user;
+    payment.orderId = order;
 
+    await this.paymentRepository.save(payment);
+    order.paymentId = payment.id;
     await this.orderRepository.save(order);
 
     return {
@@ -47,7 +59,7 @@ export class OrdersService {
 
   async findAll() {
     const orders = await this.orderRepository.find({
-      relations: ["userId", "deliveryId"],
+      relations: ["userId", "deliveryId", "paymentId"],
     });
     return orders;
   }

@@ -1,9 +1,12 @@
 import { Type } from 'class-transformer';
-import { IsArray, IsNotEmpty, IsNumber, IsString, IsUUID, ValidateNested } from 'class-validator';
+import { IsArray, IsNotEmpty, IsNumber, IsString, IsUUID, ValidateNested, isNotEmpty } from 'class-validator';
 
 class ProductDto {
     @IsNotEmpty()
     productId: string;
+    @IsNotEmpty()
+    item_quantity: number
+
   }
 
 export class CreateOrderDto {

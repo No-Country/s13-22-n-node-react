@@ -24,7 +24,7 @@ const dataSourceOptions: DataSourceOptions = {
         host: process.env.DB_HOST,
         port: +process.env.DB_PORT,
         entities: [User, Role, Order, Product, Category, Delivery, Image, Payment],
-        ssl: true,
+        //ssl: true,
         synchronize: true,
 }
 

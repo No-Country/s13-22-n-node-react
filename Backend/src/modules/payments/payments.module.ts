@@ -12,7 +12,7 @@ import { Payment } from './entities/payment.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Order, Delivery, User, Product, Payment]),
+    TypeOrmModule.forFeature([Order, Delivery, User, Product, Payment, User]),
     OrdersModule
   ],
   controllers: [PaymentsController],

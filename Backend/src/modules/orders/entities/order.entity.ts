@@ -25,7 +25,7 @@ export class Order extends BaseEntity{
     })
     total: number
 
-    @ManyToMany(()=>Product, {cascade:true} )
+    @ManyToMany(()=>Product, {cascade:true, eager:true}  )
     @JoinTable(
         {name:"product_orders"}
     )
@@ -36,7 +36,8 @@ export class Order extends BaseEntity{
     userId: User
 
     @OneToOne(() => Payment, (payment) => payment.orderId)
-    paymentId: Payment;
+    @JoinColumn( {name: "payment_id"})
+    paymentId: string;
 
     @OneToOne(()=> Delivery, (delivery => delivery.order))
     @JoinColumn({name: "delivery_id"})

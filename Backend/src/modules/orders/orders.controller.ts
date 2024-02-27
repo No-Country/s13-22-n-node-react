@@ -11,7 +11,7 @@ import { ERole } from '../../common/enum';
 @ApiTags("Orders")
 @ApiBearerAuth()
 @UseFilters(AllExceptionFilter)
-@Auth(ERole.CUSTOMER, ERole.ADMIN)
+//@Auth(ERole.CUSTOMER, ERole.ADMIN)
 @Controller(`api/${VERSION}/orders`)
 export class OrdersController {
   constructor(private readonly ordersService: OrdersService) {}

@@ -46,7 +46,7 @@ export class UsersService {
 
   async findAll() {
     const users = await this.userRepository.find({
-      relations: ['orders', 'orders.deliveryId']
+      relations: ['orders', 'orders.deliveryId', 'payments']
     });
     return users;
   }

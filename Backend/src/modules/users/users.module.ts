@@ -4,11 +4,14 @@ import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
 import { User } from './entities/user.entity';
 import { EmailService } from '../mailer/mailer.service';
-import { MailerModule } from '../mailer/mailer.module';
+import { Order } from '../orders/entities/order.entity';
+import { Payment } from '../payments/entities/payment.entity';
+import { Delivery } from '../delivery/entities/delivery.entity';
+
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([User]),
+    TypeOrmModule.forFeature([User, Order, Payment, Delivery]),
   ],
   controllers: [UsersController],
   providers: [

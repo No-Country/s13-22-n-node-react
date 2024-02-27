@@ -3,9 +3,11 @@ import { IsArray, ValidateNested, IsNotEmpty, IsNumber, IsString, IsJSON } from 
 
 class ProductDto {
     @IsNotEmpty()
+    @IsString()
     productId: string
 
     @IsNotEmpty()
+    @IsNumber()
     item_quantity: number
   }
 

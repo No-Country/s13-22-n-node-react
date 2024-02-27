@@ -8,7 +8,7 @@ import { User } from "../../../modules/users/entities/user.entity";
 @Entity("payments")
 export class Payment extends BaseEntity {
 
-    @Column({default: "USD"})
+    @Column({default: "ARS"})
     current: string
 
     @Column()
@@ -22,11 +22,11 @@ export class Payment extends BaseEntity {
 
     @ManyToOne(() => User, (user => user.payments))
     @JoinColumn({name: "user_id"})
-    userId: string
+    userId: User
 
     @OneToOne(()=> Order, (order => order.paymentId))
-    @JoinColumn({name: "delivery_id"})
-    orderId: string
+    @JoinColumn({name: "order_id"})
+    orderId: Order
 
     @Column({
         type: "enum",

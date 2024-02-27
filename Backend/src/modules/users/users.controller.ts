@@ -21,7 +21,7 @@ export class UsersController {
     return this.usersService.create(createUserDto);
   }
   
-  @Auth(ERole.ADMIN, ERole.CUSTOMER)
+  //@Auth(ERole.ADMIN, ERole.CUSTOMER)
   @Get()
   findAll() {
     return this.usersService.findAll();

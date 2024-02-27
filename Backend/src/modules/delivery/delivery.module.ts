@@ -8,10 +8,11 @@ import { Order } from '../orders/entities/order.entity';
 import { User } from '../users/entities/user.entity';
 import { OrdersModule } from '../orders/orders.module';
 import { Product } from '../products/entities/product.entity';
+import { Payment } from '../payments/entities/payment.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Order, Delivery, User, Product]),
+    TypeOrmModule.forFeature([Order, Delivery, User, Product, Payment]),
     OrdersModule
   ],
   controllers: [DeliveryController],
