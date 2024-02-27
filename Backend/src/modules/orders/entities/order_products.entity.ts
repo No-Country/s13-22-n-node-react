@@ -1,10 +1,9 @@
 import { Product } from "src/modules/products/entities/product.entity";
-import { BaseEntity, Column, Entity, Int32, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne } from "typeorm";
 import { Order } from "./order.entity";
-import { join } from "path";
+import { BaseEntity } from "../../../common/entity/base.entity";
 
 @Entity("orders_product")
-
 export class OrderProductEntity extends BaseEntity{
     
     @ManyToOne(()=>Product,(product)=> product.order,{eager:true, cascade:true} )

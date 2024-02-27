@@ -49,7 +49,7 @@ export class Product extends BaseEntity {
     })
     state: PRODUCT_STATE;
 
-    @ManyToOne(()=>OrderProductEntity,(order)=>order.product,{eager:true, cascade:true} )
+    @ManyToOne(()=>OrderProductEntity,(order)=>order.product)
     order: OrderProductEntity[];
 
 }
