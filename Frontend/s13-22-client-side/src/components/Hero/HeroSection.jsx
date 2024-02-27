@@ -31,6 +31,7 @@ const HeroSection = () => {
                 <img height="16" width="16" src="svg/menu.svg" />
                 Agregar al carrito
               </a>
+
             </div>
             <div className="hero-img">
               <div className="img__container">
