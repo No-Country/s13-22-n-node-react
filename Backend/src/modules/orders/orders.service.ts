@@ -7,7 +7,6 @@ import { Order } from './entities/order.entity';
 import { User } from '../users/entities/user.entity';
 import { DeliveryService } from '../delivery/delivery.service';
 import { OrderProductService } from './orderProducts.service';
-import { NOTFOUND } from 'dns';
 import { ProductsService } from '../products/products.service';
 
 @Injectable()
@@ -17,8 +16,8 @@ export class OrdersService {
     private readonly orderRepository: Repository<Order>,
     @InjectRepository(User) private readonly userRepository: Repository<User>,
     private readonly deliveryService: DeliveryService,
-    private readonly orderProductService: OrderProductService,
-    private readonly productService: ProductsService,  
+    @Inject('ORDER_PRODUCT_SERVICE') private readonly orderProductService: OrderProductService,
+    @Inject('PRODUCT_SERVICE') private readonly productService: ProductsService,  
     ) {}
 
   async create(createOrderDto: CreateOrderDto) {

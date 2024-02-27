@@ -36,6 +36,6 @@ export class Order extends BaseEntity{
     @JoinColumn({name: "delivery_id"})
     deliveryId: Delivery
 
-    @OneToMany(()=>OrderProductEntity, (order_products)=> order_products.order_id, {eager:true, cascade:true})
+    @OneToMany(()=>OrderProductEntity, (order_products)=> order_products.order_id)
     items:OrderProductEntity[]
 }
