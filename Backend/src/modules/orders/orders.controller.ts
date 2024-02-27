@@ -8,16 +8,21 @@ import { AllExceptionFilter } from '../../common/filter/exception.filter';
 import { Auth } from '../../common/decorators/auth.decorator';
 import { ERole } from '../../common/enum';
 
+
+
 @ApiTags("Orders")
 @ApiBearerAuth()
 @UseFilters(AllExceptionFilter)
 @Auth(ERole.CUSTOMER, ERole.ADMIN)
 @Controller(`api/${VERSION}/orders`)
 export class OrdersController {
-  constructor(private readonly ordersService: OrdersService) {}
+  constructor(
+    private readonly ordersService: OrdersService,
+    ) {}
 
   @Post()
-  create(@Body() createOrderDto: CreateOrderDto) {
+  async create(@Body() createOrderDto: CreateOrderDto) {
+
     return this.ordersService.create(createOrderDto);
   }
 
