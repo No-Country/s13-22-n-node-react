@@ -1,0 +1,44 @@
+/* Section de total al fondo del cart */
+.total-section {
+    text-align: center;
+}
+
+.total-div {
+    width: 100%;
+}
+
+.total-cart {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.total-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total-buttons button {
+    width: 48%;
+    font-size: large;
+    padding: .2em;
+    border-radius: 5px;
+    border: 2px solid;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/* Cart vacio mensaje */
+.empty-cart-msg {
+    height: 100px;
+    background-color: #F0EFEF;
+    font-weight: 600;
+    margin: auto;
+    color: red;
+    text-decoration: underline;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}

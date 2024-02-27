@@ -1,8 +1,9 @@
-import { BaseEntity } from "src/common/entity/base.entity";
-import { Role } from "src/modules/auth/entities/role.entity";
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from "typeorm";
-import { Order } from "src/modules/orders/entities/order.entity";
-import { Payment } from "src/modules/payments/entities/payment.entity";
+
+import { BaseEntity } from "../../../common/entity/base.entity";
+import { Role } from "../../../modules/auth/entities/role.entity";
+import { Order } from "../../../modules/orders/entities/order.entity";
+import { Payment } from "../../../modules/payments/entities/payment.entity";
 
 @Entity("users")
 export class User extends BaseEntity {

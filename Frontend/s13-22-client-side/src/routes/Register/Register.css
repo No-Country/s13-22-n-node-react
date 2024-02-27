@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+.body-of-page {
+  width: 100vw;
+  height: 100vh;
+}
+
+.burger {
+  width: 180px;
+  margin-left: 30px;
+  margin-top: 50px;
+  animation-delay: 0.4s;
+}
+
+.pizza {
+  width: 270px;
+  margin-left: 60px;
+  margin-top: 10px;
+  animation-delay: 0.1s;
+}
+
+.potato {
+  width: 220px;
+  margin-left: 60px;
+  margin-bottom: 100px;
+  animation-delay: 0.3s;
+}
+
+.cola {
+  margin-left: 60px;
+  margin-bottom: 100px;
+  animation-delay: 0.5s;
+}
+
+h2 {
+  text-align: center;
+  color: #ffe500;
+  font-weight: 600;
+  size: 35px;
+}
+
+.body-register {
+  width: 100%;
+  height: 100dvh;
+  background: var(--Bg-gradient);
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+}
+
+.register-container {
+  margin: 5% 0 5% 0;
+  width: 515px;
+  justify-content: center;
+  background-color: #380869;
+  font-family: "Montserrat", sans-serif;
+  border-width: 3px;
+  border-radius: 20px;
+}
+
+.label-register {
+  margin: 0 5% 0 5%;
+  width: 90%;
+  color: #f5f5f5;
+  font-weight: 300;
+  size: 20px;
+  line-height: 32.91px;
+  font-size: 15px;
+}
+
+.text-imput {
+  margin: 0 5% 0 5%;
+  width: 88.6%;
+  height: 40px;
+}
+
+.botton-sesion {
+  margin: 0 5% 0 5%;
+  width: 90%;
+  height: 66px;
+  top: 424px;
+  margin-bottom: 10px;
+  background-color: #121212;
+  border-radius: 6px;
+  color: #ffe500;
+  border-color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.botton-google {
+  margin: 0 5% 0 5%;
+  width: 90%;
+  height: 40px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: #ffffff;
+  border-radius: 6px;
+  color: #121212;
+  border-color: #ffffff;
+}
+
+.text-for-cuenta {
+  color: #f5f5f5;
+}
+
+.cuenta-button {
+  color: #ffe500;
+  text-decoration: none;
+}
+
+.link-regisro {
+  text-align: center;
+}
+
+.error-notification {
+  padding-left: 5%;
+  color: var(--error-color);
+  font-weight: 600;
+  margin: 5px;
+}
+
+@media screen and (max-width: 1170px) {
+  .body-register {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imagenes-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .register-container {
+    width: 80%;
+    justify-content: center;
+    background-color: #380869;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 20px;
+  }
+
+  .label-register {
+    margin: 0 10% 0 10%;
+    width: 80%;
+    color: #f5f5f5;
+    font-weight: 300;
+    size: 27px;
+    line-height: 32.91px;
+  }
+
+  .text-imput {
+    margin: 0 10% 0 10%;
+    width: 78.6%;
+    height: 40px;
+  }
+
+  .botton-cuenta {
+    margin: 0 10% 0 10%;
+    width: 79%;
+    height: 66px;
+    top: 424px;
+    margin-bottom: 10px;
+    background-color: #121212;
+    border-radius: 6px;
+    color: #ffe500;
+    border-color: #ffffff;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .botton-google {
+    margin: 0 10% 0 10%;
+    width: 80%;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #ffffff;
+    border-radius: 6px;
+    color: #121212;
+    border-color: #ffffff;
+  }
+
+  .error-notification {
+    padding-left: 10%;
+    color: red;
+    font-weight: 600;
+    margin: 5px;
+  }
+}
+
+
+.loader {
+  width: 64px;
+  height: 64px;
+  position: relative;
+  background: #FFF;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  transform: rotate(45deg) translate(30%, 40%);
+  background: #933c3c;
+  box-shadow: 32px -34px 0 5px #650a0a;
+  animation: slide 2s infinite ease-in-out alternate;
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #650a0a;
+  transform: rotate(0deg);
+  transform-origin: 35px 145px;
+  animation: rotate 2s infinite ease-in-out;
+}
+
+@keyframes slide {
+  0% , 100% {
+    bottom: -35px
+  }
+
+  25% , 75% {
+    bottom: -2px
+  }
+
+  20% , 80% {
+    bottom: 2px
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-15deg)
+  }
+
+  25% , 75% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(25deg)
+  }
+}

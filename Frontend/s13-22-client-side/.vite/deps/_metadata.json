@@ -1,4 +1,28 @@
 {
+<<<<<<< HEAD
+  "hash": "99efaba8",
+  "configHash": "509246e9",
+  "lockfileHash": "5c833929",
+  "browserHash": "f1a670a4",
+  "optimized": {
+    "scrollreveal": {
+      "src": "../../node_modules/scrollreveal/dist/scrollreveal.es.js",
+      "file": "scrollreveal.js",
+      "fileHash": "66fc9b9d",
+      "needsInterop": false
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "109410fe",
+      "needsInterop": true
+    },
+    "react-hook-form": {
+      "src": "../../node_modules/react-hook-form/dist/index.esm.mjs",
+      "file": "react-hook-form.js",
+      "fileHash": "9752159d",
+      "needsInterop": false
+=======
   "hash": "951a3ef9",
   "configHash": "6fd2490b",
   "lockfileHash": "e3b0c442",
@@ -15,20 +39,45 @@
       "file": "react-dom_client.js",
       "fileHash": "7dda0269",
       "needsInterop": true
+>>>>>>> parent of 32df1a6... Se crea panel dropdown para loginIcon
     },
     "react-router-dom": {
       "src": "../../node_modules/react-router-dom/dist/index.js",
       "file": "react-router-dom.js",
+<<<<<<< HEAD
+      "fileHash": "d460f247",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "4ad8b223",
+      "needsInterop": false
+    },
+    "js-cookie": {
+      "src": "../../node_modules/js-cookie/dist/js.cookie.mjs",
+      "file": "js-cookie.js",
+      "fileHash": "74891b78",
+=======
       "fileHash": "cc70bc1d",
+>>>>>>> parent of 32df1a6... Se crea panel dropdown para loginIcon
       "needsInterop": false
     }
   },
   "chunks": {
+<<<<<<< HEAD
+    "chunk-FQO5W7GE": {
+      "file": "chunk-FQO5W7GE.js"
+    },
+    "chunk-ZS7NZCD4": {
+      "file": "chunk-ZS7NZCD4.js"
+=======
     "chunk-UWZXFKA6": {
       "file": "chunk-UWZXFKA6.js"
     },
     "chunk-UPDK7Z2H": {
       "file": "chunk-UPDK7Z2H.js"
+>>>>>>> parent of 32df1a6... Se crea panel dropdown para loginIcon
     }
   }
 }

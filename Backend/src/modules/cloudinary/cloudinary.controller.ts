@@ -9,7 +9,6 @@ import { AllExceptionFilter } from 'src/common/filter/exception.filter';
 import { FilesValidationPipe } from 'src/common/pipes/files.pipe';
 
 @ApiTags('Upload')
-@Auth(ERole.CUSTOMER, ERole.ADMIN)
 @UseFilters(AllExceptionFilter)
 @Controller(`api/${VERSION}/upload`)
 export class CloudinaryController {

@@ -3,10 +3,13 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./app";
 import "./index.css";
-import "./reset.css"
+import "./reset.css";
 import ErrorPage from "./error-page.jsx";
 import { Team } from "./routes/Team/Team.jsx";
-import {AllProducts} from "./routes/AllProducts/AllProducts.jsx";
+import { AllProducts } from "./routes/AllProducts/AllProducts.jsx";
+import { Register } from "./routes/Register/Register.jsx";
+import { Login } from "./routes/Login/Login.jsx";
+import { AddProduct } from "./components/AddProduct/AddProduct.jsx";
 
 
 
@@ -15,7 +18,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <ErrorPage/>,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/team",
@@ -23,8 +26,23 @@ const router = createBrowserRouter([
   },
   {
     path: "/productos",
-    element: <AllProducts/>,
-  }
+    element: <AllProducts />,
+  },
+
+  {
+    path: "/registro",
+    element: <Register />,
+  },
+
+  {
+    path: "/login",
+    element: <Login />,
+  },
+
+  {
+    path: "/add",
+    element: <AddProduct />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

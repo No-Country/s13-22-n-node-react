@@ -6,7 +6,8 @@ const menuData = [
         category: "Hamburguesas",
         img:"../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 2,
@@ -15,7 +16,8 @@ const menuData = [
         category: "Hamburguesas",
         img:"../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: true
+        promo: false,
+        amount: 1,
     },
     {
         id: 3,
@@ -24,16 +26,18 @@ const menuData = [
         category: "Hamburguesas",
         img:"../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 4,
-        name: "Vegan",
-        price: 13.66,
+        name: "Crab Burger",
+        price: 10.00,
         category: "Hamburguesas",
-        img:"../../public/img/hamburguerPic.png",
-        desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        img:"../../public/img/crabBurger.webp",
+        desc: "Hamburguesa doble especial, con carne Angus, pepinillos y salsa especial de la casa.",
+        promo: true,
+        amount: 1,
     },
     {
         id: 5,
@@ -42,7 +46,8 @@ const menuData = [
         category: "Hamburguesas",
         img:"../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 6,
@@ -51,7 +56,8 @@ const menuData = [
         category: "Hamburguesas",
         img:"../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 7,
@@ -60,7 +66,8 @@ const menuData = [
         category: "Hamburguesas",
         img:"../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 8,
@@ -69,7 +76,8 @@ const menuData = [
         category: "Hamburguesas",
         img:"../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 9,
@@ -78,7 +86,8 @@ const menuData = [
         category: "Pizza",
         img:"../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 10,
@@ -87,7 +96,8 @@ const menuData = [
         category: "Pizza",
         img:"../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 11,
@@ -96,7 +106,8 @@ const menuData = [
         category: "Pizza",
         img:"../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 12,
@@ -105,7 +116,8 @@ const menuData = [
         category: "Pizza",
         img:"../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 13,
@@ -114,7 +126,8 @@ const menuData = [
         category: "Pizza",
         img:"../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 14,
@@ -123,7 +136,8 @@ const menuData = [
         category: "Pizza",
         img:"../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 15,
@@ -132,7 +146,8 @@ const menuData = [
         category: "Pollo",
         img:"../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 16,
@@ -141,7 +156,8 @@ const menuData = [
         category: "Pollo",
         img:"../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 17,
@@ -150,7 +166,8 @@ const menuData = [
         category: "Pollo",
         img: "../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 18,
@@ -159,7 +176,8 @@ const menuData = [
         category: "Pollo",
         img: "../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 19,
@@ -168,7 +186,8 @@ const menuData = [
         category: "Pollo",
         img: "../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 20,
@@ -177,7 +196,8 @@ const menuData = [
         category: "Pollo",
         img: "../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 21,
@@ -186,7 +206,8 @@ const menuData = [
         category: "Complementos",
         img: "../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 22,
@@ -195,7 +216,8 @@ const menuData = [
         category: "Complementos",
         img: "../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 23,
@@ -204,7 +226,8 @@ const menuData = [
         category: "Complementos",
         img: "../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 24,
@@ -213,7 +236,8 @@ const menuData = [
         category: "Complementos",
         img: "../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 25,
@@ -222,7 +246,8 @@ const menuData = [
         category: "Complementos",
         img: "../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
     {
         id: 26,
@@ -231,7 +256,8 @@ const menuData = [
         category: "Complementos",
         img: "../../public/img/hamburguerPic.png",
         desc: "Hamburguesa doble especial, con carne Angus y salsa especial de la casa.",
-        promo: false
+        promo: false,
+        amount: 1,
     },
 ];
 
