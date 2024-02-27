@@ -44,7 +44,7 @@ const HeroSection = () => {
         ))}
       </section>
       <div className="scroll-down">
-        <a href="#about">
+        <a href="#Hamburguesas">
           <img src="svg/ArrowDown.svg" alt="down-arrow" />
         </a>
       </div>
