@@ -38,7 +38,7 @@ export const Register = () => {
       setTokenInCookie(token);
 
       // Redirige al dashboard después del login exitoso
-      navigate("/welcome");
+      navigate("/login");
     } catch (error) {
       console.error("Error en la solicitud:", error.message);
 
