@@ -1,5 +1,4 @@
 import{ Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne}from"typeorm";
-
 import{BaseEntity} from "../../../common/entity/base.entity";
 import { PRODUCT_STATE } from "../../../common/enum/product.enum";
 import { Category } from "../../../modules/category/entities/category.entity";
