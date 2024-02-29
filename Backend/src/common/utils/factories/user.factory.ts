@@ -18,4 +18,12 @@ export const users: CreateUserDto[] = [
     phone: "555555",
     role: ERole.SUPERADMIN,
   },
+  {
+    name: "Deivis",
+    last_name: "Jimenez",
+    email: "deivis@admin.com",
+    password: "Abcd1234",
+    phone: "555555",
+    role: ERole.SUPERADMIN,
+  },
 ];

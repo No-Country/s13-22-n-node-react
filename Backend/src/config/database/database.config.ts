@@ -8,7 +8,6 @@ import { Order } from '../../modules/orders/entities/order.entity';
 import { Category } from '../../modules/category/entities/category.entity';
 import { Product } from '../../modules/products/entities/product.entity';
 import { User } from '../../modules/users/entities/user.entity';
-import { Image } from '../../modules/products/entities/image.entity';
 import { Payment } from '../../modules/payments/entities/payment.entity';
 import { OrderProductEntity } from '../../modules/orders/entities/order_products.entity';
 
@@ -24,9 +23,7 @@ const dataSourceOptions: DataSourceOptions = {
         password: process.env.DB_PASS,
         host: process.env.DB_HOST,
         port: +process.env.DB_PORT,
-        entities: [User, Role, Order, Product, Category, Delivery, Image, Payment, OrderProductEntity],
-        ssl: true,
-        synchronize: true,
+        entities: [User, Role, Order, Product, Category, Delivery, Payment, OrderProductEntity],
 }
 
 export default dataSourceOptions as TypeOrmModuleOptions

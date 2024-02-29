@@ -1,10 +1,10 @@
-import { BaseEntity } from "src/common/entity/base.entity";
-import { ORDER_STATE } from "src/common/enum/order.enum";
-import { Delivery } from "src/modules/delivery/entities/delivery.entity";
-import { Product } from "src/modules/products/entities/product.entity";
-import { User } from "src/modules/users/entities/user.entity";
-import { Entity, Column, OneToOne, JoinColumn, ManyToOne, OneToMany, ManyToMany, JoinTable } from "typeorm";
+import { Entity, Column, OneToOne, JoinColumn, ManyToOne, OneToMany } from "typeorm";
+
 import { OrderProductEntity} from "./order_products.entity";
+import { BaseEntity } from "../../../common/entity/base.entity";
+import { ORDER_STATE } from "../../../common/enum/order.enum";
+import { Delivery } from "../../../modules/delivery/entities/delivery.entity";
+import { User } from "../../../modules/users/entities/user.entity";
 import { Payment } from "../../../modules/payments/entities/payment.entity";
 
 @Entity("orders")
