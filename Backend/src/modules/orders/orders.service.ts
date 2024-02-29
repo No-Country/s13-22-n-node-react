@@ -1,12 +1,13 @@
-import { Injectable } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
-import { CreateOrderDto } from "./dto/create-order.dto";
-import { UpdateOrderDto } from "./dto/update-order.dto";
-import { Order } from "./entities/order.entity";
-import { User } from "../users/entities/user.entity";
-import { DeliveryService } from "../delivery/delivery.service";
-import { Product } from "../products/entities/product.entity";
+import { Inject, Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { CreateOrderDto } from './dto/create-order.dto';
+import { UpdateOrderDto } from './dto/update-order.dto';
+import { Order } from './entities/order.entity';
+import { User } from '../users/entities/user.entity';
+import { DeliveryService } from '../delivery/delivery.service';
+import { OrderProductService } from './orderProducts.service';
+import { ProductsService } from '../products/products.service';
 import { PaginationDto } from "src/common/dto/pagination.dto";
 
 @Injectable()
@@ -16,28 +17,27 @@ export class OrdersService {
     private readonly orderRepository: Repository<Order>,
     @InjectRepository(User) private readonly userRepository: Repository<User>,
     private readonly deliveryService: DeliveryService,
-    @InjectRepository(Product)
-    private readonly productRepository: Repository<Product>
-  ) {}
+    @Inject('ORDER_PRODUCT_SERVICE') private readonly orderProductService: OrderProductService,
+    @Inject('PRODUCT_SERVICE') private readonly productService: ProductsService,  
+    ) {}
 
   async create(createOrderDto: CreateOrderDto) {
-    const id = createOrderDto.user_id;
-    const user = await this.userRepository.findOneBy({ id });
-    let items = [];
-    createOrderDto.items.map(async (item) => {
-      const id = item.productId;
-      const itemfull = await this.productRepository.findOneBy({ id });
-      items.push(itemfull)
-      console.log(itemfull)
-    });
-    if (!user) throw new Error("Usuario no Encontrado, por favor registrese");
-    const order = new Order();
-    order.userId = user;
-    order.items = items;
-    order.order_number = createOrderDto.order_number;
-    order.total = createOrderDto.amount;
-    order.deliveryId = await this.deliveryService.create(order.id);
+    
+    const user = await this.userRepository.findOneBy({ id:createOrderDto.userId});
 
+    if (!user) throw new NotFoundException('Usuario no Encontrado, por favor registrese');
+    
+    const order =  this.orderRepository.create({...createOrderDto, userId:user, items:[]});
+    let items= [];
+    for (const item of createOrderDto.items) {
+      const product = await this.productService.findOne(item.product)
+      items.push({...item, product, order}) 
+    
+    }
+    
+    await this.orderProductService.create(items);
+    //order.deliveryId = await this.deliveryService.create(order.id)
+     
     await this.orderRepository.save(order);
 
     return {

@@ -4,11 +4,9 @@ import { UpdateProductDto } from './dto/update-product.dto';
 import{Product} from './entities/product.entity';
 import {InjectRepository} from '@nestjs/typeorm';
 import {Repository} from 'typeorm';
-import { promises } from 'dns';
 import { PaginationDto } from 'src/common/dto/pagination.dto';
 import { CategoryService } from '../category/category.service';
 import { Category } from '../category/entities/category.entity';
-
 
 @Injectable()
 export class ProductsService {
@@ -95,4 +93,23 @@ export class ProductsService {
    
   }
 
+  async valordiscount(id: string){
+
+    const product = await this.ProductoRepository.findOneByOrFail({id});
+
+    var total_discount;
+
+    if(product.discount = true){
+      total_discount = (product.price * product.discount_rate)/100; 
+    }else{
+      total_discount= 0;
+    }
+    
+    return Number(total_discount);
+    
+
+  }  
+
 }
+
+

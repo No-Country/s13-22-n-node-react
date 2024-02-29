@@ -1,14 +1,15 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseFilters, Query } from '@nestjs/common';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { CategoryService } from './category.service';
 import { CreatecategoryDto } from './dto/create-category.dto';
 import { UpdatecategoryDto } from './dto/update-category.dto';
-import { ApiTags } from '@nestjs/swagger';
-import { AllExceptionFilter } from 'src/common/filter/exception.filter';
-import { VERSION } from 'src/common/constants';
-import { ERole } from 'src/common/enum';
-import { Auth } from 'src/common/decorators/auth.decorator';
+import { AllExceptionFilter } from '../../common/filter/exception.filter';
+import { VERSION } from '../../common/constants';
+import { ERole } from '../../common/enum';
+import { Auth } from '../../common/decorators/auth.decorator';
 
 @ApiTags('Category')
+@ApiBearerAuth()
 @UseFilters(AllExceptionFilter)
 @Controller(`api/${VERSION}/category`)
 @Controller('category')

@@ -26,4 +26,4 @@ function FoodCard({ item, addToCart }) {
   )
 }
 
-export default FoodCard
+export default FoodCard;

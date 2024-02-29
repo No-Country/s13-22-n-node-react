@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseFilters, Query } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
@@ -9,6 +9,7 @@ import { ERole } from 'src/common/enum';
 import { AllExceptionFilter } from 'src/common/filter/exception.filter';
 
 @ApiTags('Products')
+@ApiBearerAuth()
 @UseFilters(AllExceptionFilter)
 @Controller(`api/${VERSION}/products`)
 export class ProductsController {
@@ -20,13 +21,11 @@ export class ProductsController {
     return this.productsService.create(createProductDto);
   }
 
-  @Auth(ERole.ADMIN, ERole.CUSTOMER)
   @Get()
   findAll(@Query('limit') limit: number, @Query('offset') offset: number) {
     return this.productsService.findAll({ limit, offset });
   }
 
-  @Auth(ERole.ADMIN, ERole.CUSTOMER)
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.productsService.findOne(id);
