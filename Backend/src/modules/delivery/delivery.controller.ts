@@ -1,5 +1,5 @@
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { Controller, Get, Body, Patch, Param, Delete, UseFilters } from '@nestjs/common';
+import { Controller, Get, Body, Patch, Param, Delete, UseFilters, Query } from '@nestjs/common';
 import { DeliveryService } from './delivery.service';
 import { UpdateDeliveryDto } from './dto/update-delivery.dto';
 import { VERSION } from '../../common/constants';
@@ -16,8 +16,8 @@ export class DeliveryController {
   constructor(private readonly deliveryService: DeliveryService) {}
 
   @Get()
-  findAll() {
-    return this.deliveryService.findAll();
+  findAll(@Query('limit') limit: number, @Query('offset') offset: number) {
+    return this.deliveryService.findAll({ limit, offset });
   }
 
   @Get(':id')

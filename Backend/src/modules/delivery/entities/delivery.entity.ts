@@ -16,4 +16,5 @@ export class Delivery extends BaseEntity {
 
   @OneToOne(() => Order, (order) => order.deliveryId)
   order: Order;
+  
 }

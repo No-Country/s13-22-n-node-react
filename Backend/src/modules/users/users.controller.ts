@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseFilters, ParseUUIDPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseFilters, ParseUUIDPipe, Query } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -23,8 +23,8 @@ export class UsersController {
   
   @Auth(ERole.ADMIN, ERole.CUSTOMER)
   @Get()
-  findAll() {
-    return this.usersService.findAll();
+  findAll(@Query('limit') limit: number, @Query('offset') offset: number) {
+    return this.usersService.findAll({ limit, offset });
   }
 
   @Auth(ERole.ADMIN, ERole.CUSTOMER)

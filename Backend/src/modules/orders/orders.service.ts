@@ -8,6 +8,7 @@ import { User } from '../users/entities/user.entity';
 import { DeliveryService } from '../delivery/delivery.service';
 import { OrderProductService } from './orderProducts.service';
 import { ProductsService } from '../products/products.service';
+import { PaginationDto } from "src/common/dto/pagination.dto";
 
 @Injectable()
 export class OrdersService {
@@ -45,9 +46,11 @@ export class OrdersService {
     };
   }
 
-  async findAll() {
+  async findAll({ limit=20, offset=0 }: PaginationDto) {
     const orders = await this.orderRepository.find({
       relations: ["userId", "deliveryId"],
+      take: limit,
+      skip: offset
     });
     return orders;
   }
