@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import '../MenuMain/Menu.css';
+import '../Detalleproducto/Detalleproducto.css'
 import menuData from '../../data/menuData';
 import FoodCard from '../FoodCard/FoodCard';
 import { Link } from 'react-router-dom';
 
+import { DetalleProducto } from '../Detalleproducto/Detalleproducto';
 function Menu({ cart, setCart, total, setTotal }) {
     const [menu, setMenu] = useState(menuData);
 
@@ -17,6 +19,7 @@ function Menu({ cart, setCart, total, setTotal }) {
     }
 
     return (
+        <>
         <section className='menu-section'>
             {/* Mapeo de cada categoría */}
             {uniqueCategories.map(category => (
@@ -36,7 +39,11 @@ function Menu({ cart, setCart, total, setTotal }) {
                     </div>
                 </div>
             ))}
+            <DetalleProducto cart={cart} setCart={setCart} total={total} setTotal={setTotal} />
         </section>
+
+
+       </>
     );
 }
 

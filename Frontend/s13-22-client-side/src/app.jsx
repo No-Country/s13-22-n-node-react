@@ -5,6 +5,7 @@ import HeroSection from "./components/Hero/HeroSection";
 import { useState } from "react";
 import { CardDetail } from "./components/CardDetail/CardDetail";
 
+
 export default function Root() {
   const [cart, setCart] = useState([]);
   let [total, setTotal] = useState(0);
@@ -13,19 +14,24 @@ export default function Root() {
     { text: "Hamburguesas", url: "#Hamburguesas" },
     { text: "Pizza", url: "#Pizza" },
     { text: "Pollo", url: "#Pollo" },
-    { text: "Acerca", url: "/#about" }
+    { text: "Acerca", url: "/#about" },
   ];
   /* Root es el app.jsx para react router dom  */
   return (
     <>
-
-      <Header links={links} cart={cart} total={total} setCart={setCart} setTotal={setTotal} />
-    <main>
-      <HeroSection/>
-      <Menu cart={cart} setCart={setCart} total={total} setTotal={setTotal} />
-      <CardDetail />
-      <AboutUs />
-    </main>
+      <Header
+        links={links}
+        cart={cart}
+        total={total}
+        setCart={setCart}
+        setTotal={setTotal}
+      />
+      <main>
+        <HeroSection />
+        <Menu cart={cart} setCart={setCart} total={total} setTotal={setTotal} />
+        <CardDetail />
+        <AboutUs />
+      </main>
     </>
   );
 }
