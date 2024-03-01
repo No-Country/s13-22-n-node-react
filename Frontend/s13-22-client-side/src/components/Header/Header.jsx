@@ -1,34 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./Header.css";
 import { HeaderLogin } from "../HeaderLogin/HeaderLoginIcon";
 import CartPaneldrawer from "../CartPaneldrawer/CartPaneldrawer";
-import Cookies from "js-cookie";
-
+/* links para el panel de btn usuario */
+//Si está logueado muestra const login
 const login = [
   { desc: "Profile", link: "/team" },
   { desc: "Account", link: "/" },
   { desc: "Dashboard", link: "#" },
-  { desc: "Logout", link: "" },
+  { desc: "Logout", link: "/#about" }
 ];
-
+//Si no está logueado muestra const logOff
 const logOff = [
   { desc: "Inciar Sesión", link: "/login" },
   { desc: "Crear Cuenta", link: "/registro" },
 ];
 
+let userStatus = false;
+
 export const Header = ({ links, cart, total, setCart, setTotal }) => {
-  const [userStatus, setUserStatus] = useState(false);
-
-  useEffect(() => {
-    // Verificar si la cookie "token" existe
-    const token = Cookies.get("token");
-    if (token) {
-      setUserStatus(true);
-    } else {
-      setUserStatus(false);
-    }
-  }, []);
-
   useEffect(() => {
     const handleClick = (e) => {
       const panel = document.querySelector(".panel");
@@ -65,30 +55,21 @@ export const Header = ({ links, cart, total, setCart, setTotal }) => {
             </span>
           </button>
 
-          <h3 className="header__logo">HungryTime</h3>
-          <nav className="header__menu panel">
+            <h3 className="header__logo">HungryTime</h3>
+            <nav className="header__menu panel">
             <ul className="menu__list">
-              {links.map((link, index) => (
-                <li className="menu__item" key={index}>
-                  <a href={link.url} className="menu__link">
-                    {link.text}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <div className="header__icons">
-            {userStatus ? (
-              <HeaderLogin settings={login} setUserStatus={setUserStatus} />
-            ) : (
-              <HeaderLogin settings={logOff} setUserStatus={setUserStatus} />
-            )}
-            <CartPaneldrawer
-              cart={cart}
-              total={total}
-              setCart={setCart}
-              setTotal={setTotal}
-            />
+                {links.map((link, index) => (
+                  <li className="menu__item" key={index}>
+                    <a href={link.url} className="menu__link">
+                      {link.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <div className="header__icons">
+                  {userStatus ? <HeaderLogin settings={login}/> : <HeaderLogin settings={logOff}/>}
+            <CartPaneldrawer cart={cart} total={total} setCart={setCart} setTotal={setTotal} />
           </div>
         </div>
       </header>

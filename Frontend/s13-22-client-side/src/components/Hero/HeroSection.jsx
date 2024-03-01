@@ -31,7 +31,6 @@ const HeroSection = () => {
                 <img height="16" width="16" src="svg/menu.svg" />
                 Agregar al carrito
               </a>
-
             </div>
             <div className="hero-img">
               <div className="img__container">
@@ -45,7 +44,7 @@ const HeroSection = () => {
         ))}
       </section>
       <div className="scroll-down">
-        <a href="#Hamburguesas">
+        <a href="#about">
           <img src="svg/ArrowDown.svg" alt="down-arrow" />
         </a>
       </div>

@@ -15,7 +15,6 @@ export default function Root() {
     { text: "Pollo", url: "#Pollo" },
     { text: "Acerca", url: "/#about" }
   ];
-
   /* Root es el app.jsx para react router dom  */
   return (
     <>
