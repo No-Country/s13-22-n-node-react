@@ -84,7 +84,6 @@
     max-width: 60rem;
     gap: 1.6rem;
     justify-content: space-between;
-    justify-content: space-between;
     min-width: unset;
     padding: 1rem 1rem;
   }
@@ -112,33 +111,6 @@
     transform: translate(0, 0);
   }
 
-  .hamburger {
-    display: block;
-    z-index: 50;
-    padding: 1rem 0.4rem;
-  }
-  .panel {
-    position: fixed;
-    height: auto;
-    text-align: center;
-    z-index: 50;
-    right: 0;
-    position: fixed;
-    background: #11021c;
-    transform: translate(-119%, 0%);
-    transition: 0.6s ease;
-    width: 100%;
-    border-radius: 14px;
-    top:78px;
-    padding: 3rem 0;
-  }
-  .panel.is-active {
-    transform: translate(0, 0);
-  }
-
-  .menu__list {
-    flex-direction: column;
-  }
   .menu__list {
     flex-direction: column;
     transform: translate(0, 0);
