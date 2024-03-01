@@ -27,8 +27,8 @@ const HeroSection = () => {
               <h1>Promo del Dia</h1>
               <h5>{item.name}</h5>
               <p>{item.desc}</p>
-              <a href="/" className="menu">
-                <img height="16" width="16" src="svg/menu.svg" />
+              <a href="#Hamburguesas" className="menu">
+                <img height="16" width="16" src="../svg/menu.svg" />
                 Agregar al carrito
               </a>
             </div>
@@ -45,7 +45,7 @@ const HeroSection = () => {
       </section>
       <div className="scroll-down">
         <a href="#about">
-          <img src="svg/ArrowDown.svg" alt="down-arrow" />
+          <img src="../svg/ArrowDown.svg" alt="down-arrow" />
         </a>
       </div>
     </>

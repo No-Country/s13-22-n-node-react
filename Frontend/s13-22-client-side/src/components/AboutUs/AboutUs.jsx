@@ -38,7 +38,7 @@ function AboutUs() {
           <div className="circular-logo">
             <img
             className="anim-float"
-              src="img/hamburguesa.svg"
+              src="../img/hamburguesa.svg"
               alt="hamburguesa 3d"
             />
           </div>
