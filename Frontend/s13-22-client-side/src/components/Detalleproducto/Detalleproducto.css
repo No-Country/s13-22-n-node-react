@@ -1,0 +1,30 @@
+
+
+.popup__card{
+    z-index: 4;
+    bottom: 2px;
+    height: 100dvh;
+    width: 100vw;
+    overflow: hidden;
+    justify-content: center;
+    justify-content: center;
+    position: fixed;
+    backdrop-filter: blur(27px);
+    padding-top: 17rem;
+    right: 0;
+    display: none;
+}
+
+/* .popup__card.is-open{
+    display: flex;
+} */
+.card__item{
+    min-height: 70dvh;
+    background: #e8e8e8;
+    color: black;
+    border-radius: 15px;
+    box-shadow: 1px 0px 3px black;
+    padding: 1rem 2rem;
+    position: absolute;
+    height: auto;
+}

@@ -9,6 +9,9 @@
     border-radius: 20px;
     background-color: #F0EFEF;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    position: relative;
+
 }
 
 
@@ -20,16 +23,55 @@
 
 .food-info-container {
     display: flex;
-    justify-content: space-between;
-    height: 79px;
+    height: 6dvh;
     align-items: center;
     padding: 0 1rem;
+    width: 100%;
+    justify-content: space-between;
 }
 
+.caraA{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0%;
+    transform: translateY(0%);
+    transition: 0.5s;
+}
+.food__image{
+    width: 97%;
+    height: 20dvh;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    border-radius: 14px 14px 0 0;
+}
+.caraB{
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    transform: translateY(156px);
+    transition: .5s cubic-bezier(0.55, 0.09, 0.68, 0.53);
+}
+.food-card:hover .caraB{
+    transform: translateY(0%);
+    opacity: 1;
+}
+.food-card:hover .caraA{
+    filter: blur(11px);
+}
 .food-about {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+    width: 9vw;
 }
 
 .food-about p {
@@ -41,11 +83,18 @@
     width: 26px;
     height: 26px;
 }
+.bag__icon--container{
+    align-self: flex-end;
+}
 .icon-bgd {
     background-color: var(--valid-color);
     border-radius: 50px;
-    padding: .5rem;
+    padding: 0.5rem;
     display: flex;
+    width: 37px;
+    height: 37px;
+    align-items: center;
+    justify-content: center;
 }
 
 .icon-bgd:hover {
