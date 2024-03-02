@@ -9,6 +9,7 @@ import potato from "../../../public/img/friesIcon.png";
 import burger from "../../../public/img/burgerIcon.png";
 import cola from "../../../public/img/sodaIcon.png";
 import pizza from "../../../public/img/pizzaIcon.png";
+import { FloatingIcons } from "../../components/FloatingIcons/FloatingIcons";
 
 export const Login = () => {
   const {
@@ -65,12 +66,7 @@ export const Login = () => {
     <>
       <div className="body-of-page">
         <div className="body-login">
-          <div className="imagenes-container">
-            <img className="burger anim-float" src={burger} alt="burger" />
-            <img className="pizza anim-float" src={pizza} alt="pizza" />
-            <img className="potato anim-float" src={potato} alt="potato" />
-            <img className="cola anim-float" src={cola} alt="cola" />
-          </div>
+        <FloatingIcons/>
           <div className="login-container">
             <h2 className="title">Iniciar sesión</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
