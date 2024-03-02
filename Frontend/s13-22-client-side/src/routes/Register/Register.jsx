@@ -4,10 +4,8 @@ import { NavLink as Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 import "./Register.css";
-import potato from "../../../public/img/friesIcon.png";
-import burger from "../../../public/img/burgerIcon.png";
-import cola from "../../../public/img/sodaIcon.png";
-import pizza from "../../../public/img/pizzaIcon.png";
+import { FloatingIcons } from "../../components/FloatingIcons/FloatingIcons";
+
 
 export const Register = () => {
   const {
@@ -93,6 +91,8 @@ export const Register = () => {
       // Verifica si el error es de "Unauthorized"
       if (error.response && error.response.status === 401) {
         console.error("Error de autorización al cargar la imagen:", error.response.data);
+        console.log("Respuesta de secure_url ",response.data[0].secure_url)
+        setLoadingImage(true);
       }
     }
   };
@@ -101,12 +101,7 @@ export const Register = () => {
     <>
       <main>
         <div className="body-register">
-          <div className="imagenes-container">
-            <img className="burger anim-float" src={burger} alt="Burger" />
-            <img className="pizza anim-float" src={pizza} alt="Pizza" />
-            <img className="potato anim-float" src={potato} alt="Potato" />
-            <img className="cola anim-float" src={cola} alt="Cola" />
-          </div>
+          <FloatingIcons/>
           <div className="register-container">
             <h2 className="title">Crear cuenta</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -271,7 +266,7 @@ export const Register = () => {
               </div>
 
               {/* Imagen */}
-              <div>
+              <div className="form__image__upload">
                 <label className="label-register">Foto de perfil</label>
                 <br />
                 <input
