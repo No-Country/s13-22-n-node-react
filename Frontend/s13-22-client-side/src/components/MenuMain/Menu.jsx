@@ -26,7 +26,7 @@ function Menu({ cart, setCart, total, setTotal }) {
                 <div key={category} className='category-container'>
                     <div className='type-name-container'>
                         <h4 className='food-name' id={category}>{category}</h4>
-                        <Link to="/" className="more__container">
+                        <Link to={`/productos/${category}`} className="more__container">
                         <p className='seeMore'>Ver más</p>
                         <img src="/svg/arrowIcon.svg" alt="" />
                         </Link>
