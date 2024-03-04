@@ -11,6 +11,7 @@ import { Register } from "./routes/Register/Register.jsx";
 import { Login } from "./routes/Login/Login.jsx";
 import { AddProduct } from "./components/AddProduct/AddProduct.jsx";
 import { DetalleProducto } from "./components/Detalleproducto/Detalleproducto.jsx";
+import ProductCategory from "./routes/AllProducts/ProductCategory.jsx";
 
 //Aqui se definiran las rutas, indicando el path y el comoponente(element: que se va a renderizar)
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/productos",
     element: <AllProducts />,
+  },
+  {
+    path: "/productos/:category",
+    element: <ProductCategory />,
   },
 
   {
