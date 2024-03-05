@@ -6,7 +6,6 @@ import FoodCard from '../FoodCard/FoodCard';
 import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../../context';
 
-import { DetalleProducto } from '../Detalleproducto/Detalleproducto';
 function Menu() {
     const { cart, setCart, total, setTotal, addToCart } = useGlobalContext();
 
@@ -36,7 +35,7 @@ function Menu() {
                     </div>
                 </div>
             ))}
-            <DetalleProducto cart={cart} setCart={setCart} total={total} setTotal={setTotal} />
+
         </section>
 
 

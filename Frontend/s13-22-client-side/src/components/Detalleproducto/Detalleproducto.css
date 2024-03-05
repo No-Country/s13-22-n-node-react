@@ -12,9 +12,9 @@
     right: 0;
     display: none;
 }
-    /* .popup__card.is-open{
+    .popup__card.is-open{
         display: flex;
-    } */
+    }
 
 .card__item{
     min-height: 70dvh;
@@ -25,4 +25,22 @@
     padding: 1rem 2rem;
     position: absolute;
     height: auto;
+}
+
+.producto__img{
+    width: 100%;
+    height: 40dvh;
+}
+
+
+/* icono CloseIcon */
+.card__item > svg{
+    font-size: 3.6rem;
+    fill: var(--secundary-color);
+    transition: .4s ease-in;
+    cursor: pointer;
+}
+.card__item > svg:hover{
+    transform: rotate(180deg);
+
 }

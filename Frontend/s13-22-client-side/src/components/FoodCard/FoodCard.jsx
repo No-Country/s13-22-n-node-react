@@ -1,9 +1,12 @@
 import React from "react";
 import "../FoodCard/FoodCard.css";
 import { Link } from "react-router-dom";
+import { DetalleProducto } from "../Detalleproducto/Detalleproducto";
+
 
 // Work in progress :3
 function FoodCard({ item, addToCart }) {
+
   let { name, price, img, id } = item;
 
   return (
@@ -34,10 +37,11 @@ function FoodCard({ item, addToCart }) {
 
         <div className="caraB btn__container">
           <Link
-
           to={`detalle/${id}`} className="btn__detalles">Detalles</Link>
         </div>
       </div>
+
+      <DetalleProducto />
     </>
   );
 }
