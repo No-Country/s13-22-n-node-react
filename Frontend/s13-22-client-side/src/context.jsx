@@ -10,7 +10,18 @@ const AppProvider = ({ children }) => {
     const addToCart = (item) => {
         let updatedTotal = parseFloat(total + item.price);
         setTotal(updatedTotal);
-        setCart([...cart, item]);
+        const inTheCart = cart.includes(item);
+        if(inTheCart){
+            addOne(item);
+        } else {
+            setCart([...cart, item]);
+        }
+    }
+
+    const addOne = (item) => {
+        item.amount = item.amount + 1;
+        let updatedTotal = parseFloat(total + item.price);
+        setTotal(updatedTotal);
     }
 
 
@@ -23,6 +34,7 @@ const AppProvider = ({ children }) => {
             total, 
             setTotal,
             addToCart,
+            addOne,
             }}>
         {children}
     </AppContext.Provider>

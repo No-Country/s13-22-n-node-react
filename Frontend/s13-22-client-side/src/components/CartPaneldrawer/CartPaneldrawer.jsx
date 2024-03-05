@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import { Button, Drawer } from 'antd';
+import { useState } from 'react';
+import { Drawer } from 'antd';
 import '../CartPaneldrawer/CartPaneldrawer.css';
 import { useGlobalContext } from '../../context';
 
 const CartPaneldrawer = () => {
-  const { cart, setCart, total, setTotal } = useGlobalContext();
+  const { cart, setCart, total, setTotal, addOne } = useGlobalContext();
 
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
@@ -16,16 +16,11 @@ const CartPaneldrawer = () => {
 
   // Cart Funcionality: AUN HAY MEJORAS POR HACER, PERO NECESITO MAS INFO POR EL MOMENTO :3
   const removeFromCart = (itemRemove) => {
-    let updatedTotal = parseFloat(total - itemRemove.price);
+    let updatedTotal = parseFloat(total - (itemRemove.price * itemRemove.amount));
+    itemRemove.amount = 1;
     setTotal(updatedTotal);
     let updatedCart = cart.filter(item => item !== itemRemove);
     setCart(updatedCart);
-  }
-
-  const addOne = (item) => {
-    item.amount = item.amount + 1;
-    let updatedTotal = parseFloat(total + item.price);
-    setTotal(updatedTotal);
   }
 
   const removeOne = (item) => {
