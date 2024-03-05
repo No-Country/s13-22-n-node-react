@@ -12,7 +12,9 @@ import { Login } from "./routes/Login/Login.jsx";
 import { AddProduct } from "./components/AddProduct/AddProduct.jsx";
 import { DetalleProducto } from "./components/Detalleproducto/Detalleproducto.jsx";
 import ProductCategory from "./routes/AllProducts/ProductCategory.jsx";
+
 import { AppProvider } from "./context.jsx";
+import PanelAdmin from "./routes/PanelAdmin/PanelAdmin.jsx";
 
 //Aqui se definiran las rutas, indicando el path y el comoponente(element: que se va a renderizar)
 const router = createBrowserRouter([
@@ -54,6 +56,10 @@ const router = createBrowserRouter([
     path: "/add",
     element: <AddProduct />,
   },
+  {
+    path: "/adminPanel",
+    element: <PanelAdmin />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
