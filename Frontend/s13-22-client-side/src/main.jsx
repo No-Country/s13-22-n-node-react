@@ -13,6 +13,9 @@ import { AddProduct } from "./components/AddProduct/AddProduct.jsx";
 import { DetalleProducto } from "./components/Detalleproducto/Detalleproducto.jsx";
 import ProductCategory from "./routes/AllProducts/ProductCategory.jsx";
 
+import { User } from "./routes/User/User.jsx";
+import { UserEdit } from "./routes/User-edit/UserEdit.jsx";
+
 import { AppProvider } from "./context.jsx";
 import PanelAdmin from "./routes/PanelAdmin/PanelAdmin.jsx";
 
@@ -22,12 +25,12 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
-    children:[
+    children: [
       {
         path: "/detalle/:id",
-        element: <DetalleProducto/>
-      }
-    ]
+        element: <DetalleProducto />,
+      },
+    ],
   },
 
   {
@@ -37,22 +40,22 @@ const router = createBrowserRouter([
   {
     path: "/productos/",
     element: <AllProducts />,
-    children:[
+    children: [
       {
         path: "/productos/detalle/:id",
-        element: <DetalleProducto/>
-      }
-    ]
+        element: <DetalleProducto />,
+      },
+    ],
   },
   {
     path: "/productos/:category",
     element: <ProductCategory />,
-    children:[
+    children: [
       {
         path: "/productos/:category/detalle/:id",
-        element: <DetalleProducto/>
-      }
-    ]
+        element: <DetalleProducto />,
+      },
+    ],
   },
 
   {
@@ -72,7 +75,16 @@ const router = createBrowserRouter([
   {
     path: "/adminPanel",
     element: <PanelAdmin />,
-  }
+  },
+  {
+    path: "/User",
+    element: <User />,
+  },
+
+  {
+    path: "/UserEdit",
+    element: <UserEdit />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
