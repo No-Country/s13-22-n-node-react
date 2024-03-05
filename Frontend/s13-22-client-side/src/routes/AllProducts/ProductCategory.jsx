@@ -3,8 +3,10 @@ import menuData from '../../data/menuData';
 import { useParams } from 'react-router-dom';
 import FoodCard from '../../components/FoodCard/FoodCard';
 import '../../routes/AllProducts/ProductCategory.css';
+import { useGlobalContext } from '../../context';
 
 const ProductCategory = () => {
+    const { addToCart } = useGlobalContext();
 
     const [data, setData] = useState(null);
     const { category } = useParams();
@@ -35,7 +37,7 @@ const ProductCategory = () => {
                                 {
                                     data.map((item) => {
                                         return (
-                                            <FoodCard key={item.id} item={item} />
+                                            <FoodCard key={item.id} item={item} addToCart={addToCart} />
                                         )
                                     })
                                 }

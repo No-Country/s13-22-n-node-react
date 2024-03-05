@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Button, Drawer } from 'antd';
 import '../CartPaneldrawer/CartPaneldrawer.css';
+import { useGlobalContext } from '../../context';
 
-const CartPaneldrawer = ({ cart, total, setCart, setTotal }) => {
+const CartPaneldrawer = () => {
+  const { cart, setCart, total, setTotal } = useGlobalContext();
 
   const [open, setOpen] = useState(false);
   const showDrawer = () => {

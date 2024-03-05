@@ -4,19 +4,16 @@ import '../Detalleproducto/Detalleproducto.css'
 import menuData from '../../data/menuData';
 import FoodCard from '../FoodCard/FoodCard';
 import { Link } from 'react-router-dom';
+import { useGlobalContext } from '../../context';
 
 import { DetalleProducto } from '../Detalleproducto/Detalleproducto';
-function Menu({ cart, setCart, total, setTotal }) {
+function Menu() {
+    const { cart, setCart, total, setTotal, addToCart } = useGlobalContext();
+
     const [menu, setMenu] = useState(menuData);
 
     // Función para obtener categorías únicas
     const uniqueCategories = [...new Set(menu.map(item => item.category))];
-
-    const addToCart = (item) => {
-        let updatedTotal = parseFloat(total + item.price);
-        setTotal(updatedTotal);
-        setCart([...cart, item]);
-    }
 
     return (
         <>
