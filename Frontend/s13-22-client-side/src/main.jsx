@@ -10,6 +10,8 @@ import { AllProducts } from "./routes/AllProducts/AllProducts.jsx";
 import { Register } from "./routes/Register/Register.jsx";
 import { Login } from "./routes/Login/Login.jsx";
 import { AddProduct } from "./components/AddProduct/AddProduct.jsx";
+import { User } from "./routes/User/User.jsx";
+import { UserEdit } from "./routes/User-edit/UserEdit.jsx";
 
 //Aqui se definiran las rutas, indicando el path y el comoponente(element: que se va a renderizar)
 const router = createBrowserRouter([
@@ -40,6 +42,16 @@ const router = createBrowserRouter([
   {
     path: "/add",
     element: <AddProduct />,
+  },
+
+  {
+    path: "/User",
+    element: <User />,
+  },
+
+  {
+    path: "/UserEdit",
+    element: <UserEdit />,
   },
 ]);
 
