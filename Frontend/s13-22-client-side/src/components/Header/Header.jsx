@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import "./Header.css";
 import { HeaderLogin } from "../HeaderLogin/HeaderLoginIcon";
 import CartPaneldrawer from "../CartPaneldrawer/CartPaneldrawer";
@@ -12,11 +13,11 @@ const login = [
 ];
 
 const logOff = [
-  { desc: "Inciar Sesión", link: "/login" },
+  { desc: "Iniciar Sesión", link: "/login" },
   { desc: "Crear Cuenta", link: "/registro" },
 ];
-
-export const Header = ({ links, cart, total, setCart, setTotal }) => {
+export const Header = ({ isAdminPage, allProducts }) => {
+  const {  category } = useParams();
   const [userStatus, setUserStatus] = useState(false);
 
   useEffect(() => {
@@ -28,28 +29,27 @@ export const Header = ({ links, cart, total, setCart, setTotal }) => {
       setUserStatus(false);
     }
   }, []);
-  useEffect(() => {
-    const handleClick = (e) => {
-      const panel = document.querySelector(".panel");
-      const panelBtn = document.querySelector(".panel-btn");
 
-      if (e.target.matches(".panel-btn") || e.target.matches(".panel-btn *")) {
-        panel.classList.toggle("is-active");
-        panelBtn.classList.toggle("is-active");
-      }
+  const linksCategories = [
+    { text: "Todos", url: "/productos/" },
+    { text: "Hamburguesas", url: "/productos/Hamburguesas" },
+    { text: "Pizza", url: "/productos/Pizza" },
+    { text: "Pollo", url: "/productos/Pollo" },
+    { text: "Complementos", url: "/productos/Complementos" },
+  ];
 
-      if (e.target.matches(".menu__link")) {
-        panel.classList.remove("is-active");
-        panelBtn.classList.remove("is-active");
-      }
-    };
+  const links = [
+    { text: "Hamburguesas", url: "#Hamburguesas" },
+    { text: "Pizza", url: "#Pizza" },
+    { text: "Pollo", url: "#Pollo" },
+    { text: "Acerca", url: "/#about" },
+  ];
 
-    document.addEventListener("click", handleClick);
-
-    return () => {
-      document.removeEventListener("click", handleClick);
-    };
-  }, []);
+  const linksAdmin = [
+    { text: "Usuarios", url: "#usuarios" },
+    { text: "Status Pedidos", url: "#status" },
+    { text: "Productos", url: "#ver-productos" },
+  ];
 
   return (
     <>
@@ -63,17 +63,36 @@ export const Header = ({ links, cart, total, setCart, setTotal }) => {
               <span className="hamburger-inner"></span>
             </span>
           </button>
-          <a href="#">
+          <a href="/#">
             <h3 className="header__logo">HungryTime</h3>
           </a>
 
           <nav className="header__menu panel">
             <ul className="menu__list">
-              {links.map((link, index) => (
-                <li className="menu__item" key={index}>
-                  <a href={link.url} className="menu__link">
+
+              {(  allProducts || category) ? (
+                 !isAdminPage  && linksCategories.map((link, index) => (
+                  <li className="menu__item" key={index.text}>
+                    <Link to={link.url} className="menu__link">
+                      {link.text}
+                    </Link>
+                  </li>
+                ))
+              ) : (
+                // Mostrar links si no hay categoría en la URL y no estamos en la página de productos
+                !isAdminPage && links.map((link, index) => (
+                  <li className="menu__item" key={index.text}>
+                    <a href={link.url} className="menu__link">
+                      {link.text}
+                    </a>
+                  </li>
+                ))
+              )}
+              {isAdminPage && linksAdmin.map((link, index) => (
+                <li className="menu__item" key={index.text}>
+                  <Link to={link.url} className="menu__link">
                     {link.text}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -84,12 +103,7 @@ export const Header = ({ links, cart, total, setCart, setTotal }) => {
             ) : (
               <HeaderLogin settings={logOff} setUserStatus={setUserStatus} />
             )}
-            <CartPaneldrawer
-              cart={cart}
-              total={total}
-              setCart={setCart}
-              setTotal={setTotal}
-            />
+            <CartPaneldrawer />
           </div>
         </div>
       </header>

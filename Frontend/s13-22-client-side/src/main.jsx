@@ -27,17 +27,30 @@ const router = createBrowserRouter([
       }
     ]
   },
+
   {
     path: "/team",
     element: <Team />,
   },
   {
-    path: "/productos",
+    path: "/productos/",
     element: <AllProducts />,
+    children:[
+      {
+        path: "/productos/detalle/:id",
+        element: <DetalleProducto/>
+      }
+    ]
   },
   {
     path: "/productos/:category",
     element: <ProductCategory />,
+    children:[
+      {
+        path: "/productos/:category/detalle/:id",
+        element: <DetalleProducto/>
+      }
+    ]
   },
 
   {
