@@ -2,6 +2,7 @@ import "./Hero.css";
 import "../../index.css";
 import menuData from "../../data/menuData";
 import ScrollReveal from "scrollreveal";
+import { useGlobalContext } from "../../context";
 
 const HeroSection = () => {
   const sr = ScrollReveal({
@@ -10,6 +11,8 @@ const HeroSection = () => {
     delay: 450,
     reset: true,
   });
+
+  const { addToCart } = useGlobalContext();
 
   sr.reveal(".hero__container", { delay: 200, origin: "bottom" });
   sr.reveal(".hero-img", { delay: 450, origin: "top" });
@@ -27,8 +30,8 @@ const HeroSection = () => {
               <h1>Promo del Dia</h1>
               <h5>{item.name}</h5>
               <p>{item.desc}</p>
-              <a href="/" className="menu">
-                <img height="16" width="16" src="svg/menu.svg" />
+              <a className="menu" onClick={() => {addToCart(item)}}>
+                <img height="16" width="16" src="../svg/menu.svg" />
                 Agregar al carrito
               </a>
             </div>
@@ -45,7 +48,7 @@ const HeroSection = () => {
       </section>
       <div className="scroll-down">
         <a href="#about">
-          <img src="svg/ArrowDown.svg" alt="down-arrow" />
+          <img src="../svg/ArrowDown.svg" alt="down-arrow" />
         </a>
       </div>
     </>

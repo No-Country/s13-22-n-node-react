@@ -9,35 +9,33 @@ import potato from "../../../public/img/friesIcon.png";
 import burger from "../../../public/img/burgerIcon.png";
 import cola from "../../../public/img/sodaIcon.png";
 import pizza from "../../../public/img/pizzaIcon.png";
-// import { GoogleOAuthProvider } from "@react-oauth/google";
+import { FloatingIcons } from "../../components/FloatingIcons/FloatingIcons";
 
 export const Login = () => {
-  // const clientID =
-  //   "905887041407-6eucaojg860q7eq0q24panni0g9jitln.apps.googleusercontent.com";
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const [setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
+    console.log(data)
     try {
       const response = await axios.post(
-        `https://hungy-time.onrender.com/api/v1/auth/login`,
+        `https://hungry-time-dev.onrender.com/api/v1/auth/login`,
         data
       );
 
-      const token = response.data.token;
+      const { token, userId, role } = response.data;
 
-      // Establece la cookie con el token
-      setTokenInCookie(token);
+      // Guarda el token, userId y role en una cookie
+      setAuthData(token, userId, role);
 
       // Redirige al dashboard después del login exitoso
-      navigate("/welcome");
+      navigate("/");
     } catch (error) {
       console.error("Error en la solicitud:", error.message);
 
@@ -54,28 +52,24 @@ export const Login = () => {
     }
   };
 
-  const setTokenInCookie = (token) => {
+  const setAuthData = (token, userId, role) => {
     // Establece la cookie con el token
     Cookies.set("token", token, { expires: 7 }); // Caduca en 7 días
+    Cookies.set("userId", userId, { expires: 7 });
+    Cookies.set("role", role, { expires: 7 });
 
     // Agrega un mensaje de log para verificar
-    console.log("Cookie establecida correctamente:", token);
+    console.log("Datos de autenticación guardados correctamente:", { token, userId, role });
   };
 
   return (
     <>
       <div className="body-of-page">
         <div className="body-login">
-          <div className="imagenes-container">
-            <img className="burger anim-float" src={burger} />
-            <img className="pizza anim-float" src={pizza} />
-            <img className="potato anim-float" src={potato} />
-            <img className="cola anim-float" src={cola} />
-          </div>
+        <FloatingIcons/>
           <div className="login-container">
             <h2 className="title">Iniciar sesión</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
-              {/* correo */}
               <div className="text-area">
                 <label className="label-login">Correo</label>
                 <br />
@@ -89,16 +83,12 @@ export const Login = () => {
                       /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
                   })}
                 />
-
                 {errors.email?.type === "required" && (
                   <p className="error-notification">Campo obligatorio</p>
                 )}
-
                 {errors.email?.type === "pattern" && (
                   <p className="error-notification">Correo es invalido</p>
                 )}
-
-                {/* contraseña */}
 
                 <label className="label-login">Contraseña</label>
                 <br />
@@ -106,17 +96,15 @@ export const Login = () => {
                   className="text-imput"
                   type="password"
                   placeholder="Ingresa tu contraseña"
-                  {...register("contraseña", {
+                  {...register("password", {
                     required: true,
                     minLength: 8,
                   })}
                 />
-
-                {/* mensaje de errores */}
-                {errors.contraseña?.type === "required" && (
+                {errors.password?.type === "required" && (
                   <p className="error-notification">Campo obligatorio</p>
                 )}
-                {errors.contraseña?.type === "minLength" && (
+                {errors.password?.type === "minLength" && (
                   <p className="error-notification">La contraseña deber tener por lo menos 8 caracteres</p>
                 )}
               </div>
@@ -124,22 +112,10 @@ export const Login = () => {
               <input className="botton-sesion" type="submit" value="Login" />
             </form>
 
-            {/* <GoogleOAuthProvider clientId="sooooooyyy una cliennnt iiiddddddd">
-              {" "}
-              <LoginGoogle />
-            </GoogleOAuthProvider> */}
-
-            <form
-            // https://hungy-time.onrender.com/api/v1/auth/google/login
-            >
-              {" "}
-            </form>
-
             <br />
             <br />
             <div className="link-regisro">
-              {" "}
-              <span className="text-for-cuenta">¿no tienes cuenta? </span>
+              <span className="text-for-cuenta">¿No tienes cuenta? </span>
               <Link className="cuenta-button" to="/registro">
                 registrarse
               </Link>
@@ -148,7 +124,7 @@ export const Login = () => {
             </div>
           </div>
         </div>
-      </div>{" "}
+      </div>
     </>
   );
 };
