@@ -7,18 +7,11 @@ import { CardDetail } from "./components/CardDetail/CardDetail";
 
 export default function Root() {
 
-  const links = [
-    { text: "Hamburguesas", url: "#Hamburguesas" },
-    { text: "Pizza", url: "#Pizza" },
-    { text: "Pollo", url: "#Pollo" },
-    { text: "Acerca", url: "/#about" },
-  ];
+
   /* Root es el app.jsx para react router dom  */
   return (
     <>
-      <Header
-        links={links}
-      />
+      <Header/>
       <main>
         <HeroSection />
         <Menu />
