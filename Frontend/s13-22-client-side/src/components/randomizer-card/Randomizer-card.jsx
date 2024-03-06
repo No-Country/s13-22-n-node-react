@@ -1,5 +1,6 @@
 import img_random from "../../../public/img/About Bg.png";
 import "./Randomizer-card.css";
+import { Link } from "react-router-dom";
 
 const RandomizerCard = () => {
   return (
@@ -26,10 +27,9 @@ const RandomizerCard = () => {
         </div>
 
         <div className="bottons">
-          {" "}
-          <div className="botton_edit marggi-r" to="/UserEdit">
-            administrar cuenta
-          </div>{" "}
+          <Link to={`detalle/pizza`} className="btn__detalles">
+            Detalles
+          </Link>
           <div
             className="icon-bgd marggi-l"
             onClick={() => {
