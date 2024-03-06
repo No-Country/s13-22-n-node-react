@@ -24,6 +24,10 @@
     cursor: pointer;
 }
 
+.link-po-ad {
+    color: #FFE500;
+}
+
 /* table */
 .table-orders {
     width: 100%;

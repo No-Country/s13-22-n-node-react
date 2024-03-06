@@ -1,17 +1,28 @@
 import React, { useState } from 'react';
 import '../Ordenes/OrdenesPanel.css';
 import OrdenColumn from '../OrdenCard/OrdenColumn';
-import ordersData from '../../data/ordersData';
+import { useGlobalContext } from '../../context';
+import { Link } from 'react-router-dom';
 
 const OrdenesPanel = () => {
-  const [orders, setOrders] = useState(ordersData);
-  console.log(orders);
+  const { pending, setPending } = useGlobalContext();
+  console.log(pending);
+
+  const ordenLista = (order) => {
+    const updatedOrders = pending.map((item) => {
+      if (item.id === order.id) {
+        order.state = "completed";
+      }
+      return item;
+    })
+    setPending(updatedOrders);
+  }
 
   return (
     <section className='recent-orders-section'>
       <div className='title-orders-div'>
         <h3>Ordenes Recientes</h3>
-        <button className='view-all-orders-btn'>Ver todas</button>
+        <button className='view-all-orders-btn'><Link to={'/adminPanel/orders'} className='link-po-ad'>Ver todas</Link></button>
       </div>
       <div>
         <table className='table-orders'>
@@ -29,9 +40,9 @@ const OrdenesPanel = () => {
           <tbody className='tbody-table-orders'>
             {/* Mapeo de ordenes aqui :D */}
             {
-              orders.map((order) => {
+              pending.map((order) => {
                 return (
-                  <OrdenColumn key={order.order_number} order={order} />
+                  <OrdenColumn key={order.order_number} order={order} ordenLista={ordenLista}/>
                 )
               })
             }

@@ -18,6 +18,7 @@ import { UserEdit } from "./routes/User-edit/UserEdit.jsx";
 
 import { AppProvider } from "./context.jsx";
 import PanelAdmin from "./routes/PanelAdmin/PanelAdmin.jsx";
+import OrdersPage from "./routes/OrdersPage/OrdersPage.jsx";
 
 //Aqui se definiran las rutas, indicando el path y el comoponente(element: que se va a renderizar)
 const router = createBrowserRouter([
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
   {
     path: "/adminPanel",
     element: <PanelAdmin />,
+  },
+  {
+    path: "/adminPanel/orders",
+    element: <OrdersPage />,
   },
   {
     path: "/User",
