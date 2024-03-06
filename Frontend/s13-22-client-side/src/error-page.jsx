@@ -27,7 +27,9 @@ const ErrorPage = () => {
                   </div>
                 </div>
                 <h3>Oops! La pagina no pudo ser encontrada!</h3>
-                <p>Pagina en construccion por favor, le pedimos que regrese.</p>
+                <p className="texto-p">
+                  Pagina en construccion por favor, le pedimos que regrese.
+                </p>
 
                 <Link className="btn-error btn-primary btn-round" to="/">
                   Volver
