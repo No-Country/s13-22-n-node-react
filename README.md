@@ -10,7 +10,8 @@
 | :---------------- | :------------------- | :---------------------------------------------------------------------------------------------------------------------|
 | `Front End`       | `Diego Rivas`        | [![GitHub]](https://github.com/DiegoRivasDev) [![linkedin]](https://www.linkedin.com/in/diego-rivas-96215129a/)       |
 |                   |                      | [`Portafolio`](https://diegorivasdev.github.io/)                                                                      |
-| `Front End`       | `Cristian`
+| `Front End`       | `Cristian Contreras` |                                                                                                                       |
+| `Front End`       | `Sofia`              | [![`Portafolio`]](https://itssofi.dev/)                                                                                |
 | :---------------- | :------------------- | :---------------------------------------------------------------------------------------------------------------------|
 
 
