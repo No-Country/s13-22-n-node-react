@@ -11,7 +11,8 @@
   display: flex;
   z-index: 50;
   width: 75%;
-  height: 10dvh;
+  height: 75px;
+  min-height: 75px;
   min-width: 80rem;
   align-self: center;
   padding: 1.5rem 2rem;

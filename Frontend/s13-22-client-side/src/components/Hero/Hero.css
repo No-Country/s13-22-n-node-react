@@ -9,14 +9,15 @@
     min-height: 100dvh;
     gap: 2rem;
     height: auto;
-    padding-bottom: 2rem;
+    padding: 2rem 5rem;
 }
 .hero__container{
-  width: 80%;
+  width: 100%;
   align-items: center;
   display: flex;
   gap: 3rem;
   justify-content: space-between;
+  max-width: 1405px;
 }
 .hero-text {
   width: 43%;
@@ -34,7 +35,7 @@
 
 .hero-text h1 {
   font-family: var(--font-montserrat);
-  font-size: 7.4rem;
+  font-size: 7rem;
   line-height: 1;
   color: #fff;
   font-weight: 400;
@@ -57,25 +58,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 15rem;
 
 }
 .img__container{
   overflow: hidden;
   border-radius: 58px;
-  max-width: 678px;
+  max-width: 585px;
   height: 49dvh;
-  object-fit: contain;
-  object-position: right;
   box-shadow: var(--box-shadow);
+  width: 100%;
 }
 
 .hero-img img {
   width: 100%;
+  height: 100%;
   transition: 2s ease-in-out;
+  object-fit: cover;
+  object-position: center;
 }
 
 .hero-img img:hover{
-  width: 140%;
+  transform: scale(1.5);
 }
 .hero-img h4 {
   font-size: 75px;
@@ -88,13 +92,13 @@
 .hero-text a {
   display: inline-block;
   color: white;
-  background: var(--valid-color);
-  border: 1px solid transparent;
-  padding: 12px 30px;
+  background: var(--secundary-color);
+  border: 1px solid var(--main-color);
+  padding: 2rem 2rem;
   line-height: 1.4;
   font-size: 14px;
   font-weight: 500;
-  border-radius: 30px;
+  border-radius: 13px;
   text-transform: uppercase;
   transition: all 0.5s ease;
   scroll-behavior: smooth;
@@ -141,15 +145,13 @@
   }
 }
 
-@media (max-width: 1460px) {
+@media (max-width: 768px) {
   .hero {
-    padding: 0 12%;
     transition: 0.2s;
     padding-bottom: 5%;
     flex-direction: column-reverse;
   }
   .hero__container {
-    width: 80%;
     display: flex;
     flex-direction: column-reverse;
     padding-top: 11rem;
@@ -166,14 +168,7 @@
 }
 
 @media (max-width: 1340px) {
-  .hero-img img {
-    width: 100%;
-    height: auto;
-  }
-  .hero-text h1 {
-    font-size: 75px;
-    margin: 0 0 30px;
-  }
+
   .hero-text h5 {
     margin-bottom: 25px;
   }
@@ -207,7 +202,4 @@
     min-width: 29rem;
     object-fit: cover;
   }
-  .hero-text h1 {
-    font-size: 4.2rem;
-    text-align: center;  }
 }

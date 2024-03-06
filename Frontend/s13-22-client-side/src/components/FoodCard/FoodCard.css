@@ -1,112 +1,108 @@
 .food-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 277px;
-    height: 277px;
-    min-width: 277px;
-    min-height: 277px;
-    border-radius: 20px;
-    background-color: #F0EFEF;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
-    overflow: hidden;
-    position: relative;
-
-}
-
-
-.food-img-container {
-    text-align: center;
-    height: 60%;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 277px;
+  height: auto;
+  min-width: 277px;
+  min-height: 271px;
+  border-radius: 20px;
+  background-color: #f0efef;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  position: relative;
 }
 
 .food-info-container {
-    display: flex;
-    height: 6dvh;
-    align-items: center;
-    padding: 0 1rem;
-    width: 100%;
-    justify-content: space-between;
+  display: flex;
+  height: 3dvh;
+  align-items: center;
+  padding: 0 1rem;
+  width: 100%;
+  justify-content: space-between;
 }
 
-.caraA{
-    display: flex;
-    gap: 2rem;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 0%;
-    transform: translateY(0%);
-    transition: 0.5s;
+
+.caraA {
+  display: flex;
+  gap: 4rem;
+  flex-direction: column;
+  position: absolute;
+  transition: 0.5s;
+  align-items: center;
+  height: -webkit-fill-available;
+
 }
-.food__image{
-    width: 100%;
-    height: 20dvh;
-    object-fit: cover;
-    display: flex;
-    justify-content: center;
-    border-radius: 14px 14px 0 0;
+.card__img__container {
+  height: 16rem;
+  border-radius: 14px 14px 0 0;
+  overflow: hidden;
 }
-.caraB{
-    transition: .5s cubic-bezier(0.55, 0.09, 0.68, 0.53);
-    align-self: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    position: absolute;
-    opacity: 0;
-    transform: translateY(156px);
+.food__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
 }
-.food-card:hover .caraB{
-    transform: translateY(0%);
-    opacity: 1;
+.caraB {
+  transition: 0.5s cubic-bezier(0.55, 0.09, 0.68, 0.53);
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+  transform: translateY(156px);
 }
-.food-card:hover .food__image, .food-card:hover .food-about{
-    filter: blur(11px);
+.food-card:hover .caraB {
+  transform: translateY(0%);
+  opacity: 1;
+}
+.food-card:hover .food__image,
+.food-card:hover .food-about {
+  filter: blur(11px);
 }
 .food-about {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    width: 9vw;
-    transition: .5s cubic-bezier(0.55, 0.09, 0.68, 0.53);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  transition: 0.5s cubic-bezier(0.55, 0.09, 0.68, 0.53);
 }
-.btn__detalles{
-    background: var(--secundary-color);
-    padding: 1rem 2rem;
-    border-radius: 14px;
-    color: var(--main-color);
-    border: 2px solid var(--main-color);
-    font-size: 1.6rem;
-    font-weight: 500;
+.btn__detalles {
+  background: var(--secundary-color);
+  padding: 1rem 2rem;
+  border-radius: 14px;
+  color: var(--main-color);
+  border: 2px solid var(--main-color);
+  font-size: 1.6rem;
+  font-weight: 500;
 }
 .food-about p {
-    font-size: 16px;
+  font-size: 16px;
 }
 
-
-.cart__icon{
-    width: 26px;
-    height: 26px;
+.cart__icon {
+  width: 26px;
+  height: 26px;
 }
-.bag__icon--container{
-    align-self: flex-end;
+.bag__icon--container {
+  align-self: flex-end;
 }
 .icon-bgd {
-    background-color: var(--valid-color);
-    border-radius: 50px;
-    padding: 0.5rem;
-    display: flex;
-    width: 37px;
-    height: 37px;
-    align-items: center;
-    justify-content: center;
+  background-color: var(--valid-color);
+  border-radius: 50px;
+  padding: 0.5rem;
+  display: flex;
+  width: 37px;
+  height: 37px;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon-bgd:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
