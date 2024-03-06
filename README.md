@@ -18,6 +18,7 @@
 ## Tecnologias
 
 | `Front End`   | ![Reat](https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=red)
+| `Backend`     | ![Nest](https://img.shields.io/badge/-NestJS-lightRed)
 
 
 
