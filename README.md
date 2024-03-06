@@ -5,4 +5,5 @@
 
 | Rol               | Nombre               | Redes                                                                                                                 |
 | :---------------- | :------------------- | :---------------------------------------------------------------------------------------------------------------------|
-| `Front End`       | Rafael Cangahuala    | [![GitHub]](https://github.com/rcpc265) [![linkedin]](https://www.linkedin.com/in/rafael-cangahuala-864748251/)       |
+| `Front End`       | Diego Rivas          | [![GitHub]](https://github.com/DiegoRivasDev) [![linkedin]](https://www.linkedin.com/in/diego-rivas-96215129a/)       |
+|                   |                      | [![Portafolio]](https://diegorivasdev.github.io/)                                                                     |
