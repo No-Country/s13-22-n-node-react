@@ -13,7 +13,9 @@ function FoodCard({ item, addToCart }) {
     <>
       <div className="food-card ">
         <div className="caraA ">
+          <div className="card__img__container">
           <img className="food__image" src={img} ></img>
+          </div>
           <div className="food-info-container">
             <div className="food-about">
               <p>{name}</p>

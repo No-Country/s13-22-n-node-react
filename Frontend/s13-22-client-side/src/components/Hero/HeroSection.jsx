@@ -31,7 +31,7 @@ const HeroSection = () => {
               <h5>{item.name}</h5>
               <p>{item.desc}</p>
               <a className="menu" onClick={() => {addToCart(item)}}>
-                <img height="16" width="16" src="../svg/menu.svg" />
+                <img height="16" width="16" src="../svg/cart.svg" />
                 Agregar al carrito
               </a>
             </div>
