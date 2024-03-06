@@ -17,6 +17,7 @@
   display: flex;
   gap: 3rem;
   justify-content: space-between;
+  max-width: 1405px;
 }
 .hero-text {
   width: 43%;
