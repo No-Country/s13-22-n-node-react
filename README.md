@@ -17,7 +17,7 @@
 
 ## Tecnologias
 
-| `Front End`   | ![React]
+| `Front End`   | ![Reat](https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=red)
 
 
 
