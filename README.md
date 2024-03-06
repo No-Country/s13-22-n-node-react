@@ -17,11 +17,11 @@
 
 ## Tecnologias
 
-| `Front End`   | [![React]](https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=red) 
+| `Front End`   | [React]
 
 
 
-
+[React]]: https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=red 
 [linkedin]: https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white
 [github]: https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white
 [React]: 
