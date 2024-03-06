@@ -29,7 +29,7 @@ const ProductCategory = () => {
                 <div>
                     {
                         data ? (
-                            <section>
+                            <section className='secttion__products'>
                                 <div className='title-category-div'>
                                     <h1>{category}</h1>
                                 </div>
