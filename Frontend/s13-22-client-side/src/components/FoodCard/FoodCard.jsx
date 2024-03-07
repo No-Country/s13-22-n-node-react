@@ -28,7 +28,7 @@ function FoodCard({ item, addToCart }) {
                 }}
               >
                 <img
-                  className="cart__icon"
+                  className="cart__icon carrito-colores"
                   src="../svg/cart.svg"
                 />
               </div>
