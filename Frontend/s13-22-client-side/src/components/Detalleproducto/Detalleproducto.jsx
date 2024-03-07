@@ -45,7 +45,7 @@ export const DetalleProducto = () => {
               >
                 <img
                   className="cart__icon"
-                  src="../svg/cart.svg"
+                  src="../../../public/svg/cart.svg"
                 />
               </div>
             </div>
