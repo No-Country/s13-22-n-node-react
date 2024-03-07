@@ -14,11 +14,14 @@
 }
 
 
-  .css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper, .css-pwxzbm{
+  .css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper{
     background-color: var(--secundary-color)!important;
     color: var(--main-color)!important;
     min-width: 139px!important;
     min-height: auto!important;
+}
+.css-pwxzbm{
+  background-color:none!important;
 }
 
 .user__list:hover {
