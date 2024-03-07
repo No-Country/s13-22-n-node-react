@@ -23,7 +23,8 @@
 
 ## Tecnologias
 
-|               |
+|`Proyect Manag`|
+| `UX-XI`       |
 | `Front End`   | ![Reat](https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=red) 
 | `Backend`     | ![Nest](https://img.shields.io/badge/-NestJS-lightRed) ![Posgrest](https://img.shields.io/badge/-Posgrest-E0234E?logo=nest&logoColor=green)
 | `Tester `     |
