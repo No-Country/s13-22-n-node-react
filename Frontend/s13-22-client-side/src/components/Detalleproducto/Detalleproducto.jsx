@@ -8,10 +8,8 @@ export const DetalleProducto = () => {
   const { addToCart } = useGlobalContext();
   const producto = menuData.find((producto) => producto.id === id);
 
-
-
   if (!producto) {
-    return <>{" "}</>;
+    return <> </>;
   }
   const handleClose = () => {
     // Cierra el popup y elimina "detalle/:id" de los parámetros de la URL
@@ -20,15 +18,25 @@ export const DetalleProducto = () => {
 
   return (
     <>
-    <div className="popup__card is-open">
+      <div className="popup__card is-open">
+        <article className="card__item">
+          <CloseIcon onClick={handleClose} />
+          <h1>{producto.name}</h1>
+          <p className="desc_producto">{producto.desc}</p>
 
-      <article className="card__item">
-      <CloseIcon  onClick={handleClose} />
-        <h1>{producto.name}</h1>
-        <p>{producto.desc}</p>
-        <img className="producto__img" src={producto.img} alt={producto.name} />
-        <h3>{producto.price.toFixed(2)}</h3>
-        <div className="bag__icon--container">
+          <div className="contenedor_producto__img">
+            {" "}
+            <img
+              className="producto__img"
+              src={producto.img}
+              alt={producto.name}
+            />
+          </div>
+
+          <div className="price-and-boton">
+            {" "}
+            <h3>{producto.price.toFixed(2)}</h3>
+            <div className="bag__icon--container price">
               <div
                 className="icon-bgd"
                 onClick={() => {
@@ -41,9 +49,10 @@ export const DetalleProducto = () => {
                 />
               </div>
             </div>
-      </article>
-       </div>
-
+          </div>
+          <br />
+        </article>
+      </div>
     </>
   );
 };

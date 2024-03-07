@@ -22,6 +22,7 @@
   justify-content: space-between;
 }
 
+
 .caraA {
   display: flex;
   gap: 4rem;
@@ -30,6 +31,7 @@
   transition: 0.5s;
   align-items: center;
   height: -webkit-fill-available;
+
 }
 .card__img__container {
   height: 16rem;

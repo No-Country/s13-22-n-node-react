@@ -15,6 +15,7 @@ import ProductCategory from "./routes/AllProducts/ProductCategory.jsx";
 
 import { User } from "./routes/User/User.jsx";
 import { UserEdit } from "./routes/User-edit/UserEdit.jsx";
+import { HeroLogged } from "./routes/HeroLogged/HeroLogged.jsx";
 
 import { AppProvider } from "./context.jsx";
 import PanelAdmin from "./routes/PanelAdmin/PanelAdmin.jsx";
@@ -89,6 +90,11 @@ const router = createBrowserRouter([
   {
     path: "/UserEdit",
     element: <UserEdit />,
+  },
+
+  {
+    path: "/HeroLogged",
+    element: <HeroLogged />,
   },
 ]);
 

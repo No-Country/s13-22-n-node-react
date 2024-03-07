@@ -5,10 +5,6 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 import "./Login.css";
-import potato from "../../../public/img/friesIcon.png";
-import burger from "../../../public/img/burgerIcon.png";
-import cola from "../../../public/img/sodaIcon.png";
-import pizza from "../../../public/img/pizzaIcon.png";
 import { FloatingIcons } from "../../components/FloatingIcons/FloatingIcons";
 
 export const Login = () => {
@@ -22,7 +18,7 @@ export const Login = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    console.log(data)
+    console.log(data);
     try {
       const response = await axios.post(
         `https://hungry-time-dev.onrender.com/api/v1/auth/login`,
@@ -59,14 +55,18 @@ export const Login = () => {
     Cookies.set("role", role, { expires: 7 });
 
     // Agrega un mensaje de log para verificar
-    console.log("Datos de autenticación guardados correctamente:", { token, userId, role });
+    console.log("Datos de autenticación guardados correctamente:", {
+      token,
+      userId,
+      role,
+    });
   };
 
   return (
     <>
       <div className="body-of-page">
         <div className="body-login">
-        <FloatingIcons/>
+          <FloatingIcons />
           <div className="login-container">
             <h2 className="title">Iniciar sesión</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -105,7 +105,9 @@ export const Login = () => {
                   <p className="error-notification">Campo obligatorio</p>
                 )}
                 {errors.password?.type === "minLength" && (
-                  <p className="error-notification">La contraseña deber tener por lo menos 8 caracteres</p>
+                  <p className="error-notification">
+                    La contraseña deber tener por lo menos 8 caracteres
+                  </p>
                 )}
               </div>
               <br />
