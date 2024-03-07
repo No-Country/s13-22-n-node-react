@@ -14,7 +14,10 @@
 | `Front End`       | `Cristian Contreras` |                                                                                                                       |
 | `Front End`       | `Sofia`              | [`Portafolio`](https://itssofi.dev/)                                                                                  |
 | :---------------- | :------------------- | :---------------------------------------------------------------------------------------------------------------------|
-|    `Backend`      | `Edwin Arias`        | [![GitHub]](github.com/ferwinred) [![linkedin]](www.linkedin.com/ferwinarias/)   
+|    `Backend`      | `Edwin Arias`        | [![GitHub]](github.com/ferwinred) [![linkedin]](www.linkedin.com/ferwinarias/)                                        |
+|    `Backend`      | `Nicolas Mennichell` | [![GitHub]](www.github.com/michiqueli) [![linkedin]](www.linkedin.com/in/michiqueli/)                                 |
+|    `Backend`      | `Edwin Arias`        | [![GitHub]](https://github.com/Deivison81) [![linkedin]](https://www.linkedin.com/in/deivison-jimenez/)               |
+
 
 
 ## Tecnologias
