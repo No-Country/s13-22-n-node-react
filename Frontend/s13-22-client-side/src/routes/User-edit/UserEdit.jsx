@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { NavLink as Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -16,23 +16,71 @@ export const UserEdit = () => {
     formState: { errors },
   } = useForm();
 
-  const [setErrorMessage] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [loadingImage, setLoadingImage] = useState(false);
+  const [userData, setUserData] = useState({});
+
   const navigate = useNavigate();
+  useEffect(() => {
+    // Obtener los datos del usuario al cargar la página
+    getUserData();
+  }, []);
+
+  const getUserData = async () => {
+    try {
+      const token = Cookies.get("token");
+      const userId = Cookies.get("userId");
+
+      if (!token || !userId) {
+        // Si no hay un token o un ID de usuario en las cookies, redirige al inicio de sesión
+        navigate("/login");
+        return;
+      }
+
+      const response = await axios.get(
+        `https://hungry-time-dev.onrender.com/api/v1/users/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      setUserData(response.data);
+    } catch (error) {
+      console.error("Error al obtener los datos del usuario:", error.message);
+    }
+  };
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post(
-        `https://hungy-time.onrender.com/api/v1/auth/login`,
-        data
+      const token = Cookies.get("token");
+      const userId = Cookies.get("userId");
+
+      if (!token || !userId) {
+        // Si no hay un token o un ID de usuario en las cookies, redirige al inicio de sesión
+        navigate("/login");
+        return;
+      }
+
+      // Incluye la URL de la imagen en los datos del formulario
+      data.image = imageUrl;
+
+      // Actualizar la URL del endpoint con el ID del usuario
+      const response = await axios.patch(
+        `https://hungry-time-dev.onrender.com/api/v1/users/${userId}`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
 
-      const token = response.data.token;
+      console.log("Respuesta de la actualización:", response.data);
 
-      // Establece la cookie con el token
-      setTokenInCookie(token);
-
-      // Redirige al dashboard después del login exitoso
-      navigate("/welcome");
+      // Redirige al dashboard después de la actualización exitosa
+      navigate("/user");
     } catch (error) {
       console.error("Error en la solicitud:", error.message);
 
@@ -40,21 +88,43 @@ export const UserEdit = () => {
         (error.response && error.response.status === 403) ||
         error.response.status === 401
       ) {
-        setErrorMessage(
-          "Contraseña incorrecta. Por favor, inténtalo de nuevo."
-        );
+        // Maneja errores de autenticación
+        navigate("/login");
       } else {
-        setErrorMessage("");
+        // Maneja otros errores
+        // Aquí puedes mostrar un mensaje de error al usuario o realizar otras acciones
       }
     }
   };
 
-  const setTokenInCookie = (token) => {
-    // Establece la cookie con el token
-    Cookies.set("token", token, { expires: 7 }); // Caduca en 7 días
+  // Función para manejar la carga de la imagen
+  const handleImageUpload = async (e) => {
+    setLoadingImage(true); // Inicia el estado de carga de la imagen
+    const files = e.target.files[0];
+    const formData = new FormData();
+    formData.append("files", files);
+    try {
+      const response = await axios.post(
+        "https://hungry-time-dev.onrender.com/api/v1/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
-    // Agrega un mensaje de log para verificar
-    console.log("Cookie establecida correctamente:", token);
+      // Actualiza el estado con la URL de la imagen cargada
+      setImageUrl(response.data[0].secure_url);
+      setLoadingImage(false); // Finaliza el estado de carga de la imagen
+
+      // Agrega console logs para ver la respuesta
+      console.log("Respuesta de carga de imagen:", response.data);
+    } catch (error) {
+      console.error("Error al cargar la imagen:", error);
+
+      // Aquí puedes mostrar un mensaje de error al usuario o realizar otras acciones
+    }
   };
 
   return (
@@ -63,71 +133,52 @@ export const UserEdit = () => {
         <div className="body-User-edit">
           <div className="user-edit-container">
             <br />
-            <br />{" "}
+            <br />
             <Link className="botton_back" to="/user">
               Regresar
             </Link>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <br />
-                <label className="input-imagen-update" for="foto">
-                  <span>Elige un archivo</span> <br />o arrastralo aqui
-                </label>
+                <label htmlFor="image">Cambiar foto</label>
                 <input
                   className="up-photo-imput"
-                  id="foto"
                   type="file"
-                  {...register("password", { required: true, minLength: 8 })}
-                />{" "}
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                />
+
+                {loadingImage && <p>Cargando imagen...</p>}
                 <br />
                 {/* mensaje de errores */}
-                {errors.password?.type === "required" && (
-                  <p className="error-notification">Campo obligatorio</p>
-                )}
-                {errors.password?.type === "minLength" && (
-                  <p>La contraseña deber tener por lo menos 8 caracteres</p>
-                )}
               </div>
               <div>
                 <input
+                value={userData.name}
                   type="text"
                   id="name"
                   placeholder="Nombre"
                   className="text-imput-update"
-                  {...register("nombre", {
+                  {...register("name", {
                     required: true,
                     pattern: /^[A-Za-záéíóúüÜñÑ\s]+$/i,
                   })}
                 />
-                <br />
-
-                {errors.nombre?.type === "required" && (
-                  <p className="error-notification">Campo obligatorio</p>
-                )}
-
-                {errors.nombre?.type === "pattern" && (
-                  <p className="error-notification">Nombre invalido</p>
-                )}
+                {/* mensaje de errores */}
               </div>
               <div>
                 <input
+                 value={userData.last_name}
                   type="text"
                   id="last_name"
                   placeholder="Apellido"
                   className="text-imput-update"
-                  {...register("apellido", {
+                  {...register("last_name", {
                     required: true,
                     pattern: /^[A-Za-záéíóúüÜñÑ\s]+$/i,
                   })}
                 />
-
-                {errors.apellido?.type === "required" && (
-                  <p className="error-notification">Campo obligatorio</p>
-                )}
-
-                {errors.apellido?.type === "pattern" && (
-                  <p className="error-notification">Nombre invalido</p>
-                )}
+                {/* mensaje de errores */}
               </div>
               <br />
               <tbody>
@@ -140,8 +191,22 @@ export const UserEdit = () => {
                   </td>
                   <td>
                     <div className="text-alination">
-                      {" "}
-                      <p>correo@gmail.com</p>
+                      {/* Correo */}
+                      <div>
+                        <input
+                         value={userData.email}
+                          className="text-imput-update"
+                          id="email"
+                          type="email"
+                          placeholder="correo@ejemplo.com"
+                          {...register("email", {
+                            required: true,
+                            pattern:
+                              /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
+                          })}
+                        />
+                        {/* mensaje de errores */}
+                      </div>
                     </div>
                   </td>
                 </tr>
@@ -157,18 +222,16 @@ export const UserEdit = () => {
                     {" "}
                     <div>
                       <input
+                       value={userData.address}
                         type="text"
                         id="address"
-                        placeholder="Ingrese su direccion"
+                        placeholder="Ingrese su dirección"
                         className="text-imput-update"
                         {...register("address", {
                           required: true,
                         })}
                       />
-
-                      {errors.address?.type === "required" && (
-                        <p className="error-notification">Campo obligatorio</p>
-                      )}
+                      {/* mensaje de errores */}
                     </div>
                   </td>
                 </tr>
@@ -180,34 +243,29 @@ export const UserEdit = () => {
                       <img src={icon_telefono} alt="" />
                     </div>{" "}
                   </td>
-                  <div>
-                    <input
-                      type="number"
-                      id="number"
-                      placeholder="Numero"
-                      className="text-imput-update"
-                      {...register("number", {
-                        required: true,
-                        pattern: /^[A-Za-záéíóúüÜñÑ\s]+$/i,
-                      })}
-                    />
-
-                    {errors.number?.type === "required" && (
-                      <p className="error-notification">Campo obligatorio</p>
-                    )}
-
-                    {errors.number?.type === "pattern" && (
-                      <p className="error-notification">Telefono invalido</p>
-                    )}
-                  </div>
-                  <br />
+                  <td>
+                    <div>
+                      <input
+                       value={userData.phone}
+                        type="text"
+                        id="phone"
+                        placeholder="Teléfono"
+                        className="text-imput-update"
+                        {...register("phone", {
+                          required: true,
+                          pattern: /^[0-9]{10}$/,
+                        })}
+                      />
+                      {/* mensaje de errores */}
+                    </div>
+                  </td>
                 </tr>
               </tbody>
 
               <input
                 className="botton_edit_sutmit"
                 type="submit"
-                value="guardar cambios"
+                value="Guardar cambios"
               />
             </form>
             <br />
@@ -215,7 +273,7 @@ export const UserEdit = () => {
 
           <RandomizerCard />
         </div>
-      </div>{" "}
+      </div>
     </>
   );
 };
