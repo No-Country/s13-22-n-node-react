@@ -41,6 +41,7 @@ return (
               </IconButton>
           </Tooltip>
           <Menu
+
               sx={{ mt: "45px" }}
               id="menu-appbar"
               anchorEl={anchorElUser}
@@ -58,7 +59,7 @@ return (
           >
               {settings.map((setting, index) => (
                   <li
-                      className="user__list"
+                      className="user__list panel-user"
                       key={`${setting.desc}-${index}`}
                       onClick={handleCloseUserMenu}
                   >
