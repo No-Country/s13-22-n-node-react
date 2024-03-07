@@ -1,4 +1,3 @@
-import React from "react";
 import "../FoodCard/FoodCard.css";
 import { Link } from "react-router-dom";
 import { DetalleProducto } from "../Detalleproducto/Detalleproducto";
@@ -29,7 +28,7 @@ function FoodCard({ item, addToCart }) {
                 }}
               >
                 <img
-                  className="cart__icon"
+                  className="cart__icon carrito-colores"
                   src="../svg/cart.svg"
                 />
               </div>
