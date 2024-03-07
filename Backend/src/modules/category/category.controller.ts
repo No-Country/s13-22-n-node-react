@@ -22,13 +22,11 @@ export class CategoryController {
     return this.categoryService.create(createcategoryDto);
   }
 
-  @Auth(ERole.ADMIN, ERole.CUSTOMER)
   @Get()
   findAll(@Query('limit') limit: number, @Query('offset') offset: number) {
     return this.categoryService.findAll({ limit, offset });
   }
 
-  @Auth(ERole.ADMIN, ERole.CUSTOMER)
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.categoryService.findOne(id);
