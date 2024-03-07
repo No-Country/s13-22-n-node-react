@@ -6,9 +6,8 @@ import CartPaneldrawer from "../CartPaneldrawer/CartPaneldrawer";
 import Cookies from "js-cookie";
 
 const login = [
-  { desc: "Profile", link: "/team" },
-  { desc: "Account", link: "/" },
-  { desc: "Dashboard", link: "#" },
+  { desc: "Profile", link: "/user" },
+  { desc: "carrito", link: "/" },
   { desc: "Logout", link: "" },
 ];
 
