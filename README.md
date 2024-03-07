@@ -1,4 +1,4 @@
-#                                                                              Hungry Time:
+
 #              <h1 align="center">  Hungry Time: </h1>
 
 ![image](https://github.com/No-Country/s13-22-n-node-react/assets/54333113/ba49cda8-c0d8-42d7-8b9f-b9643892e261)
