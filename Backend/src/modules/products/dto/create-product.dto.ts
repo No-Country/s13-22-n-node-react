@@ -1,8 +1,6 @@
 import{IsString, IsNumber, IsBoolean, IsEnum, IsArray, IsNotEmpty, IsOptional, MinLength, MaxLength} from 'class-validator';
 import { Category } from 'src/modules/category/entities/category.entity';
 import { PRODUCT_STATE } from 'src/common/enum/product.enum';
-import { Image } from '../entities/image.entity';
-
 
 export class CreateProductDto {
     
@@ -34,7 +32,7 @@ export class CreateProductDto {
 
     @IsOptional()
     @IsArray()
-    images?: Image[]
+    image?: string
 
     @IsOptional()
     @IsEnum(PRODUCT_STATE)
