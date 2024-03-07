@@ -12,7 +12,8 @@
 | `Front End`       | `Diego Rivas`        | [![GitHub]](https://github.com/DiegoRivasDev) [![linkedin]](https://www.linkedin.com/in/diego-rivas-96215129a/)       |
 |                   |                      | [`Portafolio`](https://diegorivasdev.github.io/)                                                                      |
 | `Front End`       | `Cristian Contreras` |                                                                                                                       |
-| `Front End`       | `Sofia`              | [`Portafolio`](https://itssofi.dev/)                                                                                  |
+| `Front End`       | `Sofia`              | [![GitHub]](https://github.com/SofiDevO) [![linkedin]](https://www.linkedin.com/in/sofidev/))                         |
+|                   |                      |  [`Portafolio`](https://itssofi.dev/)                                                                                 |
 | :---------------- | :------------------- | :---------------------------------------------------------------------------------------------------------------------|
 |    `Backend`      | `Edwin Arias`        | [![GitHub]](github.com/ferwinred) [![linkedin]](www.linkedin.com/ferwinarias/)                                        |
 |    `Backend`      | `Nicolas Mennichell` | [![GitHub]](www.github.com/michiqueli) [![linkedin]](www.linkedin.com/in/michiqueli/)                                 |
