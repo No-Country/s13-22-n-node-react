@@ -1,0 +1,40 @@
+.icon {
+    animation: float 2.5s ease-in-out infinite;
+  }
+  .icons__container {
+    width: 573px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0px;
+    justify-items: center;
+  }
+
+  .icon--burger {
+    width: 232.455px;
+    height: 200.418px;
+    transform: rotate(-27.166deg);
+  }
+  .icon--pizza {
+    width: 293px;
+    height: 261px;
+    animation-delay: 0.7s;
+  }
+  .icon--fries {
+    animation-delay: 1s;
+    width: 235.237px;
+    height: 227.351px;
+    transform: rotate(40.47deg);
+  }
+  .icon--drink {
+    width: 223px;
+    height: 276px;
+    transform: rotate(-25.353deg);
+  }
+
+  @media screen and (max-width:768px) {
+    .icons__container {
+      display: none;
+  }
+
+}

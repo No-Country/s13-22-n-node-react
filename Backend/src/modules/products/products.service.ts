@@ -88,4 +88,23 @@ export class ProductsService {
    
   }
 
+  async valordiscount(id: string){
+
+    const product = await this.ProductoRepository.findOneByOrFail({id});
+
+    var total_discount;
+
+    if(product.Discount = true){
+      total_discount = (product.price * product.Discount_rate)/100; 
+    }else{
+      total_discount= 0;
+    }
+    
+    return Number(total_discount);
+    
+
+  }  
+
 }
+
+

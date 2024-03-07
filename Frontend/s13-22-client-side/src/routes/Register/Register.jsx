@@ -4,10 +4,8 @@ import { NavLink as Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 import "./Register.css";
-import potato from "../../../public/img/friesIcon.png";
-import burger from "../../../public/img/burgerIcon.png";
-import cola from "../../../public/img/sodaIcon.png";
-import pizza from "../../../public/img/pizzaIcon.png";
+import { FloatingIcons } from "../../components/FloatingIcons/FloatingIcons";
+
 
 export const Register = () => {
   const {
@@ -16,14 +14,20 @@ export const Register = () => {
     formState: { errors },
     getValues,
   } = useForm();
-
-  const [setErrorMessage] = useState("");
+  const [loadingImage, setLoadingImage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [imageUrl, setImageUrl] = useState(""); // Estado para almacenar la URL de la imagen
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     try {
+      delete data.confirmarClave; // Eliminar el campo confirmarClave de los datos
+      // Agrega la URL segura de la imagen al objeto de datos
+      data.image = imageUrl;
+      console.log("Datos del formulario:", data);
+
       const response = await axios.post(
-        `https://hungy-time.onrender.com/api/v1/auth/register`,
+        `https://hungry-time-dev.onrender.com/api/v1/auth/register`,
         data
       );
       const token = response.data.token;
@@ -32,13 +36,14 @@ export const Register = () => {
       setTokenInCookie(token);
 
       // Redirige al dashboard después del login exitoso
-      navigate("/welcome");
+      navigate("/login");
     } catch (error) {
       console.error("Error en la solicitud:", error.message);
 
+      // Verifica si error.response existe y luego verifica la propiedad status
       if (
-        (error.response && error.response.status === 403) ||
-        error.response.status === 401
+        error.response &&
+        (error.response.status === 403 || error.response.status === 401)
       ) {
         setErrorMessage(
           "Contraseña incorrecta. Por favor, inténtalo de nuevo."
@@ -56,16 +61,47 @@ export const Register = () => {
     // Agrega un mensaje de log para verificar
     console.log("Cookie establecida correctamente:", token);
   };
+
+  // Función para manejar la carga de la imagen
+  const handleImageUpload = async (e) => {
+    setLoadingImage(true); // Inicia el estado de carga de la imagen
+    const files = e.target.files[0];
+    const formData = new FormData();
+    formData.append("files", files);
+    try {
+      const response = await axios.post(
+        "https://hungry-time-dev.onrender.com/api/v1/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      // Actualiza el estado con la URL de la imagen cargada
+      setImageUrl(response.data[0].secure_url);
+      console.log("Respuesta de secure_url ",response.data[0].secure_url)
+      setLoadingImage(false); // Finaliza el estado de carga de la imagen
+
+      // Agrega console logs para ver la respuesta
+      console.log("Respuesta de carga de imagen:", response.data);
+    } catch (error) {
+      console.error("Error al cargar la imagen:", error);
+
+      // Verifica si el error es de "Unauthorized"
+      if (error.response && error.response.status === 401) {
+        console.error("Error de autorización al cargar la imagen:", error.response.data);
+        console.log("Respuesta de secure_url ",response.data[0].secure_url)
+        setLoadingImage(true);
+      }
+    }
+  };
+
   return (
     <>
       <main>
         <div className="body-register">
-          <div className="imagenes-container">
-            <img className="burger anim-float" src={burger} />
-            <img className="pizza anim-float" src={pizza} />
-            <img className="potato anim-float" src={potato} />
-            <img className="cola anim-float" src={cola} />
-          </div>
+          <FloatingIcons/>
           <div className="register-container">
             <h2 className="title">Crear cuenta</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -77,21 +113,22 @@ export const Register = () => {
                   id="name"
                   placeholder="Ingrese tu nombre"
                   className="text-imput"
-                  {...register("nombre", {
+                  {...register("name", {
                     required: true,
                     pattern: /^[A-Za-záéíóúüÜñÑ\s]+$/i,
                   })}
                 />
 
-                {errors.nombre?.type === "required" && (
+                {errors.name?.type === "required" && (
                   <p className="error-notification">Campo obligatorio</p>
                 )}
 
-                {errors.nombre?.type === "pattern" && (
+                {errors.name?.type === "pattern" && (
                   <p className="error-notification">Nombre invalido</p>
                 )}
               </div>
 
+              {/* Apellido */}
               <div>
                 <label className="label-register">Apellido</label>
                 <br />
@@ -100,44 +137,46 @@ export const Register = () => {
                   id="last_name"
                   placeholder="Ingrese su apellido"
                   className="text-imput"
-                  {...register("apellido", {
+                  {...register("last_name", {
                     required: true,
                     pattern: /^[A-Za-záéíóúüÜñÑ\s]+$/i,
                   })}
                 />
 
-                {errors.apellido?.type === "required" && (
+                {errors.last_name?.type === "required" && (
                   <p className="error-notification">Campo obligatorio</p>
                 )}
 
-                {errors.apellido?.type === "pattern" && (
-                  <p className="error-notification">Nombre invalido</p>
+                {errors.last_name?.type === "pattern" && (
+                  <p className="error-notification">Apellido invalido</p>
                 )}
               </div>
 
+              {/* Telefono */}
               <div>
                 <label className="label-register">Telefono</label>
                 <br />
                 <input
                   type="number"
-                  id="number"
+                  id="phone"
                   placeholder="Ingrese su numero"
                   className="text-imput"
-                  {...register("number", {
+                  {...register("phone", {
                     required: true,
-                    pattern: /^[A-Za-záéíóúüÜñÑ\s]+$/i,
+                    pattern: /^[0-9]+$/i,
                   })}
                 />
 
-                {errors.number?.type === "required" && (
+                {errors.phone?.type === "required" && (
                   <p className="error-notification">Campo obligatorio</p>
                 )}
 
-                {errors.number?.type === "pattern" && (
+                {errors.phone?.type === "pattern" && (
                   <p className="error-notification">Telefono invalido</p>
                 )}
               </div>
 
+              {/* Dirección */}
               <div>
                 <label className="label-register">Direccion</label>
                 <br />
@@ -156,7 +195,7 @@ export const Register = () => {
                 )}
               </div>
 
-              {/* correo */}
+              {/* Correo */}
               <div>
                 <label className="label-register">Correo</label>
                 <br />
@@ -180,14 +219,15 @@ export const Register = () => {
                   <p className="error-notification">Correo es invalido</p>
                 )}
               </div>
-              {/* contraseña */}
+
+              {/* Contraseña */}
               <div>
                 <label className="label-register">Contraseña</label>
                 <br />
                 <input
                   className="text-imput"
                   id="password"
-                  type="text"
+                  type="password"
                   placeholder="Ingresa tu contraseña"
                   {...register("password", { required: true, minLength: 8 })}
                 />
@@ -201,8 +241,8 @@ export const Register = () => {
                 )}
               </div>
 
+              {/* Confirmar Contraseña */}
               <div>
-                {" "}
                 <label htmlFor="confirmarClave" className="label-register">
                   Confirmar Password
                 </label>
@@ -214,13 +254,29 @@ export const Register = () => {
                   className="text-imput"
                   {...register("confirmarClave", {
                     validate: (value) =>
-                      value === getValues("password") ||
-                      "Las contraseñas no coinciden.",
+                      value === getValues("password") || "Las contraseñas no coinciden.",
                   })}
                 />
+                {errors.confirmarClave && (
+                  <p className="error-notification">
+                    {errors.confirmarClave.message}
+                  </p>
+                )}
+                {errorMessage && <p className="error-message">{errorMessage}</p>}
               </div>
 
-              <br />
+              {/* Imagen */}
+              <div className="form__image__upload">
+                <label className="label-register">Foto de perfil</label>
+                <br />
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                />
+              {loadingImage && <div className="loader"></div>}
+              </div>
+
               <input
                 className="botton-sesion"
                 type="submit"
@@ -243,3 +299,5 @@ export const Register = () => {
     </>
   );
 };
+
+export default Register;

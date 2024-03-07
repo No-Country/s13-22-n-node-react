@@ -1,0 +1,63 @@
+.order-card {
+    background-color: lightgray;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.buttons-order-data {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.buttons-order-data button {
+    width: 40%;
+    padding: 1%;
+    margin: .5em;
+    border-radius: 8px;
+    color: #F0EFEF;
+}
+
+.btn-listo-order {
+    background-color: #0AA751;
+    border-color: #0AA751;
+
+}
+
+.btn-listo2-order {
+    background-color: #C62828;
+    border-color: #C62828;
+}
+
+@media screen and (max-width: 325px) {
+    .order-card {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        display: inline-flex;
+        border-radius: 0;
+        justify-content: start;
+    }
+
+    .order-card td {
+        padding: 0.4em;
+    }
+
+    .order-id {
+        display: none;
+    }
+
+    .buttons-order-data {
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+    .buttons-order-data button {
+        width: 50%;
+        margin: 0;
+        border-radius: 0;
+    }
+}

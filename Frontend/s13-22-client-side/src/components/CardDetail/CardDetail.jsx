@@ -1,5 +1,6 @@
 import "./CardDetail.css";
 import "../Hero/Hero.css";
+import { Link } from "react-router-dom";
 
 export const CardDetail = () => {
   return (
@@ -21,10 +22,10 @@ export const CardDetail = () => {
               oportunidad para deleitar tu paladar y pasar un rato increíble!
             </p>
 
-            <a href="/" className="menu">
+            <Link to={`/productos/Pizza`} className="menu">
               <img height="16" width="16" src="svg/menu.svg" />
               Agregar al carrito
-            </a>
+            </Link>
           </div>
         </div>
       </div>

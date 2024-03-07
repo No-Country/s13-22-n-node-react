@@ -1,12 +1,12 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseFilters, ParseUUIDPipe } from '@nestjs/common';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { Auth } from 'src/common/decorators/auth.decorator';
-import { ERole } from 'src/common/enum';
-import { AllExceptionFilter } from 'src/common/filter/exception.filter';
-import { VERSION } from 'src/common/constants';
+import { Auth } from '../../common/decorators/auth.decorator';
+import { ERole } from '../../common/enum';
+import { AllExceptionFilter } from '../../common/filter/exception.filter';
+import { VERSION } from '../../common/constants';
 
 @ApiTags('Users')
 @ApiBearerAuth()

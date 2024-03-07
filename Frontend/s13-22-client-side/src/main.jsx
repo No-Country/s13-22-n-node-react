@@ -10,6 +10,16 @@ import { AllProducts } from "./routes/AllProducts/AllProducts.jsx";
 import { Register } from "./routes/Register/Register.jsx";
 import { Login } from "./routes/Login/Login.jsx";
 import { AddProduct } from "./components/AddProduct/AddProduct.jsx";
+import { DetalleProducto } from "./components/Detalleproducto/Detalleproducto.jsx";
+import ProductCategory from "./routes/AllProducts/ProductCategory.jsx";
+
+import { User } from "./routes/User/User.jsx";
+import { UserEdit } from "./routes/User-edit/UserEdit.jsx";
+import { HeroLogged } from "./routes/HeroLogged/HeroLogged.jsx";
+
+import { AppProvider } from "./context.jsx";
+import PanelAdmin from "./routes/PanelAdmin/PanelAdmin.jsx";
+import OrdersPage from "./routes/OrdersPage/OrdersPage.jsx";
 
 //Aqui se definiran las rutas, indicando el path y el comoponente(element: que se va a renderizar)
 const router = createBrowserRouter([
@@ -17,14 +27,37 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/detalle/:id",
+        element: <DetalleProducto />,
+      },
+    ],
   },
+
   {
     path: "/team",
     element: <Team />,
   },
   {
-    path: "/productos",
+    path: "/productos/",
     element: <AllProducts />,
+    children: [
+      {
+        path: "/productos/detalle/:id",
+        element: <DetalleProducto />,
+      },
+    ],
+  },
+  {
+    path: "/productos/:category",
+    element: <ProductCategory />,
+    children: [
+      {
+        path: "/productos/:category/detalle/:id",
+        element: <DetalleProducto />,
+      },
+    ],
   },
 
   {
@@ -41,10 +74,34 @@ const router = createBrowserRouter([
     path: "/add",
     element: <AddProduct />,
   },
+  {
+    path: "/adminPanel",
+    element: <PanelAdmin />,
+  },
+  {
+    path: "/adminPanel/orders",
+    element: <OrdersPage />,
+  },
+  {
+    path: "/user",
+    element: <User />,
+  },
+
+  {
+    path: "/UserEdit",
+    element: <UserEdit />,
+  },
+
+  {
+    path: "/HeroLogged",
+    element: <HeroLogged />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AppProvider>
+      <RouterProvider router={router} />
+    </AppProvider>
   </React.StrictMode>
 );

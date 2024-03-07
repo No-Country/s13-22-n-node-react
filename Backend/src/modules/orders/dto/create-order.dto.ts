@@ -1,22 +1,12 @@
-import { Type } from 'class-transformer';
-import { IsArray, IsNotEmpty, IsNumber, IsString, IsUUID, ValidateNested } from 'class-validator';
-
-class ProductDto {
-    @IsNotEmpty()
-    productId: string;
-  }
+import { IsArray, IsNotEmpty, IsNumber, IsString, IsUUID, isNotEmpty} from 'class-validator';
+import { CreateOrderProductDto } from './create-orderProduct.dto';
+import { IOrderProduct } from 'src/common/Interface/orderProduct.Interface';
 
 export class CreateOrderDto {
 
     @IsNotEmpty()
     @IsUUID()
-    user_id: string;
-
-    @IsNotEmpty()
-    @IsArray()
-    @ValidateNested({ each: true })
-    @Type(() => ProductDto)
-    items: ProductDto[];
+    userId: string;
 
     @IsNotEmpty()
     @IsString()
@@ -24,5 +14,9 @@ export class CreateOrderDto {
 
     @IsNotEmpty()
     @IsNumber()
-    amount: number;
+    total: number;
+
+    @IsNotEmpty()
+    @IsArray()
+    items?:IOrderProduct[]
 }

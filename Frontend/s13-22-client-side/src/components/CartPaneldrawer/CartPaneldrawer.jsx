@@ -1,8 +1,50 @@
-import { useEffect, useState } from 'react';
-import { Button, Drawer } from 'antd';
+import { useState } from 'react';
+import { Drawer } from 'antd';
 import '../CartPaneldrawer/CartPaneldrawer.css';
+import { useGlobalContext } from '../../context';
+import Cookies from 'js-cookie';
+import { EscalatorTwoTone } from '@mui/icons-material';
 
-const CartPaneldrawer = ({ cart, total, setCart, setTotal }) => {
+const CartPaneldrawer = () => {
+  const { cart, setCart, total, setTotal, addOne } = useGlobalContext();
+  let currentUserId = Cookies.get('userId');
+  let currentToken = Cookies.get('token');
+
+  const [userId, setUserId] = useState(currentUserId);
+  const [token, setToken] = useState(currentToken);
+  const [orderNumber, setOrderNumber] = useState('40978764-471c-4aff-8656-440a84b1d16b');
+  const [totalOrder, setTotalOrder] = useState(total);
+  const [items, setItems] = useState({});
+
+  console.log(`Cart:`, cart);
+  console.log(`useerId:`, userId, `Token:`, token);
+
+  // Trabajando en esto, al parecer el CORS blockea la request, una vez que se solucione el cors limpiare el codigo :3
+  const submitOrder = async () => {
+    const data = {
+      "userId": userId,
+      "order_number": orderNumber,
+      "total": total,
+      "items": [...cart]
+    }
+    try {
+      const response = await fetch(`https://cors-anywhere.herokuapp.com/https://hungry-time-dev.onrender.com/api/v1/orders`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(data),
+      });
+      if(response.ok){
+        console.log(`all good!`);
+      } else {
+        console.log(response);
+      }
+    } catch (error) {
+      console.log(`Error al enviar orden:`, error);
+    }
+  }
 
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
@@ -14,16 +56,11 @@ const CartPaneldrawer = ({ cart, total, setCart, setTotal }) => {
 
   // Cart Funcionality: AUN HAY MEJORAS POR HACER, PERO NECESITO MAS INFO POR EL MOMENTO :3
   const removeFromCart = (itemRemove) => {
-    let updatedTotal = parseFloat(total - itemRemove.price);
+    let updatedTotal = parseFloat(total - (itemRemove.price * itemRemove.amount));
+    itemRemove.amount = 1;
     setTotal(updatedTotal);
     let updatedCart = cart.filter(item => item !== itemRemove);
     setCart(updatedCart);
-  }
-
-  const addOne = (item) => {
-    item.amount = item.amount + 1;
-    let updatedTotal = parseFloat(total + item.price);
-    setTotal(updatedTotal);
   }
 
   const removeOne = (item) => {
@@ -46,13 +83,13 @@ const CartPaneldrawer = ({ cart, total, setCart, setTotal }) => {
       <div type="primary" onClick={showDrawer}>
               <img
                 className="icon__img--cart"
-                src="svg/cart.svg"
+                src="../svg/cart.svg"
                 alt="Cart"
               />
       </div>
       <Drawer title="Orden" onClose={onClose} open={open}>
         {
-          cart.length === 0 ? 
+          cart.length === 0 ?
             <div className='empty-cart-msg'>
               <p>No items!</p>
             </div> : (
@@ -84,7 +121,7 @@ const CartPaneldrawer = ({ cart, total, setCart, setTotal }) => {
             <p className='total-cart'>Total: ${total.toFixed(2)}</p>
           </div>
           <div className='total-buttons'>
-            <button>Checkout</button>
+            <button onClick={() => {submitOrder()}}>Checkout</button>
             <button onClick={() => clearCart()}>Clear Cart</button>
           </div>
         </section>

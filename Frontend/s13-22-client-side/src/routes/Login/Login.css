@@ -45,10 +45,11 @@ size: 35px;
 .body-login {
     width: 100%;
     height: 100%;
-background: var(--Bg-gradient);
-display: grid;
-grid-template-columns: 50% 50%;
-align-items: center;
+    background: var(--Bg-gradient);
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    justify-items: center;
 
 }
 
