@@ -30,7 +30,7 @@ function FoodCard({ item, addToCart }) {
               >
                 <img
                   className="cart__icon"
-                  src="../../../public/svg/cart.svg"
+                  src="../svg/cart.svg"
                 />
               </div>
             </div>

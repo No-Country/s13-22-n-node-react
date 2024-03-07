@@ -1,233 +1,197 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-
-
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 .productoAdd-title {
-text-align: center;
-color: #FFE500;
-font-weight: 600;
-font-size: 30px;
+  text-align: center;
+  color: #ffe500;
+  font-weight: 600;
+  font-size: 30px;
 }
-
 
 .product-container {
-width: 515px;
-justify-content: center;
-background-color: #380869;
-font-family: "Montserrat", sans-serif;
-border-width: 3px;
-border-radius: 20px;
+  width: 515px;
+  justify-content: center;
+  background-color: #380869;
+  font-family: "Montserrat", sans-serif;
+  border-width: 3px;
+  border-radius: 20px;
 }
 
-
 .promotion-section {
-    grid-template-columns: repeat(1,3fr);
-    display: flex;
-padding: 1em 0 1em 5%;
-    position: relative;
+  grid-template-columns: repeat(1, 3fr);
+  display: flex;
+  padding: 1em 0 1em 5%;
+  position: relative;
 }
 
 .aliniation {
-    margin-right: 1em;
+  margin-right: 1em;
 }
-
 
 .label-product {
-    margin: 0 5% 0 5%;
-    width: 90%;
-    color: #F5F5F5;
-    font-weight: 300;
-    font-size: 15px;
-    line-height: 32.91px;
+  margin: 0 5% 0 5%;
+  width: 90%;
+  color: #f5f5f5;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 32.91px;
 }
 
-
-
 .text-imput {
-    margin: 0 5% 0 5%;
-width: 90%;
-height: 40px; 
-
+  margin: 0 5% 0 5%;
+  width: 90%;
+  height: 40px;
 }
 
 .descripcion-imput {
-    margin: 0 5% 0 5%;
-width: 90%;
-height: 70px; 
-
+  margin: 0 5% 0 5%;
+  width: 90%;
+  height: 70px;
 }
 
 .input-file {
-    padding-top: 20px;
-    cursor: pointer;
-    text-align: center;
-    margin: 0 5% 0 5%;
-    display: block;
-width: 90%;
-height: 70px;
-border: 3px dashed;
-border-radius: 3px;
-background-color: #F0EFEF;
-border-color: #21af79;
-color: #121212;
-font-size: 15px;
-font-weight: 600;
+  padding-top: 20px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 5% 0 5%;
+  display: block;
+  width: 90%;
+  height: 70px;
+  border: 3px dashed;
+  border-radius: 3px;
+  background-color: #f0efef;
+  border-color: #21af79;
+  color: #121212;
+  font-size: 15px;
+  font-weight: 600;
 }
 
-.input-file span{
-color: #380869;
+.input-file span {
+  color: #380869;
 }
 
 .up-photo-imput {
-display: none;
+  opacity: 1;
 }
 
+.botton-sesion {
+  margin: 0 5% 0 5%;
+  width: 90%;
+  height: 66px;
+  top: 424px;
+  margin-bottom: 10px;
+  background-color: #121212;
+  border-radius: 6px;
+  color: #ffe500;
+  border-color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+}
 
- .botton-sesion{
-    margin: 0 5% 0 5%;
-    width: 90%;
+.botton-google {
+  margin: 0 5% 0 5%;
+  width: 90%;
+  height: 40px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: #ffffff;
+  border-radius: 6px;
+  color: #121212;
+  border-color: #ffffff;
+}
+
+.text-for-cuenta {
+  color: #f5f5f5;
+}
+
+.cuenta-button {
+  color: #ffe500;
+  text-decoration: none;
+}
+
+.link-regisro {
+  text-align: center;
+}
+
+.error-notification {
+  padding-left: 5%;
+  color: red;
+  font-weight: 600;
+  margin: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .promotion-section {
+    grid-template-columns: repeat(1, 3fr);
+    display: flex;
+    padding: 1em 0 1em 8%;
+    position: relative;
+  }
+
+  .descripcion-imput {
+    margin: 0 11% 0 9%;
+    width: 80%;
+  }
+
+  .input-file {
+    padding-top: 20px;
+    margin: 0 10% 0 10%;
+    display: block;
+    width: 80%;
+  }
+
+  .product-container {
+    width: 80%;
+    justify-content: center;
+    background-color: #380869;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 20px;
+  }
+
+  .label-product {
+    margin: 0 10% 0 10%;
+    width: 80%;
+    color: #f5f5f5;
+    font-weight: 300;
+    size: 27px;
+    line-height: 32.91px;
+  }
+
+  .text-imput {
+    margin: 0 10% 0 10%;
+    width: 78.6%;
+    height: 40px;
+  }
+
+  .botton-sesion {
+    margin: 0 10% 0 10%;
+    width: 80%;
     height: 66px;
     top: 424px;
     margin-bottom: 10px;
     background-color: #121212;
     border-radius: 6px;
-color: #FFE500;
-border-color: #FFFFFF ;
-font-weight: 600;
-font-size: 15px;
-}
-
-
-
-.botton-google {
-    margin: 0 5% 0 5%;
-    width: 90%;
-    height: 40px;
-    font-size: 15PX;
+    color: #ffe500;
+    border-color: #ffffff;
     font-weight: 600;
-    background-color: #FFFFFF;
-    border-radius: 6px;
-color: #121212;
-border-color: #FFFFFF ;
-}
+    font-size: 15px;
+  }
 
-
-.text-for-cuenta {
-color: #F5F5F5;
-}
-
-.cuenta-button {
-color:#FFE500;
-text-decoration: none;
-}
-
-.link-regisro {
-text-align: center;
-}
-
-
-.error-notification {
-padding-left: 5%;
-color: red;
-font-weight: 600;
-margin: 5px;
-}
-
-
-
-
-@media screen and (max-width: 768px) {
-
-.promotion-section {
-    grid-template-columns: repeat(1,3fr);
-    display: flex;
-    padding: 1em 0 1em 8%;
-    position: relative;
-}
-
-    .descripcion-imput {
-    margin: 0 11% 0 9%;
+  .botton-google {
+    margin: 0 10% 0 10%;
     width: 80%;
-    }
-    
-    .input-file {
-        padding-top: 20px;
-        margin: 0 10% 0 10%;
-        display: block;
-        width: 80%;
-    }
+    height: 40px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #ffffff;
+    border-radius: 6px;
+    color: #121212;
+    border-color: #ffffff;
+  }
 
-
-        .product-container {
-    
-            width: 80%;
-            justify-content: center;
-            background-color: #380869;
-            font-family: "Montserrat", sans-serif;
-            border-radius: 20px;
-            }
-
-
-
-
-            .label-product {
-                margin: 0 10% 0 10%;
-                width: 80%;
-                color: #F5F5F5;
-                font-weight: 300;
-                size: 27px;
-                line-height: 32.91px;
-            }
-            
-            
-            
-            .text-imput {
-                margin: 0 10% 0 10%;
-            width: 78.6%;
-            height: 40px; 
-            
-            }
-            
-            
-            
-             .botton-sesion{
-            
-                margin: 0 10% 0 10%;
-                width: 80%;
-                height: 66px;
-                top: 424px;
-                margin-bottom: 10px;
-                background-color: #121212;
-                border-radius: 6px;
-            color: #FFE500;
-            border-color: #FFFFFF ;
-            font-weight: 600;
-            font-size: 15px;
-            
-            }
-            
-            
-            
-            .botton-google {
-                margin: 0 10% 0 10%;
-                width: 80%;
-                height: 40px;
-                font-size: 15PX;
-                font-weight: 600;
-                background-color: #FFFFFF;
-                border-radius: 6px;
-            color: #121212;
-            border-color: #FFFFFF ;
-            
-            }
-
-            .error-notification {
-                padding-left: 10%;
-                color: red;
-                font-weight: 600;
-                margin: 5px;
-                }
-
+  .error-notification {
+    padding-left: 10%;
+    color: red;
+    font-weight: 600;
+    margin: 5px;
+  }
 }
