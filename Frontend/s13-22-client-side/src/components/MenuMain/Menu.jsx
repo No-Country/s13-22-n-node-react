@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../../context';
 
 function Menu() {
-    const { cart, setCart, total, setTotal, addToCart } = useGlobalContext();
+    const { cart, setCart, total, setTotal, addToCart, productos } = useGlobalContext();
 
     const [menu, setMenu] = useState(menuData);
 

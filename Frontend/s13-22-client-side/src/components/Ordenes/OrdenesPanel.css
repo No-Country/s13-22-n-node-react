@@ -24,6 +24,10 @@
     cursor: pointer;
 }
 
+.link-po-ad {
+    color: #FFE500;
+}
+
 /* table */
 .table-orders {
     width: 100%;
@@ -37,7 +41,6 @@
 }
 
 .tb-head-row {
-    /* padding: 2em; */
 }
 
 .tb-head-row th {
@@ -54,4 +57,57 @@
 
 .tbody-table-orders tr:nth-child(odd) {
     background-color: #ebe6e6;
+}
+
+@media screen and (max-width: 325px) {
+    .recent-orders-section {
+        padding: 0;
+    }
+
+    .title-orders-div {
+        justify-content: space-between;
+    }
+
+    .title-orders-div h3 {
+        font-size: 2em;
+    }
+
+    .view-all-orders-btn {
+        width: 25%;
+    }
+
+    .table-orders {
+        display: flex;
+        width: 100%;
+    }
+
+    .tb-head {
+        left: 1em;
+        writing-mode: vertical-lr;
+        text-align: left;
+    }
+
+    .tb-head th {
+        writing-mode: horizontal-tb;
+        text-align: left;
+        padding: .3em;
+    }
+
+    .tb-head-row {
+        /* border: 1px solid red; */
+    }
+
+    .orderId {
+        display: none;
+    }
+
+    .tbody-table-orders {
+        writing-mode: horizontal-tb;
+        display: flex;
+        overflow-x: auto;
+    }
+
+    .tbody-table-orders td {
+        width: 200px;
+    }
 }

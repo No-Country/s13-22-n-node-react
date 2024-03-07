@@ -31,3 +31,33 @@
     background-color: #C62828;
     border-color: #C62828;
 }
+
+@media screen and (max-width: 325px) {
+    .order-card {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        display: inline-flex;
+        border-radius: 0;
+        justify-content: start;
+    }
+
+    .order-card td {
+        padding: 0.4em;
+    }
+
+    .order-id {
+        display: none;
+    }
+
+    .buttons-order-data {
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+    .buttons-order-data button {
+        width: 50%;
+        margin: 0;
+        border-radius: 0;
+    }
+}
