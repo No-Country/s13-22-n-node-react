@@ -25,7 +25,7 @@ const dataSourceOptions: DataSourceOptions = {
         port: +process.env.DB_PORT,
         entities: [User, Role, Order, Product, Category, Delivery, Payment, OrderProductEntity],
         synchronize: true,
-
+        ssl:true,
 }
 
 export default dataSourceOptions as TypeOrmModuleOptions
