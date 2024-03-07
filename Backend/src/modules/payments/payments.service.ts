@@ -38,7 +38,7 @@ export class PaymentsService {
         id: product.id,
         currency_id: "ARS",
         title: product.product_name,
-        picture_url: product.images[0].url,
+        picture_url: product.image,
         description: product.description,
         quantity: itemDto.item_quantity,
         unit_price: unitPrice,
