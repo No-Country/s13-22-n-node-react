@@ -4,7 +4,7 @@
 
 .about-us-container {
   background-size: cover;
-  background-image: url(../../../public/img/About\ Bg.png);
+  background-image: url(../../../img/About\ Bg.png);
   display: grid;
   gap: 0;
   min-height: 100vh;
