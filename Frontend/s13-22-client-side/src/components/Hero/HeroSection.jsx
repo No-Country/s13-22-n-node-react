@@ -5,18 +5,19 @@ import ScrollReveal from "scrollreveal";
 import { useGlobalContext } from "../../context";
 
 const HeroSection = () => {
-  const sr = ScrollReveal({
+  /* const sr = ScrollReveal({
     distance: "65px",
     duration: 2600,
     delay: 450,
-    reset: true,
-  });
+    reset: false,
+  }); */
 
   const { addToCart } = useGlobalContext();
 
-  sr.reveal(".hero__container", { delay: 200, origin: "bottom" });
-  sr.reveal(".hero-img", { delay: 450, origin: "top" });
-  sr.reveal(".scroll-down", { delay: 500, origin: "right" });
+ /*  sr.reveal(".text", { delay: 200, origin: "bottom" });
+  sr.reveal(".burguer", { delay: 450, origin: "top" });
+  sr.reveal(".menu", { delay: 450, origin: "top" });
+  sr.reveal(".scroll-down", { delay: 500, origin: "right" }); */
 
   const promoItem = menuData.filter((item) => item.promo);
 
@@ -47,7 +48,7 @@ const HeroSection = () => {
         ))}
       </section>
       <div className="scroll-down">
-        <a href="#about">
+        <a href="#Hamburguesas">
           <img src="../svg/ArrowDown.svg" alt="down-arrow" />
         </a>
       </div>
