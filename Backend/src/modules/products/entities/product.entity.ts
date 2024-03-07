@@ -2,9 +2,7 @@ import{ Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne}from"typeor
 import{BaseEntity} from "../../../common/entity/base.entity";
 import { PRODUCT_STATE } from "../../../common/enum/product.enum";
 import { Category } from "../../../modules/category/entities/category.entity";
-import { Image } from "./image.entity";
-import { OrderProductEntity} from "src/modules/orders/entities/order_products.entity";
-import { Order } from "src/modules/orders/entities/order.entity";
+import { OrderProductEntity} from "../../../modules/orders/entities/order_products.entity";
 
 @Entity("products")
 export class Product extends BaseEntity {
@@ -37,12 +35,6 @@ export class Product extends BaseEntity {
 
     @Column()
     description: string;
-
-    @ManyToMany(()=>Image, {eager:true, cascade:true} )
-    @JoinTable(
-        {name:"product_image"}
-    )
-    images: Image[];
 
     @Column({
         default: PRODUCT_STATE.UNPUBLISHED
