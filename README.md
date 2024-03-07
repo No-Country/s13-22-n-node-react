@@ -11,7 +11,7 @@
 | :---------------- | :------------------- | :---------------------------------------------------------------------------------------------------------------------|
 | `Front End`       | `Diego Rivas`        | [![GitHub]](https://github.com/DiegoRivasDev) [![linkedin]](https://www.linkedin.com/in/diego-rivas-96215129a/)       |
 |                   |                      | [`Portafolio`](https://diegorivasdev.github.io/)                                                                      |
-| `Front End`       | `Cristian Contreras` |                                                                                                                       |
+| `Front End`       | `Cristian Contreras` | [![GitHub]](https://github.com/Letsdothis94) [![linkedin]](https://www.linkedin.com/in/cristian-contreras-219888251/))                                                                                                                    |
 | `Front End`       | `Sofia`              | [![GitHub]](https://github.com/SofiDevO) [![linkedin]](https://www.linkedin.com/in/sofidev/))                         |
 |                   |                      |  [`Portafolio`](https://itssofi.dev/)                                                                                 |
 | :---------------- | :------------------- | :---------------------------------------------------------------------------------------------------------------------|
