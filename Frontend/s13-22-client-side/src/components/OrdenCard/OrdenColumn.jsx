@@ -6,7 +6,7 @@ const OrdenColumn = ({ order, ordenLista }) => {
 
   return (
     <tr className='order-card'>
-        <td>#{order_number}</td>
+        <td className='order-id'>#{order_number}</td>
         <td>{username}</td>
         <td>Una lista?</td>
         <td>{phone}</td>

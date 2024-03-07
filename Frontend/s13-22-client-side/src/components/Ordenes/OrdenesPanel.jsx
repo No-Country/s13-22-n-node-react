@@ -28,7 +28,7 @@ const OrdenesPanel = () => {
         <table className='table-orders'>
           <thead className='tb-head'>
             <tr className='tb-head-row'>
-              <th>Order Id</th>
+              <th className='orderId'>Order Id</th>
               <th>Customer</th>
               <th>Producto</th>
               <th>Telefono</th>

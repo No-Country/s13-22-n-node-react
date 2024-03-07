@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
 import ordersData from './data/ordersData';
-import { SwitchLeftOutlined } from '@mui/icons-material';
 
 const AppContext = React.createContext();
 
@@ -39,6 +38,18 @@ const AppProvider = ({ children }) => {
     //     }) 
     //     setPending(updatedOrders);
     // }
+    const [productos, setProductos] = useState([]);
+
+    const getProducts = () => {
+        const request = async () => {
+            const req = await fetch(`https://hungry-time-dev.onrender.com/api/v1/products?limit=10&offset=1`);
+            const res = await req.json();
+            console.log(`Response:`, res);
+            setProductos(res);
+        }
+        request();
+    }
+    
     
     useEffect(() => {
         const switchOn = () => {
@@ -46,6 +57,7 @@ const AppProvider = ({ children }) => {
             setPending(pendingOrders);
         }
         switchOn();
+        getProducts();
     }, [orders, setPending]);
 
   return (
@@ -62,6 +74,7 @@ const AppProvider = ({ children }) => {
             setPending,
             orders,
             // ordenLista,
+            productos,
             }}>
         {children}
     </AppContext.Provider>
