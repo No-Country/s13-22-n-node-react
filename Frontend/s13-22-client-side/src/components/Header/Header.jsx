@@ -29,6 +29,29 @@ export const Header = ({ isAdminPage, allProducts }) => {
     }
   }, []);
 
+  useEffect(() => {
+    const handleClick = (e) => {
+      const panel = document.querySelector(".panel");
+      const panelBtn = document.querySelector(".panel-btn");
+
+      if (e.target.matches(".panel-btn") || e.target.matches(".panel-btn *")) {
+        panel.classList.toggle("is-active");
+        panelBtn.classList.toggle("is-active");
+      }
+
+      if (e.target.matches(".menu__link")) {
+        panel.classList.remove("is-active");
+        panelBtn.classList.remove("is-active");
+      }
+    };
+
+    document.addEventListener("click", handleClick);
+
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, []);
+
   const linksCategories = [
     { text: "Todos", url: "/productos/" },
     { text: "Hamburguesas", url: "/productos/Hamburguesas" },
@@ -49,6 +72,7 @@ export const Header = ({ isAdminPage, allProducts }) => {
     { text: "Status Pedidos", url: "#status" },
     { text: "Productos", url: "#ver-productos" },
   ];
+
 
   return (
     <>
