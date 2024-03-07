@@ -4,6 +4,7 @@ import { UpdateProductDto } from './dto/update-product.dto';
 import{Product} from './entities/product.entity';
 import {InjectRepository} from '@nestjs/typeorm';
 import {Repository} from 'typeorm';
+import { PaginationDto } from 'src/common/dto/pagination.dto';
 import { CategoryService } from '../category/category.service';
 import { Category } from '../category/entities/category.entity';
 
@@ -31,11 +32,15 @@ export class ProductsService {
 
   }
 
-  async findAll() {
+  async findAll({ limit=20, offset=0 }: PaginationDto) {
     
-    const product = await this.ProductoRepository.find();
+    const product = await this.ProductoRepository.find({
+      take:limit,
+      skip:offset
+    });
     
     return product;
+    
   }
 
   async findOne(id: string) {

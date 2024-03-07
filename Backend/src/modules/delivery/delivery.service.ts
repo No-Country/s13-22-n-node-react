@@ -1,21 +1,40 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { UpdateDeliveryDto } from './dto/update-delivery.dto';
 import { Delivery } from './entities/delivery.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { PaginationDto } from 'src/common/dto/pagination.dto';
+import { Order } from '../orders/entities/order.entity';
 
 @Injectable()
 export class DeliveryService {
-  @InjectRepository(Delivery) deliveryReposiroty: Repository<Delivery>
-  async create(orderId) {
-    const delivery = new Delivery
-    delivery.order = orderId
-    await this.deliveryReposiroty.save(delivery)
-    return delivery
+  constructor(
+    @InjectRepository(Delivery) 
+    private readonly deliveryReposiroty: Repository<Delivery>,
+    @InjectRepository(Order) 
+    private readonly orderRepository: Repository<Order>,
+    ){}
+
+  async create(orderId: string) {
+    const delivery = new Delivery;
+
+    const order = await this.orderRepository.findOne({where: { id: orderId}});
+
+    if (!order) throw new BadRequestException(`Order associated with Id ${orderId} does not exist`)
+
+    delivery.order = order;
+
+    await this.deliveryReposiroty.save(delivery);
+    
+    return delivery;
+
   }
-  async findAll() {
+
+  async findAll({ limit=20, offset=0 }: PaginationDto) {
     const deliveries = await this.deliveryReposiroty.find({
       relations: ['order'],
+      take: limit,
+      skip: offset,
     });
     return deliveries;
   }
