@@ -65,7 +65,7 @@
   overflow: hidden;
   border-radius: 58px;
   max-width: 585px;
-  height: 49dvh;
+  height: 54dvh;
   box-shadow: var(--box-shadow);
   width: 100%;
 }
@@ -154,7 +154,7 @@
   .hero__container {
     display: flex;
     flex-direction: column-reverse;
-    padding-top: 11rem;
+    padding-top: 0rem;
 }
   .hero-text {
     width: auto;
