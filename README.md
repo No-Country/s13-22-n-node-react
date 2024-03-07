@@ -13,12 +13,15 @@
 | `Front End`       | `Cristian Contreras` |                                                                                                                       |
 | `Front End`       | `Sofia`              | [`Portafolio`](https://itssofi.dev/)                                                                                  |
 | :---------------- | :------------------- | :---------------------------------------------------------------------------------------------------------------------|
+|    `Backend`      | `Edwin Arias`        | [![GitHub]](github.com/ferwinred) [![linkedin]](www.linkedin.com/ferwinarias/)   
 
 
 ## Tecnologias
 
+|               |
 | `Front End`   | ![Reat](https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=red) 
 | `Backend`     | ![Nest](https://img.shields.io/badge/-NestJS-lightRed) ![Posgrest](https://img.shields.io/badge/-Posgrest-E0234E?logo=nest&logoColor=green)
+| `Tester `     |
 
 
 
