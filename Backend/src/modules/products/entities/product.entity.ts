@@ -10,7 +10,9 @@ export class Product extends BaseEntity {
     @Column()
     product_name: string
 
-    @Column()
+    @Column({
+        nullable: true,
+    })
     image: string;
     
     @ManyToMany(()=>Category, {eager:true, cascade:true} )
