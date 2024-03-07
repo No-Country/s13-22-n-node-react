@@ -36,7 +36,7 @@ return (
                   <img
                       className="icon__img--login"
                       alt="Login Icon"
-                      src="../svg/Login.svg"
+                      src="../../../svg/Login.svg"
                   />
               </IconButton>
           </Tooltip>

@@ -21,20 +21,18 @@ export const DetalleProducto = () => {
       <div className="popup__card is-open">
         <article className="card__item">
           <CloseIcon onClick={handleClose} />
-          <h1>{producto.name}</h1>
+         <div className="detalle__container">
+         <div className="detalle__text__container">
+         <h1>{producto.name}</h1>
           <p className="desc_producto">{producto.desc}</p>
-
+         </div>
           <div className="contenedor_producto__img">
-            {" "}
             <img
               className="producto__img"
               src={producto.img}
               alt={producto.name}
             />
-          </div>
-
-          <div className="price-and-boton">
-            {" "}
+             <div className="price-and-boton">
             <h3>{producto.price.toFixed(2)}</h3>
             <div className="bag__icon--container price">
               <div
@@ -50,7 +48,10 @@ export const DetalleProducto = () => {
               </div>
             </div>
           </div>
-          <br />
+          </div>
+
+         </div>
+
         </article>
       </div>
     </>

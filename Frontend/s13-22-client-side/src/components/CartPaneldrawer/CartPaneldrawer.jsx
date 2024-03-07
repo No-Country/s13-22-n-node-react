@@ -83,7 +83,7 @@ const CartPaneldrawer = () => {
       <div type="primary" onClick={showDrawer}>
               <img
                 className="icon__img--cart"
-                src="../svg/cart.svg"
+                src="../../../svg/cart.svg"
                 alt="Cart"
               />
       </div>
