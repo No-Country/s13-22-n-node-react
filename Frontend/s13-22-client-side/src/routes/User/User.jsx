@@ -1,65 +1,46 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useState, useEffect } from "react";
 import { NavLink as Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 import "./User.css";
-import img_user from "../../../public/img/About Bg.png";
 import icon_correo from "../../../public/svg/correo.svg";
 import icon_ubicacion from "../../../public/svg/ubicacion.svg";
 import icon_telefono from "../../../public/svg/telefono.svg";
 import RandomizerCard from "../../components/randomizer-card/Randomizer-card";
-// import { GoogleOAuthProvider } from "@react-oauth/google";
 
 export const User = () => {
-  // const clientID =
-  //   "905887041407-6eucaojg860q7eq0q24panni0g9jitln.apps.googleusercontent.com";
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
-  const [setErrorMessage] = useState("");
+  const [userData, setUserData] = useState({});
   const navigate = useNavigate();
 
-  const onSubmit = async (data) => {
+  useEffect(() => {
+    // Obtener los datos del usuario al cargar la página
+    getUserData();
+  }, []);
+
+  const getUserData = async () => {
     try {
-      const response = await axios.post(
-        `https://hungy-time.onrender.com/api/v1/auth/login`,
-        data
+      const token = Cookies.get("token");
+      const userId = Cookies.get("userId");
+
+      if (!token || !userId) {
+        // Si no hay un token o un ID de usuario en las cookies, redirige al inicio de sesión
+        navigate("/login");
+        return;
+      }
+
+      const response = await axios.get(
+        `https://hungry-time-dev.onrender.com/api/v1/users/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
 
-      const token = response.data.token;
-
-      // Establece la cookie con el token
-      setTokenInCookie(token);
-
-      // Redirige al dashboard después del login exitoso
-      navigate("/welcome");
+      setUserData(response.data);
     } catch (error) {
-      console.error("Error en la solicitud:", error.message);
-
-      if (
-        (error.response && error.response.status === 403) ||
-        error.response.status === 401
-      ) {
-        setErrorMessage(
-          "Contraseña incorrecta. Por favor, inténtalo de nuevo."
-        );
-      } else {
-        setErrorMessage("");
-      }
+      console.error("Error al obtener los datos del usuario:", error.message);
     }
-  };
-
-  const setTokenInCookie = (token) => {
-    // Establece la cookie con el token
-    Cookies.set("token", token, { expires: 7 }); // Caduca en 7 días
-
-    // Agrega un mensaje de log para verificar
-    console.log("Cookie establecida correctamente:", token);
   };
 
   return (
@@ -68,22 +49,22 @@ export const User = () => {
         <div className="body-user">
           <div className="user-container">
             <br />
-            <img className="user_imagen" src={img_user} />
-            <h3>nombre</h3>
-            <h3>apellido</h3>
+            <img className="user_imagen" src={userData.image} alt="Imagen de usuario" />
+            <h3>{userData.name}</h3>
+            <h3>{userData.last_name}</h3>
 
             <tbody>
               <tr>
                 <td>
                   {" "}
                   <div className="img_icon">
-                    <img src={icon_correo} alt="" />
+                    <img src={icon_correo} alt="Icono de correo" />
                   </div>{" "}
                 </td>
                 <td>
                   <div className="text-alination">
                     {" "}
-                    <p>correo@gmail.com</p>
+                    <p>{userData.email}</p>
                   </div>
                 </td>
               </tr>
@@ -92,14 +73,14 @@ export const User = () => {
                 <td>
                   {" "}
                   <div className="img_icon">
-                    <img src={icon_ubicacion} alt="" />
+                    <img src={icon_ubicacion} alt="Icono de ubicación" />
                   </div>{" "}
                 </td>
                 <td>
                   {" "}
                   <div className="text-alination">
                     {" "}
-                    <p>Florida 1745, San Rafael</p>{" "}
+                    <p className="address">{userData.address}</p>{" "}
                   </div>
                 </td>
               </tr>
@@ -108,14 +89,14 @@ export const User = () => {
                 <td>
                   {" "}
                   <div className="img_icon">
-                    <img src={icon_telefono} alt="" />
+                    <img src={icon_telefono} alt="Icono de teléfono" />
                   </div>{" "}
                 </td>
                 <td>
                   {" "}
                   <div className="text-alination">
                     {" "}
-                    <p>+54 262742 72 6593</p>
+                    <p>{userData.phone}</p>
                   </div>
                 </td>
               </tr>
