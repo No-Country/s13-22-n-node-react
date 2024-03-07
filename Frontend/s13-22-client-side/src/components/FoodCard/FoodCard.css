@@ -107,4 +107,9 @@
 
 .icon-bgd:hover {
   cursor: pointer;
+  background-color: red;
+}
+.icon-bgd:active {
+  transform: scale(1.1);
+  background-color: rgb(255, 196, 18);
 }
