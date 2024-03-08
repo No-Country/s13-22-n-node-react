@@ -30,6 +30,12 @@
 | `Backend`     | ![Nest](https://img.shields.io/badge/-NestJS-lightRed) ![Posgrest](https://img.shields.io/badge/-Posgrest-E0234E?logo=nest&logoColor=green)
 | `Tester `     |
 
+## Figma
+## Documentacion Testing
+
+## Video
+## Deploy https://s13-22-n-node-react.vercel.app/ 
+
 
 
  
