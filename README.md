@@ -18,8 +18,9 @@
 |    `Backend`      | `Edwin Arias`        | [![GitHub]](github.com/ferwinred) [![linkedin]](www.linkedin.com/ferwinarias/)                                        |
 |    `Backend`      | `Nicolas Mennichell` | [![GitHub]](www.github.com/michiqueli) [![linkedin]](www.linkedin.com/in/michiqueli/)                                 |
 |    `Backend`      | `Deivison Jimenez`   | [![GitHub]](https://github.com/Deivison81) [![linkedin]](https://www.linkedin.com/in/deivison-jimenez/)               |
-
-
+| :---------------- | :------------------- | :---------------------------------------------------------------------------------------------------------------------| 
+|    `Testing`      | `rossysmar martinez` | [![GitHub]]( https://github.com/rossysmar) [![linkedin]](https://www.linkedin.com/in/rossysmar-martinez-/)            |
+|    `testing`      | `patricia bustos`    | [![GitHub]](https://github.com/pablictrad) [![linkedin]](https://www.linkedin.com/in/patricia-bustos-1871561b7/)      |
 
 ## Tecnologias
 
