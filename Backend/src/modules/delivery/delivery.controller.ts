@@ -1,5 +1,5 @@
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { Controller, Get, Body, Patch, Param, Delete, UseFilters } from '@nestjs/common';
+import { Controller, Get, Body, Patch, Param, Delete, UseFilters, ParseUUIDPipe } from '@nestjs/common';
 import { DeliveryService } from './delivery.service';
 import { UpdateDeliveryDto } from './dto/update-delivery.dto';
 import { VERSION } from '../../common/constants';
@@ -21,18 +21,18 @@ export class DeliveryController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id', ParseUUIDPipe) id: string) {
     return this.deliveryService.findOne(+id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateDeliveryDto: UpdateDeliveryDto) {
+  update(@Param('id', ParseUUIDPipe) id: string, @Body() updateDeliveryDto: UpdateDeliveryDto) {
 
     return this.deliveryService.update(id, updateDeliveryDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id', ParseUUIDPipe) id: string) {
     return this.deliveryService.remove(+id);
   }
 }
