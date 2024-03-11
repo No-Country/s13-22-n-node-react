@@ -40,8 +40,8 @@ export class PaymentsController {
   }
 
   @Auth(ERole.ADMIN)
-  @Delete(':id', ParseUUIDPipe)
-  remove(@Param('id') id: string) {
+  @Delete(':id')
+  remove(@Param('id', ParseUUIDPipe) id: string) {
     return this.paymentsService.remove(+id);
   }
 }
