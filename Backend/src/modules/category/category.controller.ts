@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseFilters, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseFilters, Query, ParseUUIDPipe } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { CategoryService } from './category.service';
 import { CreatecategoryDto } from './dto/create-category.dto';
@@ -28,25 +28,25 @@ export class CategoryController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id', ParseUUIDPipe) id: string) {
     return this.categoryService.findOne(id);
   }
 
   @Auth(ERole.ADMIN)
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updatecategoryDto: UpdatecategoryDto) {
+  update(@Param('id', ParseUUIDPipe) id: string, @Body() updatecategoryDto: UpdatecategoryDto) {
     return this.categoryService.update(id, updatecategoryDto);
   }
 
   @Auth(ERole.ADMIN)
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id', ParseUUIDPipe) id: string) {
     return this.categoryService.remove(id);
   }
 
   @Auth(ERole.ADMIN)
   @Patch('/restore/:id')
-  restore(@Param('id')id:string){
+  restore(@Param('id', ParseUUIDPipe)id:string){
     return this.categoryService.retore(id);
   }
 
